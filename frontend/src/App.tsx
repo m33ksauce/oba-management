@@ -3,36 +3,14 @@ import './App.css';
 import React from 'react';
 import {Accordion, Container, Row, Col, Form, Navbar} from 'react-bootstrap';
 import { CategoryItem } from './components/CategoryItem/CategoryItem';
+import { useAppSelector } from './hooks';
+import { MetadataCategory } from './models/metadata-model';
 
 function App() {
-  var metadata = [
-    {
-      title: "Old Testament",
-      children: [],
-    },
-    {
-      title: "New Testament",
-      children: [
-        {
-          title: "Luke",
-          children: [
-            { 
-              title: "Luke 1",
-              children: [] 
-            }
-          ]
-        }
-      ],
-    },
-    {
-      title: "Stories",
-      children: [],
-    },
-    {
-      title: "Music",
-      children: [],
-    }
-  ]
+  var metadata = useAppSelector((state) => state.metadataReducer.Metadata.Categories);
+
+  if (metadata === undefined) metadata = [];
+
   return (
     <div>
       <Navbar>
@@ -44,7 +22,7 @@ function App() {
         <Row>
           <Col lg={{ span: 6, offset: 3 }}>
             <Accordion>
-            {metadata.map((m, i) => {
+            {metadata.map((m: MetadataCategory, i: number) => {
               return (
                   <Accordion.Item eventKey={i.toString()}>
                     <Accordion.Header>{m.title}</Accordion.Header>
