@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { MediaService } from './services/media/media.service';
 import { MediaController } from './controllers/media/media.controller';
 import { MediaBlob } from './entities/media-blob.entity';
+import { ApiModule } from './api/api.module';
+import { BundlesController } from './bundles/bundles.controller';
 
 @Module({
   imports: [
@@ -17,9 +19,11 @@ import { MediaBlob } from './entities/media-blob.entity';
         database: 'oba',
         entities: [MediaBlob],
     }),
-    TypeOrmModule.forFeature([MediaBlob])
+    TypeOrmModule.forFeature([MediaBlob]),
+    ProjectModule,
+    ApiModule
   ],
-  controllers: [AppController, MediaController],
+  controllers: [AppController, MediaController, BundlesController],
   providers: [AppService, MediaService],
 })
 export class AppModule {}
