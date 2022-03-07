@@ -1,7 +1,11 @@
 import { Module } from '@nestjs/common';
-import { BundlesController } from './bundles/bundles.controller';
+import { ReleasesController } from './controllers/releases/releases.controller';
+import { AudioFilesController } from './controllers/audio-files/audio-files.controller';
 
 @Module({
-  controllers: [BundlesController]
+  controllers: [
+    ReleasesController,
+    AudioFilesController,
+  ]
 })
 export class ApiModule {}

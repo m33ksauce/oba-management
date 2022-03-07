@@ -20,7 +20,6 @@ import { BundlesController } from './bundles/bundles.controller';
         entities: [MediaBlob],
     }),
     TypeOrmModule.forFeature([MediaBlob]),
-    ProjectModule,
     ApiModule
   ],
   controllers: [AppController, MediaController, BundlesController],
