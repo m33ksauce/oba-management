@@ -1,22 +1,21 @@
-import { buffer } from "stream/consumers";
-import { Binary, Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
+import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
+
+export class AudioFileMetadata {
+
+}
 
 @Entity()
-export class AudioFileEntity {
+export class AudioFile {
 
     @ObjectIdColumn()
     id: ObjectID;
 
     @Column()
-    projectID: ObjectID;
+    projectID: string;
 
     @Column()
     metadata: AudioFileMetadata;
 
-    @Column(type => buffer)
+    @Column()
     file: Buffer;
-}
-
-export class AudioFileMetadata {
-
 }
