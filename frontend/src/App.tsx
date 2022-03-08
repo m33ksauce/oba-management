@@ -2,14 +2,15 @@
 import './App.css';
 import React from 'react';
 import {Accordion, Container, Row, Col, Form, Navbar} from 'react-bootstrap';
+import { Route, Switch } from 'react-router-dom';
 import { CategoryItem } from './components/CategoryItem/CategoryItem';
 import { useAppSelector } from './hooks';
 import { MetadataCategory } from './models/metadata-model';
 
-function App() {
-  var metadata = useAppSelector((state) => state.metadataReducer.Metadata.Categories);
+var metadata: MetadataCategory[] | undefined;
 
-  if (metadata === undefined) metadata = [];
+function App() {
+  metadata = useAppSelector((state) => state.metadataReducer.Metadata.Categories);
 
   return (
     <div>
@@ -18,7 +19,25 @@ function App() {
           <Navbar.Brand>OBA Configurator</Navbar.Brand>
         </Container>
       </Navbar>
-      <Container>
+      
+    </div>
+  );
+}
+
+const Navigation = () => {
+  return (
+    <Switch>
+      <Route path='' component={main}/>
+      <Route path='/main' component={main}/>
+    </Switch>
+  );
+}
+
+const main = () => {
+  if (metadata === undefined) metadata = [];
+  
+  return (
+    <Container>
         <Row>
           <Col lg={{ span: 6, offset: 3 }}>
             <Accordion>
@@ -35,49 +54,11 @@ function App() {
             </Accordion>
           </Col>
         </Row>
-      </Container>
-    </div>
-  );
-}
-
-export class CategoryItemBad extends React.Component {
-  render() {
-    return (
-      <Container>
         <Row>
-          <Form>
-            <Form.Label column>Title</Form.Label>
-            <Form.Control></Form.Control>
-          </Form>
-        </Row>
-        <Row style={{marginTop: "1em"}}>
-          <h3>Children</h3>
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Luke</Accordion.Header>
-              <Accordion.Body>
-              <Row>
-                <Form>
-                  <Form.Label column>Title</Form.Label>
-                  <Form.Control></Form.Control>
-                </Form>
-              </Row>
-              <Row>
-                <Accordion>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header>Luke 1</Accordion.Header>
-                    <Accordion.Body>Something.</Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </Row>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+          <h2>File Manager</h2>
         </Row>
       </Container>
-    )
-  }
+  )
 }
-
 
 export default App;
