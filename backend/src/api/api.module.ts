@@ -4,6 +4,7 @@ import { AudioFilesController } from './controllers/audio-files/audio-files.cont
 import { AudioFilesService } from './controllers/services/audio-files.service';
 import { AudioFile } from './entities/audio-file.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [AudioFile],
     }),
     TypeOrmModule.forFeature([AudioFile]),
+    MulterModule.register(),
   ],
   controllers: [
     ReleasesController,
