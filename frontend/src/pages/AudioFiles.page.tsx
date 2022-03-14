@@ -8,6 +8,17 @@ const FileUploadModal = (props: any) => {
     props.onHide();
   }
 
+  const fileInput = <input
+    type="file"
+  />
+
+  const dirInput = <input
+    type="file"
+    /* @ts-expect-error */
+    directory="" 
+    webkitdirectory=""
+  />
+  
   return (
     <Modal
       show={props.show}
@@ -22,7 +33,7 @@ const FileUploadModal = (props: any) => {
       <Modal.Body>
         <div>
           <label className="mx-3">Upload file: </label>
-          <input type="file" directory="" webkitdirectory=""/>
+          {(props.mode == "directory") ? dirInput : fileInput}
         </div>
       </Modal.Body>
       <Modal.Footer>
@@ -33,29 +44,57 @@ const FileUploadModal = (props: any) => {
   )
 }
 
+const FileList = (props: any) => {
+  return (
+    <Table hover>
+      <tbody>
+        {props.files.map((file: any) => {
+          return(
+            <tr>
+              <td style={{verticalAlign: "bottom"}}><h6>{file.name}</h6></td>
+              <td>
+                <Button className="float-end" style={{marginLeft: "4px"}} variant="secondary">Remove</Button>
+                <Button className="float-end" variant="primary">Edit</Button>
+              </td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </Table>
+  )
+}
+
 export const AudioFilesPage = () => {
   const [modalShow, setModalShow] = React.useState(false);
+  const [modalMode, setModalMode] = React.useState("file");
+
+  const showModal = (mode: string) => {
+    setModalMode(mode);
+    setModalShow(true);
+  }
+
+  let files = [
+    { name: "Luke 1:1-4" },
+    { name: "Luke 1:5" },
+    { name: "Luke 1:6-8" },
+  ]
 
   return (
     <Container>
       <Row>
         <Col lg={{ span: 6, offset: 3}}>
-          <h1>Audio Files</h1>
-          <hr />
+          <h1>
+            Audio Files
+            <Button className="float-end" style={{marginLeft: "4px"}} variant="primary" onClick={() => showModal("directory")}><FaFolderPlus /></Button>
+            <Button className="float-end" variant="primary" onClick={() => showModal("file")}><FaFileUpload /></Button>
+          </h1>
           <FileUploadModal
               show={modalShow}
               onHide={() => setModalShow(false)}
+              mode={modalMode}
             />
-          <Button className="float-end" style={{marginLeft: "4px"}} variant="primary" onClick={() => setModalShow(true)}><FaFolderPlus /></Button>
-          <Button className="float-end" variant="primary" onClick={() => setModalShow(true)}><FaFileUpload /></Button>
-          <Table hover>
-            <tbody>
-              <tr>
-                  <td>Luke 1:1-4</td>
-                  <td><Button variant="primary">Remove</Button></td>
-              </tr>
-            </tbody>
-          </Table>
+          <hr />
+          <FileList files={files} />
         </Col>
       </Row>
     </Container>
