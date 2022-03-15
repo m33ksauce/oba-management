@@ -32,13 +32,15 @@ const FileUploadModal = (props: any) => {
       </Modal.Header>
       <Modal.Body>
         <div>
+          <label className="mx-3">Path</label>
+          <input type="text"/>
           <label className="mx-3">Upload file: </label>
-          {(props.mode == "directory") ? dirInput : fileInput}
+          {(props.mode === "directory") ? dirInput : fileInput}
         </div>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={props.onHide}>Cancel</Button>
-        <Button variant="primary" onClick={handleUpload}>Save changes</Button>
+        <Button variant="primary" onClick={handleUpload}>Upload</Button>
       </Modal.Footer>
     </Modal>
   )
