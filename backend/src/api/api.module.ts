@@ -5,6 +5,9 @@ import { AudioFilesService } from './controllers/services/audio-files.service';
 import { AudioFile } from './entities/audio-file.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MulterModule } from '@nestjs/platform-express';
+import { MetadataController } from './controllers/metadata/metadata.controller';
+import { MetadataService } from './controllers/services/metadata.services';
+import { Metadata } from './entities/metadata.entity';
 
 @Module({
   imports: [
@@ -15,17 +18,23 @@ import { MulterModule } from '@nestjs/platform-express';
       username: 'obasys',
       password: 'oba_login',
       database: 'oba',
-      entities: [AudioFile],
+      entities: [
+        AudioFile,
+        Metadata,
+      ],
     }),
     TypeOrmModule.forFeature([AudioFile]),
+    TypeOrmModule.forFeature([Metadata]),
     MulterModule.register(),
   ],
   controllers: [
     ReleasesController,
     AudioFilesController,
+    MetadataController,
   ],
   providers: [
-    AudioFilesService
+    AudioFilesService,
+    MetadataService,
   ]
 })
 export class ApiModule {}
