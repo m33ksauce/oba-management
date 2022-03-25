@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ReleasesController } from './controllers/releases/releases.controller';
 import { AudioFilesController } from './controllers/audio-files/audio-files.controller';
-import { AudioFilesService } from './controllers/services/audio-files.service';
+import { AudioFilesService } from './services/audio-files.service';
 import { AudioFile } from './entities/audio-file.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MulterModule } from '@nestjs/platform-express';
 import { MetadataController } from './controllers/metadata/metadata.controller';
-import { MetadataService } from './controllers/services/metadata.services';
+import { MetadataService } from './services/metadata.services';
 import { Metadata } from './entities/metadata.entity';
 
 @Module({

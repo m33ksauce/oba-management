@@ -4,12 +4,12 @@ import { CreateMetadataDto } from "src/api/dto/create-metadata-file";
 import { AudioFile } from "src/api/entities/audio-file.entity";
 import { Metadata } from "src/api/entities/metadata.entity";
 import { Repository } from "typeorm";
-import { MetadataMappers } from "../mappers/metadata.mapper";
+import { MetadataMappers } from "../controllers/mappers/metadata.mapper";
 
 @Injectable()
 export class MetadataService {
     constructor(
-        @InjectRepository(AudioFile)
+        @InjectRepository(Metadata)
         private metadataRepo: Repository<Metadata>,
     ) {}
 

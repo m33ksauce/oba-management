@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateMetadataDto } from 'src/api/dto/create-metadata-file';
-import { MetadataService } from '../services/metadata.services';
+import { MetadataService } from '../../services/metadata.services';
 
 @Controller('metadata')
 export class MetadataController {
