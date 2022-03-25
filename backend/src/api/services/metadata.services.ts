@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { CreateMetadataDto } from "src/api/dto/create-metadata-file";
 import { AudioFile } from "src/api/entities/audio-file.entity";
 import { Metadata } from "src/api/entities/metadata.entity";
-import { Repository } from "typeorm";
+import { getMongoRepository, ObjectID, Repository } from "typeorm";
 import { MetadataMappers } from "../controllers/mappers/metadata.mapper";
 
 @Injectable()
@@ -23,5 +23,14 @@ export class MetadataService {
 
     findAll(): Promise<Metadata[]> {
         return this.metadataRepo.find();
+    }
+
+    findOne(id: string): Promise<Metadata> {
+        return this.metadataRepo.findOne(id);
+    }
+
+    findAllReleases(): Promise<Metadata[]> {
+        const repo = getMongoRepository(Metadata);
+        return repo.find({"isRelease": true});
     }
 }

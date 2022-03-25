@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateMetadataDto } from 'src/api/dto/create-metadata-file';
 import { MetadataService } from '../../services/metadata.services';
 
@@ -16,4 +16,15 @@ export class MetadataController {
     findAll() {
         return this.metadataService.findAll();
     }
+
+    @Get(':id')
+    findId(@Param() params) {
+        return this.metadataService.findOne(params.id);
+    }
+
+    @Get('releases')
+    findAllReleases() {
+        return this.metadataService.findAllReleases();
+    }
+
 }
