@@ -1,9 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreateMetadataDto } from "src/api/dto/create-metadata-file";
-import { AudioFile } from "src/api/entities/audio-file.entity";
 import { Metadata } from "src/api/entities/metadata.entity";
-import { getMongoRepository, ObjectID, Repository } from "typeorm";
+import { Repository } from "typeorm";
 import { MetadataMappers } from "../controllers/mappers/metadata.mapper";
 
 @Injectable()
@@ -30,7 +29,6 @@ export class MetadataService {
     }
 
     findAllReleases(): Promise<Metadata[]> {
-        const repo = getMongoRepository(Metadata);
-        return repo.find({"isRelease": true});
+        return this.metadataRepo.find({isRelease: false});
     }
 }

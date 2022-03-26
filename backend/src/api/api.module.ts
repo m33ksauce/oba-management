@@ -8,6 +8,8 @@ import { MulterModule } from '@nestjs/platform-express';
 import { MetadataController } from './controllers/metadata/metadata.controller';
 import { MetadataService } from './services/metadata.services';
 import { Metadata } from './entities/metadata.entity';
+import { Release } from './entities/release.entity';
+import { ReleaseService } from './services/release.service';
 
 @Module({
   imports: [
@@ -21,10 +23,12 @@ import { Metadata } from './entities/metadata.entity';
       entities: [
         AudioFile,
         Metadata,
+        Release,
       ],
     }),
     TypeOrmModule.forFeature([AudioFile]),
     TypeOrmModule.forFeature([Metadata]),
+    TypeOrmModule.forFeature([Release]),
     MulterModule.register(),
   ],
   controllers: [
@@ -35,6 +39,7 @@ import { Metadata } from './entities/metadata.entity';
   providers: [
     AudioFilesService,
     MetadataService,
+    ReleaseService,
   ]
 })
 export class ApiModule {}

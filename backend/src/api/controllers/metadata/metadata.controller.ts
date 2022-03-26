@@ -16,15 +16,10 @@ export class MetadataController {
     findAll() {
         return this.metadataService.findAll();
     }
-
+    
     @Get(':id')
     findId(@Param() params) {
         return this.metadataService.findOne(params.id);
-    }
-
-    @Get('releases')
-    findAllReleases() {
-        return this.metadataService.findAllReleases();
     }
 
 }
