@@ -25,5 +25,5 @@ export class ReleaseService {
     async findLatest(): Promise<Release> {
         var vers = await this.releaseRepo.find();
         return vers.pop();
-    } 
+    }
 }
