@@ -1,7 +1,7 @@
 import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
 
 export class AudioFileMetadata {
-
+    fileName: string;
 }
 
 @Entity()
