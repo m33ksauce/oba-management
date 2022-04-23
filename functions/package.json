@@ -3,8 +3,9 @@
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
-    "serve": "npm run build && firebase emulators:start --only functions",
-    "shell": "npm run build && firebase functions:shell",
+    "serve": "npm run build && firebase emulators:start --only firestore,functions",
+    "shell": "npm run build && npm run start-store && firebase functions:shell",
+    "start-store": "firebase emulators:start --only firestore",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
@@ -14,6 +15,8 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0"
   },
