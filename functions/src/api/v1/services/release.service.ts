@@ -11,21 +11,24 @@ class ReleaseService {
 
     findOne(version: string): Promise<ReleaseModel> {
         return new Promise((resolve, reject) => {
-            if (version == "latest") {
-                this.db.collection("releases")
-                    .limit(1)
-                    .select()
-                    .get()
-                .then( data => {
-                    var doc = data.docs.shift();
-                    resolve({
-                        Version: doc?.data()["Version"],
-                        Categories: doc?.data()["Categories"],
-                        Audio: doc?.data()["Audio"]
-                    });
-                });
-            }
+            this.db.collection("releases")
+                .doc(version)
+                .get()
+            .then( data => {
+                var doc = data.data();
+                if (doc == undefined) { return reject("couldn't find the doc"); }
+                resolve(this.docToDto(doc));
+            });
         })
+    }
+
+
+    private docToDto(doc: FirebaseFirestore.DocumentData): ReleaseModel {
+        return {
+            Version: doc["Version"],
+            Categories: doc["Categories"],
+            Audio: doc["Audio"]
+        }
     }
 }
 
