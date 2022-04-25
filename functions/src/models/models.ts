@@ -3,3 +3,7 @@ export interface ReleaseModel {
     Categories: Object[],
     Audio: Object[]
 }
+
+export interface AudioModel {
+    
+}

@@ -1,7 +1,7 @@
 import * as functions from "firebase-functions";
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import apiRouter from "./api/v1";
+import apiRouter from "./controllers/api/v1";
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript

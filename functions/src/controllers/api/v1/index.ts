@@ -1,5 +1,5 @@
 import * as express from "express";
-import ReleaseController from "./controllers/release.controller";
+import ReleaseController from "./release.controller";
 
 
 const apiRouter = express.Router();

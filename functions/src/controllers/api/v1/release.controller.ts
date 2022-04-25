@@ -1,5 +1,5 @@
 import * as express from "express";
-import ReleaseService from "../services/release.service";
+import ReleaseService from "../../../services/release.service";
 
 
 const ReleaseController = express.Router();

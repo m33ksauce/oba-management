@@ -1,4 +1,4 @@
-import store from '../../../store';
+import store from '../store';
 import { Firestore } from 'firebase-admin/firestore';
 import { ReleaseModel } from '../models/models';
 
