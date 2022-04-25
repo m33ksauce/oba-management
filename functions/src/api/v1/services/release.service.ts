@@ -9,17 +9,42 @@ class ReleaseService {
         this.db = store.getFromFirestore();
     }
 
-    findOne(version: string): Promise<ReleaseModel> {
-        return new Promise((resolve, reject) => {
-            this.db.collection("releases")
+    insert(model: ReleaseModel) {
+        this.db.collection("releases")
+            .doc(model.Version)
+            .set(model);
+
+        this.db.collection("releases")
+            .doc("latest")
+            .set(model);
+    }
+
+    update(model: ReleaseModel) {
+        this.db.collection("releases")
+            .doc(model.Version)
+            .update(model);
+    }
+
+    findAll(): Promise<ReleaseModel[]> {
+        return this.db.collection("releases").get().then( docs => {
+            if (docs == undefined || docs.empty) {
+                console.log("Couldn't find any")
+                return new Array<ReleaseModel>();
+            }
+            console.log(docs.size);
+            return docs.docs.map(doc => doc.data()).map(this.docToDto);
+        });
+    }
+
+    findOne(version: string): Promise<ReleaseModel | void> {
+        return this.db.collection("releases")
                 .doc(version)
                 .get()
             .then( data => {
                 var doc = data.data();
-                if (doc == undefined) { return reject("couldn't find the doc"); }
-                resolve(this.docToDto(doc));
+                if (doc == undefined) { return; }
+                return this.docToDto(doc);
             });
-        })
     }
 
 
