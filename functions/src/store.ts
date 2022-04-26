@@ -3,7 +3,8 @@ import * as fsStore from 'firebase-admin/firestore';
 
 
 const app = fs.initializeApp({
-    databaseURL: "http://localhost:8080"
+    databaseURL: "http://localhost:8080",
+    storageBucket: "oralbibleapp.appspot.com"
 });
 
 function getFromFirestore () {

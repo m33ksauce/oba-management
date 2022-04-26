@@ -1,33 +1,28 @@
 import * as express from "express";
-import ReleaseService from "../../../services/release.service";
+import AudioService from "../../../services/audio.service";
 
 
 const AudioController = express.Router();
 
-const releaseSvc = new ReleaseService();
-
-AudioController.get("/", (req: express.Request, res: express.Response) => {
-    res.json(releaseSvc.findAll());
-})
+const audioSvc = new AudioService();
 
 AudioController.get("/:id", (req: express.Request, res: express.Response) => {
-    var version = req.params.id;
+    var fileId = req.params.id;
+    console.log(fileId)
 
-    releaseSvc.findOne(version).then(release => {
-        res.json(release);
+    audioSvc.findOne(fileId).then(file => {
+        res.type('mp3');
+        res.send(file);
+    }).catch((err) => {
+        res.status(500);
+        res.json({Error: err})
     });
 });
 
 AudioController.post("/", (req: express.Request, res: express.Response) => {
     var dto = req.body;
-    releaseSvc.insert(dto);
+    audioSvc.insert(dto);
     res.json({Status: "success"});
-})
-
-AudioController.put("/", (req: express.Request, res: express.Response) => {
-    var dto = req.body;
-    releaseSvc.update(dto);
-    res.json({Status: "success"});
-})
+});
 
 export default AudioController;
