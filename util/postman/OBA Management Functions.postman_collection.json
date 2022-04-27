@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "be12136e-b012-40a4-8330-0f36ccf2bb72",
+		"name": "OBA Management Functions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Metadata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Version\": \"0.0.3\",\r\n    \"Categories\": [\r\n      {\r\n        \"type\": 1,\r\n        \"name\": \"Old Testament\",\r\n        \"children\": []\r\n      },\r\n      {\r\n        \"type\": 1,\r\n        \"name\": \"New Testament\",\r\n        \"children\": [\r\n          {\r\n            \"type\": 1,\r\n            \"name\": \"Lukas\",\r\n            \"children\": [\r\n              {\r\n                \"type\": 1,\r\n                \"name\": \"Lukas 1\",\r\n                \"children\": [\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 1:1-4\",\r\n                    \"audioTargetId\": \"5bb543cf-ae41-4f8c-afcb-1d4cfaa44bc0\"\r\n                  }\r\n                ]\r\n              },\r\n              {\r\n                \"type\": 1,\r\n                \"name\": \"Lukas 2\",\r\n                \"children\": [\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 2:41\",\r\n                    \"audioTargetId\": \"33dec6ca-e3f7-4172-97aa-81437c626bcc\"\r\n                  },\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 2:42\",\r\n                    \"audioTargetId\": \"02b99709-b29f-4d96-9816-0d9dc16e694d\"\r\n                  },\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 2:43\",\r\n                    \"audioTargetId\": \"a53586c6-500b-4f3e-b30a-956ade387e90\"\r\n                  }\r\n                ]\r\n              },\r\n              {\r\n                \"type\": 1,\r\n                \"name\": \"Lukas 4\",\r\n                \"children\": [\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 4:1\",\r\n                    \"audioTargetId\": \"406ec902-9ef7-4896-9a54-a5ff64b7db79\"\r\n                  },\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 4:2\",\r\n                    \"audioTargetId\": \"d9f80651-1d8e-4d27-8bf1-a925710e5ef4\"\r\n                  },\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 4:3\",\r\n                    \"audioTargetId\": \"4f6447bd-568e-48f9-bc97-b7deea2885a7\"\r\n                  },\r\n                  {\r\n                    \"type\": 2,\r\n                    \"name\": \"Lukas 4:4\",\r\n                    \"audioTargetId\": \"c8528847-bd33-4759-9ab4-b0ff265a2799\"\r\n                  }\r\n                ]\r\n              }\r\n              \r\n            ]\r\n          }\r\n        ]\r\n      },\r\n      {\r\n        \"id\": 3,\r\n        \"type\": 1,\r\n        \"name\": \"Stories\",\r\n        \"children\": []\r\n      },\r\n      {\r\n          \"id\": 4,\r\n          \"type\": 1,\r\n          \"name\": \"Songs\",\r\n          \"children\": []\r\n      }\r\n    ],\r\n    \"Audio\": [\r\n        {\r\n          \"id\": \"5bb543cf-ae41-4f8c-afcb-1d4cfaa44bc0\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 1_1-4.mp3\"\r\n        },\r\n        {\r\n          \"id\": \"33dec6ca-e3f7-4172-97aa-81437c626bcc\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 2_41.mp3\"\r\n        },\r\n        {\r\n          \"id\": \"02b99709-b29f-4d96-9816-0d9dc16e694d\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 2_42.mp3\"\r\n        },\r\n        {\r\n          \"id\": \"a53586c6-500b-4f3e-b30a-956ade387e90\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 2_43.mp3\"\r\n        },\r\n        {\r\n          \"id\": \"406ec902-9ef7-4896-9a54-a5ff64b7db79\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 4_1.mp3\"\r\n        },\r\n        {\r\n          \"id\": \"d9f80651-1d8e-4d27-8bf1-a925710e5ef4\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 4_2.mp3\"\r\n        },\r\n        {\r\n          \"id\": \"4f6447bd-568e-48f9-bc97-b7deea2885a7\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 4_3.mp3\"\r\n        },\r\n        {\r\n          \"id\": \"c8528847-bd33-4759-9ab4-b0ff265a2799\",\r\n          \"file\": \"sample_data/audio/Lukas/Lukas 4_4.mp3\"\r\n        }\r\n      ]\r\n  }\r\n  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/oralbibleapp/us-central1/handler/api/v1/release",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"oralbibleapp",
+						"us-central1",
+						"handler",
+						"api",
+						"v1",
+						"release"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Releases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/oralbibleapp/us-central1/handler/api/v1/release/0.0.0-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"oralbibleapp",
+						"us-central1",
+						"handler",
+						"api",
+						"v1",
+						"release",
+						"0.0.0-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/oralbibleapp/us-central1/handler/api/v1/audio/Lukas%201_1-4.mp3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"oralbibleapp",
+						"us-central1",
+						"handler",
+						"api",
+						"v1",
+						"audio",
+						"Lukas%201_1-4.mp3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
