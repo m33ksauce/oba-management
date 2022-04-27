@@ -10,9 +10,9 @@ import apiRouter from "./controllers/api/v1";
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 
-app.use('/api/v1', apiRouter);
+app.use("/api/v1", apiRouter);
 
 export const handler = functions.https.onRequest(app);

@@ -1,11 +1,11 @@
 import * as express from "express";
 import AudioController from "./audio.controller";
-import ReleaseController from "./release.controller";
+import releaseController from "./release.controller";
 
 
 const apiRouter = express.Router();
 
-apiRouter.use('/release', ReleaseController);
-apiRouter.use('/audio', AudioController);
+apiRouter.use("/release", releaseController);
+apiRouter.use("/audio", AudioController);
 
 export default apiRouter;

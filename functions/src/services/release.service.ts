@@ -1,6 +1,6 @@
-import store from '../store';
-import { Firestore } from 'firebase-admin/firestore';
-import { ReleaseModel } from '../models/models';
+import store from "../store";
+import {Firestore} from "firebase-admin/firestore";
+import {ReleaseModel} from "../models/models";
 
 class ReleaseService {
     private db: Firestore;
@@ -26,23 +26,23 @@ class ReleaseService {
     }
 
     findAll(): Promise<ReleaseModel[]> {
-        return this.db.collection("releases").get().then( docs => {
+        return this.db.collection("releases").get().then( (docs) => {
             if (docs == undefined || docs.empty) {
-                console.log("Couldn't find any")
+                console.log("Couldn't find any");
                 return new Array<ReleaseModel>();
             }
             console.log(docs.size);
-            return docs.docs.map(doc => doc.data()).map(this.docToDto);
+            return docs.docs.map((doc) => doc.data()).map(this.docToDto);
         });
     }
 
     findOne(version: string): Promise<ReleaseModel | void> {
         return this.db.collection("releases")
-                .doc(version)
-                .get()
-            .then( data => {
-                var doc = data.data();
-                if (doc == undefined) { return; }
+            .doc(version)
+            .get()
+            .then( (data) => {
+                const doc = data.data();
+                if (doc == undefined) return;
                 return this.docToDto(doc);
             });
     }
@@ -52,8 +52,8 @@ class ReleaseService {
         return {
             Version: doc["Version"],
             Categories: doc["Categories"],
-            Audio: doc["Audio"]
-        }
+            Audio: doc["Audio"],
+        };
     }
 }
 
