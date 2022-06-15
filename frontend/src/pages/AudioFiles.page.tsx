@@ -1,15 +1,55 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { FaFileUpload, FaFolderPlus } from "react-icons/fa";
 import { Button, Col, Container, Modal, Row, Table } from "react-bootstrap"
 
 const FileUploadModal = (props: any) => {
+  const [ fileForUpload, setFileForUpload ] = useState<File>();
+
+  const uploadChangeHandler = (event: ChangeEvent) => {
+    if (typeof event.target != 'undefined') {
+      const target = event?.target as HTMLInputElement;
+      if (typeof target != 'undefined'
+      && target.files != null) {
+        const file = target.files[0];
+        if (typeof file != 'undefined' && file != null) {
+          setFileForUpload(file);
+          console.log(file)
+        }
+      }
+    }
+  }
+
+  const uploadFile = () => {
+    const formData = new FormData();
+    
+    if ( typeof fileForUpload != "undefined") {
+      formData.append('check', fileForUpload, "unknown.jpg");
+    }
+    
+
+    fetch('http://localhost:5001/oralbibleapp/us-central1/handler/thing', {
+      method: 'POST',
+      body: formData,
+    })
+    .then((resp) => resp.json())
+    .then((res) => {
+      console.log('success', res);
+    })
+    .catch((err) => {
+      console.log('Error:', err);
+    })
+  }
+
   var handleUpload = () => {
     console.log("we uploadin");
+    uploadFile()
     props.onHide();
   }
 
   const fileInput = <input
     type="file"
+    name="audio"
+    onChange={uploadChangeHandler}
   />
 
   const dirInput = <input
@@ -17,6 +57,7 @@ const FileUploadModal = (props: any) => {
     /* @ts-expect-error */
     directory="" 
     webkitdirectory=""
+    onChange={uploadChangeHandler}
   />
   
   return (

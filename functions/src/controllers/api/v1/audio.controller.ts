@@ -1,5 +1,6 @@
 import * as express from "express";
 import AudioService from "../../../services/audio.service";
+import * as multer from "multer";
 
 
 const AudioController = express.Router();
@@ -18,8 +19,15 @@ AudioController.get("/:id", (req: express.Request, res: express.Response) => {
     });
 });
 
-AudioController.post("/", (req: express.Request, res: express.Response) => {
-    res.json({Status: "success"});
+const storage = multer.memoryStorage();
+
+const upload = multer({ storage: storage });
+
+AudioController.use(upload.any())
+
+AudioController.post("/single", upload.single('audio'), (req: express.Request, res: express.Response) => {
+    console.log(req.file);
+    res.sendStatus(200);
 });
 
 export default AudioController;
