@@ -3,7 +3,9 @@
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
+    "build:watch" : "tsc -w",
     "serve": "npm run build && firebase emulators:start --only firestore,functions,storage",
+    "serve:watch": "npm run build:watch && firebase emulators:start --only firestore,functions,storage",
     "shell": "npm run build && npm run start-store && firebase functions:shell",
     "start-store": "firebase emulators:start --only firestore",
     "start": "npm run shell",
