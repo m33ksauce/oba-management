@@ -27,7 +27,7 @@ const FileUploadModal = (props: any) => {
     }
     
 
-    fetch('http://localhost:5001/oralbibleapp/us-central1/handler/thing', {
+    fetch('http://localhost:5001/oralbibleapp/us-central1/handler/api/v1/audio/single', {
       method: 'POST',
       body: formData,
     })

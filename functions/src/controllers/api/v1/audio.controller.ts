@@ -1,7 +1,6 @@
 import * as express from "express";
 import AudioService from "../../../services/audio.service";
-import * as multer from "multer";
-
+import { fileWrapper } from "./fileWrapper";
 
 const AudioController = express.Router();
 
@@ -15,19 +14,24 @@ AudioController.get("/:id", (req: express.Request, res: express.Response) => {
         res.send(file);
     }).catch((err) => {
         res.status(500);
-        res.json({Error: err});
+        res.json({ Error: err });
     });
 });
 
-const storage = multer.memoryStorage();
-
-const upload = multer({ storage: storage });
-
-AudioController.use(upload.any())
-
-AudioController.post("/single", upload.single('audio'), (req: express.Request, res: express.Response) => {
-    console.log(req.file);
-    res.sendStatus(200);
+AudioController.post("/single", fileWrapper, (req: express.Request, res: express.Response) => {
+    console.log(req.body)
+    if (req.files != undefined)
+    {
+        //@ts-ignore
+        var file: Express.Multer.File = req.files[0];
+        //@ts-ignore
+        var buffer: Buffer = Buffer.from(file.buffer[0] as ArrayBuffer)
+        
+        audioSvc.create(file.filename, file.mimetype, buffer);
+    }
+    else {
+        res.sendStatus(400);
+    }
 });
 
 export default AudioController;

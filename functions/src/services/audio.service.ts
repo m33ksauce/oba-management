@@ -5,7 +5,7 @@ class AudioService {
     private bucket: Bucket;
 
     constructor() {
-        this.bucket = store.getStorage().bucket();
+        this.bucket = store.getStorage().bucket('oralbibleapp');
     }
 
     findOne(fileId: string): Promise<ArrayBuffer> {
@@ -20,6 +20,15 @@ class AudioService {
                 })
                 .on("error", () => reject(new Error("Failed to load file")));
         });
+    }
+
+    create(fileId: string, mimeType: string,  buff: Buffer) {
+        console.log(fileId);
+        console.log(buff);
+        return this.bucket.file(fileId).createWriteStream({
+            metadata: {
+                contentType: mimeType
+        }}).end(buff);
     }
 }
 
