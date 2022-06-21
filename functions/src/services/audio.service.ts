@@ -14,7 +14,7 @@ class AudioService {
     findOne(fileId: string): Promise<ArrayBuffer> {
         return new Promise((resolve, reject) => {
             let buffer = Buffer.from("");
-            this.bucket.file(fileId).createReadStream()
+            this.bucket.file(`audio/${fileId}`).createReadStream()
                 .on("data", (chunk) => {
                     buffer = Buffer.concat([buffer, chunk]);
                 })
@@ -35,7 +35,7 @@ class AudioService {
             .doc(fileId)
             .set(metadata);
             
-        var fileStream = this.bucket.file(fileId).createWriteStream({
+        var fileStream = this.bucket.file(`audio/${fileId}`).createWriteStream({
             metadata: {
                 contentType: mimeType
             }

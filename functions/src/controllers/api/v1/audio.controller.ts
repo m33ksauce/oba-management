@@ -9,7 +9,6 @@ const audioSvc = new AudioService();
 
 AudioController.get("/:id", (req: express.Request, res: express.Response) => {
     const fileId = req.params.id;
-
     audioSvc.findOne(fileId).then((file) => {
         res.type("mp3");
         res.send(file);
@@ -29,7 +28,7 @@ AudioController.post("/single", fileWrapper, (req: express.Request, res: express
         var buffer: Buffer = Buffer.from(file.buffer[0] as ArrayBuffer)
 
         var filePath = `audio/${req.body.path}/${file.filename}`
-        var fileId = `audio/${uuidv4()}`
+        var fileId = `${uuidv4()}`
         
         audioSvc
             .create(fileId, file.mimetype, buffer, {"path": filePath})
