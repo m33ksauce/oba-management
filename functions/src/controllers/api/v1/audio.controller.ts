@@ -1,6 +1,7 @@
 import * as express from "express";
 import AudioService from "../../../services/audio.service";
 import { fileWrapper } from "./fileWrapper";
+import { v4 as uuidv4 } from 'uuid';
 
 const AudioController = express.Router();
 
@@ -26,8 +27,14 @@ AudioController.post("/single", fileWrapper, (req: express.Request, res: express
         var file: Express.Multer.File = req.files[0];
         //@ts-ignore
         var buffer: Buffer = Buffer.from(file.buffer[0] as ArrayBuffer)
+
+        var filePath = `audio/${req.body.path}/${file.filename}`
+        var fileId = `audio/${uuidv4()}`
         
-        audioSvc.create(file.filename, file.mimetype, buffer);
+        audioSvc
+            .create(fileId, file.mimetype, buffer, {"path": filePath})
+            .then(() => res.sendStatus(200))
+            .catch((reason) => res.status(500).send(reason));
     }
     else {
         res.sendStatus(400);

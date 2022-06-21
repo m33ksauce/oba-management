@@ -5,7 +5,7 @@
     "build": "tsc",
     "build:watch": "tsc -w",
     "serve": "npm run build && firebase emulators:start --only firestore,functions,storage",
-    "serve:watch": "npm run build:watch && firebase emulators:start --only firestore,functions,storage",
+    "serve:watch": "npm run build && firebase emulators:start --only firestore,functions,storage",
     "shell": "npm run build && npm run start-store && firebase functions:shell",
     "start-store": "firebase emulators:start --only firestore",
     "start": "npm run shell",
@@ -17,6 +17,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@types/uuid": "^8.3.4",
     "body-parser": "^1.20.0",
     "busboy": "^1.6.0",
     "cors": "^2.8.5",
@@ -24,7 +25,8 @@
     "firebase-admin": "^10.0.2",
     "firebase-core": "^1.0.0",
     "firebase-functions": "^3.21.2",
-    "stream-to-array": "^2.3.0"
+    "stream-to-array": "^2.3.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/busboy": "^1.5.0",

@@ -3,16 +3,17 @@ import { FaFileUpload, FaFolderPlus } from "react-icons/fa";
 import { Button, Col, Container, Modal, Row, Table } from "react-bootstrap"
 
 const FileUploadModal = (props: any) => {
-  const [ fileForUpload, setFileForUpload ] = useState<File>();
+  const [uploadTarget, setUploadTarget] = useState<File>();
+  const [uploadPath, setUploadPath] = useState<string>("");
 
   const uploadChangeHandler = (event: ChangeEvent) => {
     if (typeof event.target != 'undefined') {
       const target = event?.target as HTMLInputElement;
       if (typeof target != 'undefined'
-      && target.files != null) {
+        && target.files != null) {
         const file = target.files[0];
         if (typeof file != 'undefined' && file != null) {
-          setFileForUpload(file);
+          setUploadTarget(file);
           console.log(file)
         }
       }
@@ -21,23 +22,23 @@ const FileUploadModal = (props: any) => {
 
   const uploadFile = () => {
     const formData = new FormData();
-    
-    if ( typeof fileForUpload != "undefined") {
-      formData.append('check', fileForUpload, "unknown.jpg");
-    }
-    
 
-    fetch('http://localhost:5001/oralbibleapp/us-central1/handler/api/v1/audio/single', {
-      method: 'POST',
-      body: formData,
-    })
-    .then((resp) => resp.json())
-    .then((res) => {
-      console.log('success', res);
-    })
-    .catch((err) => {
-      console.log('Error:', err);
-    })
+    if (typeof uploadTarget != "undefined") {
+      formData.append('audio', uploadTarget, uploadTarget.name);
+      formData.append('path', uploadPath);
+
+      fetch('http://localhost:5001/oralbibleapp/us-central1/handler/api/v1/audio/single', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((resp) => resp.json())
+        .then((res) => {
+          console.log('success', res);
+        })
+        .catch((err) => {
+          console.log('Error:', err);
+        })
+    }
   }
 
   var handleUpload = () => {
@@ -55,11 +56,11 @@ const FileUploadModal = (props: any) => {
   const dirInput = <input
     type="file"
     /* @ts-expect-error */
-    directory="" 
+    directory=""
     webkitdirectory=""
     onChange={uploadChangeHandler}
   />
-  
+
   return (
     <Modal
       show={props.show}
@@ -73,10 +74,14 @@ const FileUploadModal = (props: any) => {
       </Modal.Header>
       <Modal.Body>
         <div>
-          <label className="mx-3">Path</label>
-          <input type="text"/>
-          <label className="mx-3">Upload file: </label>
-          {(props.mode === "directory") ? dirInput : fileInput}
+          <div>
+            <label className="mx-3">Path</label>
+            <input type="text" onChange={(evt) => setUploadPath(evt.target.value)} />
+          </div>
+          <div>
+            <label className="mx-3">Upload file: </label>
+            {(props.mode === "directory") ? dirInput : fileInput}
+          </div>
         </div>
       </Modal.Body>
       <Modal.Footer>
@@ -92,11 +97,11 @@ const FileList = (props: any) => {
     <Table hover>
       <tbody>
         {props.files.map((file: any) => {
-          return(
+          return (
             <tr>
-              <td style={{verticalAlign: "bottom"}}><h6>{file.name}</h6></td>
+              <td style={{ verticalAlign: "bottom" }}><h6>{file.name}</h6></td>
               <td>
-                <Button className="float-end" style={{marginLeft: "4px"}} variant="secondary">Remove</Button>
+                <Button className="float-end" style={{ marginLeft: "4px" }} variant="secondary">Remove</Button>
                 <Button className="float-end" variant="primary">Edit</Button>
               </td>
             </tr>
@@ -125,21 +130,21 @@ export const AudioFilesPage = () => {
   return (
     <Container>
       <Row>
-        <Col lg={{ span: 6, offset: 3}}>
+        <Col lg={{ span: 6, offset: 3 }}>
           <h1>
             Audio Files
-            <Button className="float-end" style={{marginLeft: "4px"}} variant="primary" onClick={() => showModal("directory")}><FaFolderPlus /></Button>
+            <Button className="float-end" style={{ marginLeft: "4px" }} variant="primary" onClick={() => showModal("directory")}><FaFolderPlus /></Button>
             <Button className="float-end" variant="primary" onClick={() => showModal("file")}><FaFileUpload /></Button>
           </h1>
           <FileUploadModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-              mode={modalMode}
-            />
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            mode={modalMode}
+          />
           <hr />
           <FileList files={files} />
         </Col>
       </Row>
     </Container>
-    )
+  )
 }
