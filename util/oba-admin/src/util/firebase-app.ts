@@ -3,7 +3,7 @@ import * as fsStore from 'firebase-admin/firestore';
 import * as fs from 'firebase-admin';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDz1uUwChe8wd60bhRbSI2W_Yf8cg2jDlc",
+    apiKey: "",
     authDomain: "oralbibleapp.firebaseapp.com",
     projectId: "oralbibleapp",
     storageBucket: "oralbibleapp",
