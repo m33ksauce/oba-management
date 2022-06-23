@@ -1,6 +1,6 @@
 import store from "../store";
-import { Bucket } from "@google-cloud/storage";
-import { Firestore } from "firebase-admin/firestore";
+import {Bucket} from "@google-cloud/storage";
+import {Firestore} from "firebase-admin/firestore";
 
 class AudioService {
     private bucket: Bucket;
@@ -8,7 +8,7 @@ class AudioService {
 
     constructor() {
         this.db = store.getFromFirestore();
-        this.bucket = store.getStorage().bucket('oralbibleapp');
+        this.bucket = store.getStorage().bucket("oralbibleapp");
     }
 
     findOne(fileId: string): Promise<ArrayBuffer> {
@@ -29,29 +29,29 @@ class AudioService {
         fileId: string,
         mimeType: string,
         buff: Buffer,
-        metadata?: any) 
-    {
+        metadata?: any) {
         this.db.collection("audioFiles")
             .doc(fileId)
             .set(metadata);
-            
-        var fileStream = this.bucket.file(`audio/${fileId}`).createWriteStream({
-            metadata: {
-                contentType: mimeType
-            }
-        })
+
+        const fileStream =
+            this.bucket.file(`audio/${fileId}`).createWriteStream({
+                metadata: {
+                    contentType: mimeType,
+                },
+            });
 
         return new Promise<void>((resolve, reject) => {
-            fileStream.on('finish', () => {
+            fileStream.on("finish", () => {
                 resolve();
             });
 
-            fileStream.on('error', (err) => {
-                reject("Could not upload file");
-            })
-            
+            fileStream.on("error", (err) => {
+                reject(err);
+            });
+
             fileStream.end(buff);
-        });   
+        });
     }
 }
 

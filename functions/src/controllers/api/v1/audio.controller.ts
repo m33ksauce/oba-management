@@ -14,11 +14,13 @@ AudioController.get("/:id", (req: express.Request, res: express.Response) => {
         res.send(file);
     }).catch((err) => {
         res.status(500);
-        res.json({ Error: err });
+        res.json({Error: err});
     });
 });
 
-// AudioController.post("/single", fileWrapper, (req: express.Request, res: express.Response) => {
+// AudioController
+// .post("/single", fileWrapper, (req: express.Request, res: express.Response)
+// => {
 //     console.log(req.body)
 //     if (req.files != undefined)
 //     {
@@ -29,7 +31,7 @@ AudioController.get("/:id", (req: express.Request, res: express.Response) => {
 
 //         var filePath = `audio/${req.body.path}/${file.filename}`
 //         var fileId = `${uuidv4()}`
-        
+
 //         audioSvc
 //             .create(fileId, file.mimetype, buffer, {"path": filePath})
 //             .then(() => res.sendStatus(200))

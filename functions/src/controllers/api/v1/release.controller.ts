@@ -18,7 +18,8 @@ releaseController.get("/:id", (req: express.Request, res: express.Response) => {
     });
 });
 
-// releaseController.post("/", (req: express.Request, res: express.Response) => {
+// releaseController
+// .post("/", (req: express.Request, res: express.Response) => {
 //     const dto = req.body;
 //     releaseSvc.insert(dto);
 //     res.json({Status: "success"});
