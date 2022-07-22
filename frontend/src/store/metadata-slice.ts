@@ -43,7 +43,9 @@ var initialBundle: MediaBundle = {
 export const metadataSlice = createSlice({
     name: 'metadata',
     initialState: initialBundle,
-    reducers: {}
+    reducers: { addCategory(state, payload) {
+
+    }}
 })
 
 export default metadataSlice.reducer;
