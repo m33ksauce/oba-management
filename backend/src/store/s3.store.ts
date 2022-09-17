@@ -11,16 +11,18 @@ class S3Store {
         this.s3 = new S3Client({
             apiVersion: config.s3.apiVersion,
             region: config.s3.region,
-            credentials: {
-                accessKeyId: config.s3.credentials.accessKeyId,
-                secretAccessKey: config.s3.credentials.secretAccessKey,
-            },
-            endpoint: 'http://127.0.0.1:9000',
+            endpoint: 'https://127.0.0.1:9000',
         });
     }
 
     private setupAws() {
-        AWS.config.update({region: config.s3.region});
+        AWS.config.update({
+            region: config.s3.region,
+            credentials: {
+                accessKeyId: config.s3.credentials.accessKeyId,
+                secretAccessKey: config.s3.credentials.secretAccessKey,
+            },
+        });
     }
 
     getConnection(): S3Client {
