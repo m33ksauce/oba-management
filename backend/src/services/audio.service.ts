@@ -1,58 +1,66 @@
-import store from "../store";
-import {Bucket} from "@google-cloud/storage";
-import {Firestore} from "firebase-admin/firestore";
+import S3Store from "../store/s3.store";
+import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import config from "../config";
 
 class AudioService {
-    private bucket: Bucket;
-    private db: Firestore;
+    private s3client: S3Client;
+    private bucket: string;
 
-    constructor() {
-        this.db = store.getFromFirestore();
-        this.bucket = store.getStorage().bucket("oralbibleapp");
+    constructor(store: S3Store) {
+        this.s3client = store.getConnection();
+        this.bucket = config.Buckets.DEFAULT_BUCKET;
     }
 
     findOne(fileId: string): Promise<ArrayBuffer> {
-        return new Promise((resolve, reject) => {
-            let buffer = Buffer.from("");
-            this.bucket.file(`audio/${fileId}`).createReadStream()
-                .on("data", (chunk) => {
-                    buffer = Buffer.concat([buffer, chunk]);
-                })
-                .on("end", () => {
-                    resolve(buffer);
-                })
-                .on("error", () => reject(new Error("Failed to load file")));
+        let translation = "yetfa";
+        let key = `${translation}/audio/${fileId}`;
+
+        return new Promise(async (resolve, reject) => {
+            const getObjectCommand = new GetObjectCommand({
+                Bucket: this.bucket,
+                Key: key
+             });
+
+            const response = await this.s3client.send(getObjectCommand)
+
+            if (!response.Body) return reject("Could not talk to S3")
+
+            let body = response.Body as Blob;
+
+            body.arrayBuffer().then(data => {
+                resolve(data)
+            }).catch(reject);
         });
     }
 
-    create(
-        fileId: string,
-        mimeType: string,
-        buff: Buffer,
-        metadata?: any) {
-        this.db.collection("audioFiles")
-            .doc(fileId)
-            .set(metadata);
+    // create(
+    //     fileId: string,
+    //     mimeType: string,
+    //     buff: Buffer,
+    //     metadata?: any) {
+    //     this.db.collection("audioFiles")
+    //         .doc(fileId)
+    //         .set(metadata);
 
-        const fileStream =
-            this.bucket.file(`audio/${fileId}`).createWriteStream({
-                metadata: {
-                    contentType: mimeType,
-                },
-            });
+    //     const fileStream =
+    //         this.bucket.file(`audio/${fileId}`).createWriteStream({
+    //             metadata: {
+    //                 contentType: mimeType,
+    //             },
+    //         });
 
-        return new Promise<void>((resolve, reject) => {
-            fileStream.on("finish", () => {
-                resolve();
-            });
+    //     return new Promise<void>((resolve, reject) => {
+    //         fileStream.on("finish", () => {
+    //             resolve();
+    //         });
 
-            fileStream.on("error", (err) => {
-                reject(err);
-            });
+    //         fileStream.on("error", (err) => {
+    //             reject(err);
+    //         });
 
-            fileStream.end(buff);
-        });
-    }
+    //         fileStream.end(buff);
+    //     });
+    // }
 }
 
 export default AudioService;

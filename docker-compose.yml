@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+  # backend:
+  s3:
+    image: "bitnami/minio:latest"
+    expose:
+      - "9000"
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./s3:/data
+  dynamo:
+    image: "amazon/dynamodb-local"
+    ports:
+      - "8000:8000"

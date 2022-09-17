@@ -1,5 +1,5 @@
 import {RequestHandler} from "express";
-import * as Busboy from "busboy";
+const Busboy = require("busboy");
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const toArray = require("stream-to-array");
@@ -18,11 +18,11 @@ export const fileWrapper: RequestHandler = (req, res, next) => {
     const files: Express.Multer.File[] = [];
     const fileWrites: Array<Promise<any>> = [];
 
-    busboy.on("field", (name, val) => {
+    busboy.on("field", (name: any, val: any) => {
         fields[name] = val;
     });
 
-    busboy.on("file", (fieldname, file, md) => {
+    busboy.on("file", (fieldname: any, file: any, md: any) => {
         fileWrites.push(
             toArray(file)
                 .then((buff: Buffer) => {
