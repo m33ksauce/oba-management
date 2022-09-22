@@ -5,16 +5,29 @@ services:
     ports:
       - "3000:3000"
   # backend:
-  s3:
-    image: "bitnami/minio:latest"
-    expose:
-      - "9000"
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    volumes:
-      - ./s3:/data
-  dynamo:
-    image: "amazon/dynamodb-local"
-    ports:
-      - "8000:8000"
+  # s3:
+  #   image: "bitnami/minio:2022.8.26"
+  #   ports:
+  #     - "9000:9000"
+  #     - "9001:9001"
+  #   volumes:
+  #     - ./s3:/data
+  #     # - ./s3/certs:/certs
+  #   environment:
+  #     - MINIO_SCHEME=https
+  #     - BITNAMI_DEBUG=true
+  # dynamo:
+  #   image: "amazon/dynamodb-local"
+  #   ports:
+  #     - "8000:8000"
+  localstack:
+    image: localstack/localstack:latest
+    environment: 
+      - AWS_DEFAULT_REGION=us-east-1
+      - EDGE_PORT=4566
+      - SERVICES=lambda,s3
+    ports: 
+      - '4566-4583:4566-4583'
+    volumes: 
+      - "${TEMPDIR:-/tmp/localstack}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

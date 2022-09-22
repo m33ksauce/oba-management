@@ -1,6 +1,7 @@
 import S3Store from "../store/s3.store";
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
-import config from "../config";
+import { Readable } from "stream";
+// import config from "../config";
 
 class AudioService {
     private s3client: S3Client;
@@ -8,7 +9,7 @@ class AudioService {
 
     constructor(store: S3Store) {
         this.s3client = store.getConnection();
-        this.bucket = config.Buckets.DEFAULT_BUCKET;
+        this.bucket = "app.oralbible.api";
     }
 
     findOne(fileId: string): Promise<ArrayBuffer> {
@@ -25,11 +26,13 @@ class AudioService {
 
             if (!response.Body) return reject("Could not talk to S3")
 
-            let body = response.Body as Blob;
+            let body = response.Body as Readable;
 
-            body.arrayBuffer().then(data => {
-                resolve(data)
-            }).catch(reject);
+            const chunks: Uint8Array[] = [];
+
+            body.on("data", (chunk) => chunks.push(chunk));
+            body.on("error", reject);
+            body.on("end", () => resolve(Buffer.concat(chunks)));
         });
     }
 
