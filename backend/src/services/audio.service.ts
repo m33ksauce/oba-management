@@ -1,5 +1,5 @@
 import S3Store from "../store/s3.store";
-import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { Readable } from "stream";
 // import config from "../config";
 
@@ -36,34 +36,27 @@ class AudioService {
         });
     }
 
-    // create(
-    //     fileId: string,
-    //     mimeType: string,
-    //     buff: Buffer,
-    //     metadata?: any) {
-    //     this.db.collection("audioFiles")
-    //         .doc(fileId)
-    //         .set(metadata);
+    create(
+        fileId: string,
+        buff: Buffer
+        ): Promise<void> {
+        let translation = "yetfa";
+        let key = `${translation}/audio/${fileId}`;
 
-    //     const fileStream =
-    //         this.bucket.file(`audio/${fileId}`).createWriteStream({
-    //             metadata: {
-    //                 contentType: mimeType,
-    //             },
-    //         });
-
-    //     return new Promise<void>((resolve, reject) => {
-    //         fileStream.on("finish", () => {
-    //             resolve();
-    //         });
-
-    //         fileStream.on("error", (err) => {
-    //             reject(err);
-    //         });
-
-    //         fileStream.end(buff);
-    //     });
-    // }
+        const putObjectCommand = new PutObjectCommand({
+            Bucket: this.bucket,
+            Key: key,
+            Body: buff
+        });
+        
+        
+        return new Promise<void>((resolve, reject) => {
+            this.s3client
+                .send(putObjectCommand)
+                .then(() => resolve())
+                .catch(() => reject());
+        });
+    }
 }
 
 export default AudioService;
