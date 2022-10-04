@@ -18,6 +18,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.178.0",
     "@aws-sdk/client-s3": "^3.171.0",
     "aws-sdk": "^2.1216.0",
     "body-parser": "^1.20.0",

@@ -8,7 +8,7 @@ class AudioService {
     private bucket: string;
 
     constructor(store: S3Store) {
-        this.s3client = store.getConnection();
+        this.s3client = store.getS3Connection();
         this.bucket = "app.oralbible.api";
     }
 

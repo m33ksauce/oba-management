@@ -1,22 +1,39 @@
 import store from "../store";
-import {Firestore} from "firebase-admin/firestore";
-import {ReleaseModel} from "../models/models";
+import { Firestore } from "firebase-admin/firestore";
+import { ReleaseModel } from "../models/models";
+import { DynamoDBClient, PutItemCommand, PutItemCommandInput } from "@aws-sdk/client-dynamodb";
+import S3Store from "../store/s3.store";
+import { randomUUID } from "crypto";
 
 class ReleaseService {
     private db: Firestore;
+    private db2: DynamoDBClient;
 
-    constructor() {
-        this.db = store.getFromFirestore();
+    constructor(s3Store: S3Store) {
+        this.db = store.getFromFirestore()
+        this.db2 = s3Store.getDynamoDbConnection();
     }
 
     insert(model: ReleaseModel) {
-        this.db.collection("releases")
-            .doc(model.Version)
-            .set(model);
+        // this.db.collection("releases")
+        //     .doc(model.Version)
+        //     .set(model);
 
-        this.db.collection("releases")
-            .doc("latest")
-            .set(model);
+        // this.db.collection("releases")
+        //     .doc("latest")
+        //     .set(model);
+
+        const versionParams: PutItemCommandInput = {
+            TableName: "releases",
+            Item: {
+                VERSION: {S: randomUUID()},
+                METADATA: {S: JSON.stringify(model)}
+            },
+        };
+
+        const command = new PutItemCommand(versionParams);
+
+        this.db2.send(command)
     }
 
     update(model: ReleaseModel) {
@@ -26,7 +43,7 @@ class ReleaseService {
     }
 
     findAll(): Promise<ReleaseModel[]> {
-        return this.db.collection("releases").get().then( (docs) => {
+        return this.db.collection("releases").get().then((docs) => {
             if (docs == undefined || docs.empty) {
                 console.log("Couldn't find any");
                 return new Array<ReleaseModel>();
@@ -40,7 +57,7 @@ class ReleaseService {
         return this.db.collection("releases")
             .doc(version)
             .get()
-            .then( (data) => {
+            .then((data) => {
                 const doc = data.data();
                 if (doc == undefined) return;
                 return this.docToDto(doc);
