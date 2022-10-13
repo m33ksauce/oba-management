@@ -1,7 +1,7 @@
 import store from "../store";
 import { Firestore } from "firebase-admin/firestore";
 import { ReleaseModel } from "../models/models";
-import { AttributeValue, DynamoDBClient, GetItemCommand, GetItemCommandInput, PutItemCommand, PutItemCommandInput } from "@aws-sdk/client-dynamodb";
+import { AttributeValue, DynamoDBClient, GetItemCommand, GetItemCommandInput, PutItemCommand, PutItemCommandInput, ScanCommand, ScanCommandInput } from "@aws-sdk/client-dynamodb";
 import S3Store from "../store/s3.store";
 
 class ReleaseService {
@@ -33,20 +33,19 @@ class ReleaseService {
             .update(model);
     }
 
-    findAll(): Promise<ReleaseModel[]> {
-        return Promise.reject();
-        // return this.db.collection("releases").get().then((docs) => {
-        //     if (docs == undefined || docs.empty) {
-        //         console.log("Couldn't find any");
-        //         return new Array<ReleaseModel>();
-        //     }
-        //     console.log(docs.size);
-        //     return docs.docs.map((doc) => doc.data()).map(this.docToDto);
-        // });
+    async findAll(): Promise<ReleaseModel[]> {
+        const params: ScanCommandInput = {
+            TableName: "releases",
+        }
+
+        let item = await this.db2.send(new ScanCommand(params));
+
+        if (!item.Items || item.Items.length == 0) return Promise.reject("Could not find a value");
+
+        return item.Items.map(item => this.docToDto(item.METADATA));
     }
 
     async findOne(version: string): Promise<ReleaseModel | void> {
-
         const versionParams: GetItemCommandInput = {
             TableName: "releases",
             Key: {
