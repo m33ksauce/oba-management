@@ -1,9 +1,8 @@
 import store from "../store";
 import { Firestore } from "firebase-admin/firestore";
 import { ReleaseModel } from "../models/models";
-import { DynamoDBClient, PutItemCommand, PutItemCommandInput } from "@aws-sdk/client-dynamodb";
+import { AttributeValue, DynamoDBClient, GetItemCommand, GetItemCommandInput, PutItemCommand, PutItemCommandInput } from "@aws-sdk/client-dynamodb";
 import S3Store from "../store/s3.store";
-import { randomUUID } from "crypto";
 
 class ReleaseService {
     private db: Firestore;
@@ -15,18 +14,10 @@ class ReleaseService {
     }
 
     insert(model: ReleaseModel) {
-        // this.db.collection("releases")
-        //     .doc(model.Version)
-        //     .set(model);
-
-        // this.db.collection("releases")
-        //     .doc("latest")
-        //     .set(model);
-
         const versionParams: PutItemCommandInput = {
             TableName: "releases",
             Item: {
-                VERSION: {S: randomUUID()},
+                VERSION: {S: model.Version},
                 METADATA: {S: JSON.stringify(model)}
             },
         };
@@ -43,29 +34,39 @@ class ReleaseService {
     }
 
     findAll(): Promise<ReleaseModel[]> {
-        return this.db.collection("releases").get().then((docs) => {
-            if (docs == undefined || docs.empty) {
-                console.log("Couldn't find any");
-                return new Array<ReleaseModel>();
-            }
-            console.log(docs.size);
-            return docs.docs.map((doc) => doc.data()).map(this.docToDto);
-        });
+        return Promise.reject();
+        // return this.db.collection("releases").get().then((docs) => {
+        //     if (docs == undefined || docs.empty) {
+        //         console.log("Couldn't find any");
+        //         return new Array<ReleaseModel>();
+        //     }
+        //     console.log(docs.size);
+        //     return docs.docs.map((doc) => doc.data()).map(this.docToDto);
+        // });
     }
 
-    findOne(version: string): Promise<ReleaseModel | void> {
-        return this.db.collection("releases")
-            .doc(version)
-            .get()
-            .then((data) => {
-                const doc = data.data();
-                if (doc == undefined) return;
-                return this.docToDto(doc);
-            });
+    async findOne(version: string): Promise<ReleaseModel | void> {
+
+        const versionParams: GetItemCommandInput = {
+            TableName: "releases",
+            Key: {
+                VERSION: {S: version}
+            },
+        }
+
+        let item = await this.db2.send(new GetItemCommand(versionParams));
+
+        if (!item.Item?.METADATA) return Promise.reject("Could not find a value");
+
+        return this.docToDto(item?.Item?.METADATA);
     }
 
 
-    private docToDto(doc: FirebaseFirestore.DocumentData): ReleaseModel {
+    private docToDto(av: AttributeValue): ReleaseModel {
+        let docString = av.S;
+        if (docString == undefined) throw new Error("Couldn't deserialize")
+        let doc = JSON.parse(docString)
+
         return {
             Version: doc["Version"],
             Categories: doc["Categories"],

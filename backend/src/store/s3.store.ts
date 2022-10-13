@@ -20,7 +20,7 @@ class S3Store {
 
         this.dynamoDb = new DynamoDBClient({
             region: config.s3.region,
-            endpoint: 'https://localhost:4566/',
+            endpoint: 'https://localhost.localstack.cloud:4566/',
         })
     }
 
