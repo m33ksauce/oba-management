@@ -1,16 +1,12 @@
-import store from "../store";
-import { Firestore } from "firebase-admin/firestore";
 import { ReleaseModel } from "../models/models";
-import { AttributeValue, DynamoDBClient, GetItemCommand, GetItemCommandInput, PutItemCommand, PutItemCommandInput, ScanCommand, ScanCommandInput } from "@aws-sdk/client-dynamodb";
+import { AttributeValue, DeleteItemCommand, DeleteItemCommandInput, DynamoDBClient, GetItemCommand, GetItemCommandInput, PutItemCommand, PutItemCommandInput, ScanCommand, ScanCommandInput, UpdateItemCommand, UpdateItemCommandInput } from "@aws-sdk/client-dynamodb";
 import S3Store from "../store/s3.store";
 
 class ReleaseService {
-    private db: Firestore;
-    private db2: DynamoDBClient;
+    private db: DynamoDBClient;
 
     constructor(s3Store: S3Store) {
-        this.db = store.getFromFirestore()
-        this.db2 = s3Store.getDynamoDbConnection();
+        this.db = s3Store.getDynamoDbConnection();
     }
 
     insert(model: ReleaseModel) {
@@ -24,13 +20,24 @@ class ReleaseService {
 
         const command = new PutItemCommand(versionParams);
 
-        this.db2.send(command)
+        this.db.send(command);
     }
 
-    update(model: ReleaseModel) {
-        this.db.collection("releases")
-            .doc(model.Version)
-            .update(model);
+    async update(version: string, model: ReleaseModel) {
+        const params: UpdateItemCommandInput = {
+            TableName: "releases",
+            Key: {
+                VERSION: {S: version},
+            },
+            UpdateExpression: "set METADATA = :v",
+            ExpressionAttributeValues: {
+                ':v': {S: JSON.stringify(model)}
+            }
+        }
+
+        const command = new UpdateItemCommand(params)
+
+        this.db.send(command)
     }
 
     async findAll(): Promise<ReleaseModel[]> {
@@ -38,7 +45,7 @@ class ReleaseService {
             TableName: "releases",
         }
 
-        let item = await this.db2.send(new ScanCommand(params));
+        let item = await this.db.send(new ScanCommand(params));
 
         if (!item.Items || item.Items.length == 0) return Promise.reject("Could not find a value");
 
@@ -53,13 +60,23 @@ class ReleaseService {
             },
         }
 
-        let item = await this.db2.send(new GetItemCommand(versionParams));
+        let item = await this.db.send(new GetItemCommand(versionParams));
 
         if (!item.Item?.METADATA) return Promise.reject("Could not find a value");
 
         return this.docToDto(item?.Item?.METADATA);
     }
 
+    async delete(version: string) {
+        const params: DeleteItemCommandInput = {
+            TableName: "releases",
+            Key: {
+                VERSION: {S: version}
+            }
+        }
+
+        this.db.send(new DeleteItemCommand(params))
+    }
 
     private docToDto(av: AttributeValue): ReleaseModel {
         let docString = av.S;

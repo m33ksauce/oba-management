@@ -23,17 +23,24 @@ releaseController.get("/:id", (req: express.Request, res: express.Response) => {
     });
 });
 
-releaseController
-.post("/", (req: express.Request, res: express.Response) => {
+releaseController.post("/", (req: express.Request, res: express.Response) => {
     const dto = req.body;
     releaseSvc.insert(dto);
+    releaseSvc.update("latest", dto);
     res.json({Status: "success"});
 });
 
-releaseController.put("/", (req: express.Request, res: express.Response) => {
+releaseController.put("/:id", async (req: express.Request, res: express.Response) => {
+    const version = req.params.id;
     const dto = req.body;
-    releaseSvc.update(dto);
+    await releaseSvc.update(version, dto);
     res.json({Status: "success"});
 });
+
+releaseController.delete("/:id", async (req: express.Request, res: express.Response) => {
+    const version = req.params.id;
+    releaseSvc.delete(version);
+    res.status(200);
+})
 
 export default releaseController;
