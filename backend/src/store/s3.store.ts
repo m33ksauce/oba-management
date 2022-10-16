@@ -13,22 +13,27 @@ class S3Store {
         this.setupAws();
 
         this.s3 = new S3Client({
-            apiVersion: config.s3.apiVersion,
-            region: config.s3.region,
-            endpoint: 'https://localhost:4566/',
+            apiVersion: config.aws.apiVersion,
+            region: config.aws.region,
+            credentials: {
+                accessKeyId: config.aws.credentials.accessKeyId,
+                secretAccessKey: config.aws.credentials.secretAccessKey,
+            },
+            endpoint: `https://${config.aws.endpoint.host}:${config.aws.endpoint.port}`,
         });
 
         this.dynamoDb = new DynamoDBClient({
-            region: config.s3.region,
-            endpoint: 'https://localhost.localstack.cloud:4566/',
+            region: config.aws.region,
+            credentials: config.aws.credentials,
+            endpoint: `https://${config.aws.endpoint.host}:${config.aws.endpoint.port}`,
         })
     }
 
     private setupAws() {
         AWS.config.update({
-            region: config.s3.region,
+            region: config.aws.region,
             httpOptions: {
-                agent: new https.Agent({ rejectUnauthorized: false })
+                agent: new https.Agent({ rejectUnauthorized: config.aws.rejectUnauthorized })
             }
         });
     }

@@ -4,24 +4,22 @@ services:
     build: ./frontend
     ports:
       - "3000:3000"
-  # backend:
-  # s3:
-  #   image: "bitnami/minio:2022.8.26"
-  #   ports:
-  #     - "9000:9000"
-  #     - "9001:9001"
-  #   volumes:
-  #     - ./s3:/data
-  #     # - ./s3/certs:/certs
-  #   environment:
-  #     - MINIO_SCHEME=https
-  #     - BITNAMI_DEBUG=true
-  # dynamo:
-  #   image: "amazon/dynamodb-local"
-  #   ports:
-  #     - "8000:8000"
+    restart: always
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - ENV="dev"
+      - AWS_REGION=us-east-1
+      - AWS_KEY_ID=devkeyid
+      - AWS_KEY_SECRET=devkeysecret
+      - AWS_ENDPOINT_HOST=localhost.localstack.cloud
+      - AWS_ENDPOINT_PORT=4566
+    restart: always
   localstack:
     image: localstack/localstack:latest
+    hostname: localhost.localstack.cloud
     environment: 
       - AWS_DEFAULT_REGION=us-east-1
       - EDGE_PORT=4566
