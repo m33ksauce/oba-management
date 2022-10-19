@@ -1,7 +1,11 @@
 import {Command, Flags} from '@oclif/core'
-import {MetadataPublisher, Metadata} from "../../publishers/metadata.publisher";
 import * as fs from "fs";
 import { MediaPublisher } from '../../publishers/media.publisher';
+import { flagUsages } from '@oclif/core/lib/parser';
+import { FirebasePublisher } from '../../publishers/firebase';
+import { AwsPublisher } from '../../publishers/aws';
+import { lookup } from 'mime-types';
+import { Metadata, Publisher } from '../../interfaces';
 
 export default class PublishMetadata extends Command {
   static description = 'Send metadata to prod'
@@ -13,10 +17,16 @@ hello friend from oclif! (./src/commands/hello/index.ts)
   ]
 
   static flags = {
+    useFirebase: 
+      Flags.boolean({ description: 'Uses firebase for storage', exactlyOne:["useFirebase", "useAws"]}),
+    useAws: 
+      Flags.boolean({ description: 'Uses AWS for storage', exactlyOne:["useFirebase", "useAws"]}),
     includeAudio: Flags.boolean({ description: 'Include Audio?', required: false })
   }
 
-  static args = [{name: 'file', description: 'Metadata file to upload', required: true}]
+  static args = [
+    {name: 'file', description: 'Metadata file to upload', required: true}
+  ]
 
   async run(): Promise<void> {
     const {args, flags} = await this.parse(PublishMetadata)
@@ -24,16 +34,29 @@ hello friend from oclif! (./src/commands/hello/index.ts)
     const mdRaw = fs.readFileSync(args.file); 
     const md: Metadata = JSON.parse(mdRaw.toString());
 
+    let publisher: Publisher;
+
+    if (flags.useFirebase) publisher = FirebasePublisher;
+    else if (flags.useAws) publisher = AwsPublisher;
+    else throw Error("No valid publisher")
+
     if (flags.includeAudio) {
       md.Audio.forEach(audio => {
-        const [file, mimeType] = MediaPublisher.PrepFile(audio.file);
-        MediaPublisher.Publish(audio.id, mimeType, file)
+        const [file, mimeType] = this.prepFile(audio.file);
+        publisher.PublishMedia(audio.id, mimeType, file)
         .then(() => console.log(`Published ${audio.file} with content-type: ${mimeType}`));
       })
     }
 
-    MetadataPublisher.Publish(md);
+    publisher.PublishMetadata(md);
 
     this.log(`Include files? ${flags.includeAudio || false}`)
   }
+
+  private prepFile(path: string): [Buffer, string] {
+    return [
+        fs.readFileSync(path),
+        lookup(path) || "audio/mpeg3"
+    ]
+}
 }
