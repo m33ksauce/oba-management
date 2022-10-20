@@ -6,6 +6,7 @@ import { FirebasePublisher } from '../../publishers/firebase';
 import { AwsPublisher } from '../../publishers/aws';
 import { lookup } from 'mime-types';
 import { Metadata, Publisher } from '../../interfaces';
+import { SharedFlags } from '../shared-flags';
 
 export default class PublishMetadata extends Command {
   static description = 'Send metadata to prod'
@@ -17,12 +18,10 @@ hello friend from oclif! (./src/commands/hello/index.ts)
   ]
 
   static flags = {
-    useFirebase: 
-      Flags.boolean({ description: 'Uses firebase for storage', exactlyOne:["useFirebase", "useAws"]}),
-    useAws: 
-      Flags.boolean({ description: 'Uses AWS for storage', exactlyOne:["useFirebase", "useAws"]}),
-    includeAudio: Flags.boolean({ description: 'Include Audio?', required: false })
-  }
+    ...SharedFlags,
+    includeAudio:
+      Flags.boolean({ description: 'Include Audio?', required: false }),
+}
 
   static args = [
     {name: 'file', description: 'Metadata file to upload', required: true}
@@ -36,8 +35,12 @@ hello friend from oclif! (./src/commands/hello/index.ts)
 
     let publisher: Publisher;
 
-    if (flags.useFirebase) publisher = FirebasePublisher;
-    else if (flags.useAws) publisher = AwsPublisher;
+    if (flags.useFirebase) {
+      publisher = FirebasePublisher;
+    }
+    else if (flags.useAws) {
+      publisher = new AwsPublisher(flags.awsEndpoint, flags.awsKeyId, flags.awsSecretKey, flags.awsRegion);
+    }
     else throw Error("No valid publisher")
 
     if (flags.includeAudio) {
@@ -58,5 +61,5 @@ hello friend from oclif! (./src/commands/hello/index.ts)
         fs.readFileSync(path),
         lookup(path) || "audio/mpeg3"
     ]
-}
+  }
 }
