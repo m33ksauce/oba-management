@@ -1,7 +1,7 @@
 import S3Store from "../store/s3.store";
 import { S3Client, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { Readable } from "stream";
-import config from "../config";
+import { GetAppConfig } from "../config";
 
 class AudioService {
     private s3client: S3Client;
@@ -9,7 +9,7 @@ class AudioService {
 
     constructor(store: S3Store) {
         this.s3client = store.getS3Connection();
-        this.bucket = config.Buckets.DEFAULT_BUCKET;
+        this.bucket = GetAppConfig().aws.s3.defaultBucket;
     }
 
     findOne(fileId: string): Promise<ArrayBuffer> {

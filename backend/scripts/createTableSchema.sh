@@ -1,7 +1,7 @@
 #!/bin/sh
 aws --endpoint-url=http://localhost:4566 \
     dynamodb create-table \
-        --table-name releases \
+        --table-name "app.oralbible.api.releases" \
         --attribute-definitions \
             AttributeName=VERSION,AttributeType=S \
         --key-schema \

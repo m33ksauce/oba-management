@@ -6,7 +6,7 @@ import { FirebasePublisher } from '../../publishers/firebase';
 import { AwsPublisher } from '../../publishers/aws';
 import { lookup } from 'mime-types';
 import { Metadata, Publisher } from '../../interfaces';
-import { SharedFlags } from '../shared-flags';
+import { SharedFlags } from '../../shared/shared-flags';
 
 export default class PublishMetadata extends Command {
   static description = 'Send metadata to prod'
@@ -18,9 +18,9 @@ hello friend from oclif! (./src/commands/hello/index.ts)
   ]
 
   static flags = {
-    ...SharedFlags,
     includeAudio:
       Flags.boolean({ description: 'Include Audio?', required: false }),
+    ...SharedFlags,
 }
 
   static args = [
@@ -39,7 +39,13 @@ hello friend from oclif! (./src/commands/hello/index.ts)
       publisher = FirebasePublisher;
     }
     else if (flags.useAws) {
-      publisher = new AwsPublisher(flags.awsEndpoint, flags.awsKeyId, flags.awsSecretKey, flags.awsRegion);
+      publisher = new AwsPublisher(
+        flags.awsS3Endpoint,
+        flags.awsDynamoEndpoint,
+        flags.awsKeyId,
+        flags.awsSecretKey,
+        flags.awsRegion
+      );
     }
     else throw Error("No valid publisher")
 

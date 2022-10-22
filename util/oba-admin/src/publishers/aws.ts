@@ -11,7 +11,8 @@ export class AwsPublisher implements Publisher {
     private dynamoDb: DynamoDBClient;
     private s3: S3Client;
 
-    constructor(endpoint: string,
+    constructor(s3Endpoint: string,
+        dynamoEndpoint: string,
         keyId: string, 
         key: string,
         region: string = "us-east-1") 
@@ -29,20 +30,23 @@ export class AwsPublisher implements Publisher {
                 accessKeyId: keyId,
                 secretAccessKey: key,
             },
-            endpoint: endpoint,
         }
 
-        this.dynamoDb = new DynamoDBClient({ ...sharedConfig });
+        this.dynamoDb = new DynamoDBClient({ 
+            endpoint: dynamoEndpoint,
+            ...sharedConfig
+        });
 
         this.s3 = new S3Client({
             apiVersion: "2006-03-01",
+            endpoint: s3Endpoint,
             ...sharedConfig
         });
     }
 
     public PublishMetadata(md: Metadata) {
         const params: PutItemCommandInput = {
-            TableName: "releases",
+            TableName: "app.oralbible.api.releases",
             Item: {
                 VERSION: {S: md.Version},
                 METADATA: {S: JSON.stringify(md)}
@@ -53,7 +57,7 @@ export class AwsPublisher implements Publisher {
         this.dynamoDb.send(command);
 
         const paramsLatest: PutItemCommandInput = {
-            TableName: "releases",
+            TableName: "app.oralbible.api.releases",
             Item: {
                 VERSION: {S: "latest"},
                 METADATA: {S: JSON.stringify(md)}

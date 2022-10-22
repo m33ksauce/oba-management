@@ -1,21 +1,48 @@
-const config = {
-    env: process.env.ENV,
-    aws: {
-        apiVersion: "2006-03-01",
-        region: process.env.AWS_REGION,
-        credentials: {
-            accessKeyId: process.env.AWS_KEY_ID,
-            secretAccessKey: process.env.AWS_KEY_SECRET,
-        },
-        endpoint: {
-            host: process.env.AWS_ENDPOINT_HOST,
-            port: process.env.AWS_ENDPOINT_PORT,
-        },
-        rejectUnauthorized: false,
-    },
-    Buckets: {
-        DEFAULT_BUCKET: `app.oralbible.api`
-    }
+import * as dotenv from 'dotenv'
+dotenv.config();
+
+export interface AppConfig {
+    env: string;
+    aws: AWSConfig;
 }
 
-export default config;
+export interface AWSConfig {
+    accessKeyId: string;
+    secretAccessKey: string;
+    region: string;
+    rejectUnauthorized: boolean;
+    s3: S3Config;
+    dynamo: DynamoDbConfig;
+}
+
+export interface DynamoDbConfig {
+    tableName: string;
+    endpoint: string;
+}
+
+export interface S3Config {
+    apiVersion: string;
+    defaultBucket: string;
+    endpoint: string;
+}
+
+export function GetAppConfig(): AppConfig {
+    return {
+        env: process.env.ENV,
+        aws: {
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+            region: process.env.AWS_REGION,
+            rejectUnauthorized: (process.env.ENV == 'prod'),
+            dynamo: {
+                tableName: process.env.AWS_DYNAMO_TABLE_NAME,
+                endpoint: process.env.AWS_DYNAMO_ENDPOINT,
+            },
+            s3: {
+                apiVersion: "2006-03-01",
+                defaultBucket: process.env.AWS_S3_BUCKET_NAME,
+                endpoint: process.env.AWS_DYNAMO_ENDPOINT,
+            }
+        }
+    }
+}

@@ -1,17 +1,20 @@
 import { ReleaseModel } from "../models/models";
 import { AttributeValue, DeleteItemCommand, DeleteItemCommandInput, DynamoDBClient, GetItemCommand, GetItemCommandInput, PutItemCommand, PutItemCommandInput, ScanCommand, ScanCommandInput, UpdateItemCommand, UpdateItemCommandInput } from "@aws-sdk/client-dynamodb";
 import S3Store from "../store/s3.store";
+import { GetAppConfig } from "../config";
 
 class ReleaseService {
     private db: DynamoDBClient;
+    private tableName: string;
 
     constructor(s3Store: S3Store) {
         this.db = s3Store.getDynamoDbConnection();
+        this.tableName = GetAppConfig().aws.dynamo.tableName;
     }
 
-    insert(model: ReleaseModel) {
+    public insert(model: ReleaseModel) {
         const versionParams: PutItemCommandInput = {
-            TableName: "releases",
+            TableName: this.tableName,
             Item: {
                 VERSION: {S: model.Version},
                 METADATA: {S: JSON.stringify(model)}
@@ -25,7 +28,7 @@ class ReleaseService {
 
     async update(version: string, model: ReleaseModel) {
         const params: UpdateItemCommandInput = {
-            TableName: "releases",
+            TableName: this.tableName,
             Key: {
                 VERSION: {S: version},
             },
@@ -42,7 +45,7 @@ class ReleaseService {
 
     async findAll(): Promise<ReleaseModel[]> {
         const params: ScanCommandInput = {
-            TableName: "releases",
+            TableName: this.tableName,
         }
 
         let item = await this.db.send(new ScanCommand(params));
@@ -53,8 +56,9 @@ class ReleaseService {
     }
 
     async findOne(version: string): Promise<ReleaseModel | void> {
+        console.log(this.tableName);
         const versionParams: GetItemCommandInput = {
-            TableName: "releases",
+            TableName: this.tableName,
             Key: {
                 VERSION: {S: version}
             },
@@ -69,7 +73,7 @@ class ReleaseService {
 
     async delete(version: string) {
         const params: DeleteItemCommandInput = {
-            TableName: "releases",
+            TableName: this.tableName,
             Key: {
                 VERSION: {S: version}
             }

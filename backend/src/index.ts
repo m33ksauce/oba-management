@@ -1,13 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-import dotenv from "dotenv";
 import apiRouter from "./controllers/api/v1";
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-dotenv.config();
+
 const app = express();
 
 app.use(bodyParser.json());
