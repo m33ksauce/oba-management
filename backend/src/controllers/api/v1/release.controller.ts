@@ -18,9 +18,11 @@ releaseController.get("/", (req: express.Request, res: express.Response) => {
 releaseController.get("/:id", (req: express.Request, res: express.Response) => {
     const version = req.params.id;
 
-    releaseSvc.findOne(version).then((release) => {
+    releaseSvc.findOne(version)
+    .then((release) => {
         res.json(release);
-    });
+    })
+    .catch(() => res.sendStatus(500));
 });
 
 releaseController.post("/", (req: express.Request, res: express.Response) => {

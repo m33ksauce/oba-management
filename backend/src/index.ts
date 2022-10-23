@@ -22,4 +22,4 @@ app.use("/api/v1", apiRouter);
 // export const handler = functions.https.onRequest(app);
 app.listen(80, () => {
     console.log(`Example app listening on port ${80}`)
-  })
+});

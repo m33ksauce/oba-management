@@ -22,17 +22,23 @@ class AudioService {
                 Key: key
              });
 
-            const response = await this.s3client.send(getObjectCommand)
+            try {
+                const response = await this.s3client.send(getObjectCommand)
+    
+                if (!response.Body) return reject("Could not talk to S3")
+    
+                let body = response.Body as Readable;
+    
+                const chunks: Uint8Array[] = [];
+    
+                body.on("data", (chunk) => chunks.push(chunk));
+                body.on("error", reject);
+                body.on("end", () => resolve(Buffer.concat(chunks)));
+            }
+            catch {
+                reject();
+            }
 
-            if (!response.Body) return reject("Could not talk to S3")
-
-            let body = response.Body as Readable;
-
-            const chunks: Uint8Array[] = [];
-
-            body.on("data", (chunk) => chunks.push(chunk));
-            body.on("error", reject);
-            body.on("end", () => resolve(Buffer.concat(chunks)));
         });
     }
 

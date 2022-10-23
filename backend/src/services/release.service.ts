@@ -20,10 +20,13 @@ class ReleaseService {
                 METADATA: {S: JSON.stringify(model)}
             },
         };
-
+        
         const command = new PutItemCommand(versionParams);
-
-        this.db.send(command);
+        
+        try {
+            this.db.send(command);
+        }
+        catch {}
     }
 
     async update(version: string, model: ReleaseModel) {
@@ -48,15 +51,19 @@ class ReleaseService {
             TableName: this.tableName,
         }
 
-        let item = await this.db.send(new ScanCommand(params));
-
-        if (!item.Items || item.Items.length == 0) return Promise.reject("Could not find a value");
-
-        return item.Items.map(item => this.docToDto(item.METADATA));
+        try {
+            let item = await this.db.send(new ScanCommand(params));
+    
+            if (!item.Items || item.Items.length == 0) return Promise.reject("Could not find a value");
+    
+            return item.Items.map(item => this.docToDto(item.METADATA));
+        }
+        catch {
+            return Promise.reject();
+        }
     }
 
     async findOne(version: string): Promise<ReleaseModel | void> {
-        console.log(this.tableName);
         const versionParams: GetItemCommandInput = {
             TableName: this.tableName,
             Key: {
@@ -64,11 +71,18 @@ class ReleaseService {
             },
         }
 
-        let item = await this.db.send(new GetItemCommand(versionParams));
+        try {
+            let item = await this.db.send(new GetItemCommand(versionParams));
+    
+            if (!item.Item?.METADATA) return Promise.reject("Could not find a value");
+    
+            return this.docToDto(item?.Item?.METADATA);
+        }
+        catch {
+            return Promise.reject();
+        }
+        
 
-        if (!item.Item?.METADATA) return Promise.reject("Could not find a value");
-
-        return this.docToDto(item?.Item?.METADATA);
     }
 
     async delete(version: string) {
