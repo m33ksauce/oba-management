@@ -1,5 +1,5 @@
 import S3Store from "../store/s3.store";
-import { S3Client, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, GetObjectCommand, PutObjectCommand, GetObjectCommandInput } from "@aws-sdk/client-s3";
 import { Readable } from "stream";
 import { GetAppConfig } from "../config";
 
@@ -17,10 +17,12 @@ class AudioService {
         let key = `${translation}/audio/${fileId}`;
 
         return new Promise(async (resolve, reject) => {
-            const getObjectCommand = new GetObjectCommand({
+            const params: GetObjectCommandInput = {
                 Bucket: this.bucket,
-                Key: key
-             });
+                Key: key,
+            }
+
+            const getObjectCommand = new GetObjectCommand(params);
 
             try {
                 const response = await this.s3client.send(getObjectCommand)
@@ -32,11 +34,15 @@ class AudioService {
                 const chunks: Uint8Array[] = [];
     
                 body.on("data", (chunk) => chunks.push(chunk));
-                body.on("error", reject);
+                body.on("error", e => {
+                    console.log(e);
+                    reject();
+                });
                 body.on("end", () => resolve(Buffer.concat(chunks)));
             }
-            catch {
-                reject();
+            catch (err) {
+                console.log(err)
+                reject({msg: "Something went wrong"});
             }
 
         });

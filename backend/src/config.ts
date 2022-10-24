@@ -41,7 +41,7 @@ export function GetAppConfig(): AppConfig {
             s3: {
                 apiVersion: "2006-03-01",
                 defaultBucket: process.env.AWS_S3_BUCKET_NAME,
-                endpoint: process.env.AWS_DYNAMO_ENDPOINT,
+                endpoint: process.env.AWS_S3_ENDPOINT,
             }
         }
     }
