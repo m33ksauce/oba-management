@@ -1,13 +1,18 @@
-export class LoggerService {
-    private globalParams = {}
-    private extraFields: Record<string,string>[] = [];
+import ILogger from "./ilogger.interface";
 
-    constructor(fields: Record<string ,string>[] = []) {
-        if (fields.length > 0) this.extraFields = fields;
+export class LoggerService implements ILogger {
+    private globalParams = {}
+    private extraFields: Record<string,string>;
+
+    constructor(fields: Record<string, string> = {}) {
+        this.extraFields = fields;
     }
 
-    public WithFields(...fields: Record<string, string>[]) {
-        return new LoggerService(fields);
+    public WithFields(fields: Record<string, string>): LoggerService {
+        return new LoggerService({
+            ...this.extraFields,
+            ...fields,
+        });
     }
 
     public Info(msg: string) {
@@ -21,11 +26,11 @@ export class LoggerService {
         );
     }
 
-    public Error(err: Error, msg: string) {
+    public Error(name: string, msg: string) {
         console.error(
             JSON.stringify({
                 level: 'error',
-                errorName: err.name,
+                errorName: name,
                 friendlyMessage: msg,
                 ...this.globalParams,
                 ...this.extraFields,

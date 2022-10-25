@@ -2,12 +2,16 @@ import S3Store from "../store/s3.store";
 import { S3Client, GetObjectCommand, PutObjectCommand, GetObjectCommandInput } from "@aws-sdk/client-s3";
 import { Readable } from "stream";
 import { GetAppConfig } from "../config";
+import { LoggerService } from "./logger.service";
+import ILogger from "./ilogger.interface";
 
 class AudioService {
+    private logger: ILogger;
     private s3client: S3Client;
     private bucket: string;
 
-    constructor(store: S3Store) {
+    constructor(store: S3Store, logger: LoggerService) {
+        this.logger = logger.WithFields({"service": "AudioService"});
         this.s3client = store.getS3Connection();
         this.bucket = GetAppConfig().aws.s3.defaultBucket;
     }
@@ -15,6 +19,10 @@ class AudioService {
     findOne(fileId: string): Promise<ArrayBuffer> {
         let translation = "yetfa";
         let key = `${translation}/audio/${fileId}`;
+
+        let log = this.logger.WithFields({'FileKey': key});
+
+        log.Info(`Fetching file`);
 
         return new Promise(async (resolve, reject) => {
             const params: GetObjectCommandInput = {
@@ -35,13 +43,13 @@ class AudioService {
     
                 body.on("data", (chunk) => chunks.push(chunk));
                 body.on("error", e => {
-                    console.log(e);
+                    log.Error(e.name, e.message);
                     reject();
                 });
                 body.on("end", () => resolve(Buffer.concat(chunks)));
             }
-            catch (err) {
-                console.log(err)
+            catch (err: any) {
+                log.Error("exception", err.message);
                 reject({msg: "Something went wrong"});
             }
 

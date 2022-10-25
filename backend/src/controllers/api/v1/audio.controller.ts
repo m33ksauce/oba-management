@@ -1,12 +1,13 @@
 import * as express from "express";
 import AudioService from "../../../services/audio.service";
+import { LoggerService } from "../../../services/logger.service";
 import S3Store from "../../../store/s3.store";
 
 const AudioController = express.Router();
 
 const store = new S3Store();
-
-const audioSvc = new AudioService(store);
+const logger = new LoggerService();
+const audioSvc = new AudioService(store, logger);
 
 AudioController.get("/:id", (req: express.Request, res: express.Response) => {
     const fileId = req.params.id;

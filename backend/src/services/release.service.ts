@@ -2,12 +2,15 @@ import { ReleaseModel } from "../models/models";
 import { AttributeValue, DeleteItemCommand, DeleteItemCommandInput, DynamoDBClient, GetItemCommand, GetItemCommandInput, PutItemCommand, PutItemCommandInput, ScanCommand, ScanCommandInput, UpdateItemCommand, UpdateItemCommandInput } from "@aws-sdk/client-dynamodb";
 import S3Store from "../store/s3.store";
 import { GetAppConfig } from "../config";
+import ILogger from "./ilogger.interface";
 
 class ReleaseService {
+    private logger: ILogger;
     private db: DynamoDBClient;
     private tableName: string;
 
-    constructor(s3Store: S3Store) {
+    constructor(s3Store: S3Store, logger: ILogger) {
+        this.logger = logger.WithFields({"service": "ReleaseService"});
         this.db = s3Store.getDynamoDbConnection();
         this.tableName = GetAppConfig().aws.dynamo.tableName;
     }
@@ -24,9 +27,14 @@ class ReleaseService {
         const command = new PutItemCommand(versionParams);
         
         try {
+            this.logger.WithFields({'modelVersion': model.Version})
+                .Info("Inserting release");
             this.db.send(command);
         }
-        catch {}
+        catch (err: any) {
+            this.logger.WithFields({'modelVersion': model.Version})
+                .Error("exception", err.message);
+        }
     }
 
     async update(version: string, model: ReleaseModel) {
@@ -43,7 +51,15 @@ class ReleaseService {
 
         const command = new UpdateItemCommand(params)
 
-        this.db.send(command)
+        try {
+            this.logger.WithFields({'modelVersion': version})
+                .Info("Updating release");
+            this.db.send(command);
+        }
+        catch (err: any) {
+            this.logger.WithFields({'modelVersion': version})
+                .Error("exception", err.message);
+        }
     }
 
     async findAll(): Promise<ReleaseModel[]> {
@@ -52,13 +68,15 @@ class ReleaseService {
         }
 
         try {
+            this.logger.Info("Fetching all versions");
             let item = await this.db.send(new ScanCommand(params));
     
             if (!item.Items || item.Items.length == 0) return Promise.reject("Could not find a value");
     
             return item.Items.map(item => this.docToDto(item.METADATA));
         }
-        catch {
+        catch (err: any) {
+            this.logger.Error("exception", err.message);
             return Promise.reject();
         }
     }
@@ -72,13 +90,17 @@ class ReleaseService {
         }
 
         try {
+            this.logger.WithFields({'modelVersion': version})
+                .Info("Finding release");
             let item = await this.db.send(new GetItemCommand(versionParams));
     
             if (!item.Item?.METADATA) return Promise.reject("Could not find a value");
     
             return this.docToDto(item?.Item?.METADATA);
         }
-        catch {
+        catch (err: any) {
+            this.logger.WithFields({'modelVersion': version})
+                .Error("exception", err.message);
             return Promise.reject();
         }
         
@@ -93,7 +115,15 @@ class ReleaseService {
             }
         }
 
-        this.db.send(new DeleteItemCommand(params))
+        try {
+            this.logger.WithFields({'modelVersion': version})
+                .Info("Deleting release");
+            await this.db.send(new DeleteItemCommand(params))
+        }
+        catch (err: any) {
+            this.logger.WithFields({'modelVersion': version})
+                .Error("exception", err.message);
+        }
     }
 
     private docToDto(av: AttributeValue): ReleaseModel {
