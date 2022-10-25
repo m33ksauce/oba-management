@@ -3,13 +3,13 @@ import AudioController from "./audio.controller";
 import releaseController from "./release.controller";
 
 
-const apiRouter = express.Router();
+const ApiV1Router = express.Router();
 
-apiRouter.use("/release", releaseController);
-apiRouter.use("/audio", (req, res, next) => {
+ApiV1Router.use("/release", releaseController);
+ApiV1Router.use("/audio", (req, res, next) => {
     res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600");
     next();
 });
-apiRouter.use("/audio", AudioController);
+ApiV1Router.use("/audio", AudioController);
 
-export default apiRouter;
+export default ApiV1Router;

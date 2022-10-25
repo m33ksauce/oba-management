@@ -1,25 +1,25 @@
 const express = require("express");
-import * as expressLib from "express";
 const bodyParser = require("body-parser");
 const cors = require("cors");
-import apiRouter from "./controllers/api/v1";
+const morgan = require("morgan");
+import ApiV1Router from "./controllers/api/v1";
+import HealthRouter from "./controllers/health";
+import * as dotenv from 'dotenv'
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
+dotenv.config();
 
+
+const PORT = process.env.PORT;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors({origin: true}));
+app.use(morgan('combined'));
 
-app.get("/health", (req: expressLib.Request, res: expressLib.Response) => {
-  res.sendStatus(200);
-});
-app.use("/api/v1", apiRouter);
+app.use("/health", HealthRouter);
+app.use("/api/v1", ApiV1Router);
 
-// export const handler = functions.https.onRequest(app);
-app.listen(80, () => {
-    console.log(`Example app listening on port ${80}`)
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`)
 });

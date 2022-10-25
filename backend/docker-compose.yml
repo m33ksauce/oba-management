@@ -3,9 +3,10 @@ services:
   backend:
     build: .
     ports:
-      - "80:80"
+      - "${PORT}:${PORT}"
     environment:
       - ENV
+      - PORT
       - AWS_REGION
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY

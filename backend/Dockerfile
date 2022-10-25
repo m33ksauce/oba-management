@@ -1,6 +1,8 @@
 # pull official base image
 FROM node:16.17.0-alpine
 
+ARG PORT
+
 # set working directory
 WORKDIR /app
 
@@ -16,7 +18,7 @@ RUN npm install react-scripts@4.0.3 -g --silent
 # add app
 COPY . ./
 
-EXPOSE 80
+EXPOSE ${PORT}
 
 # start app
 CMD ["npm", "start"]

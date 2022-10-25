@@ -28,6 +28,7 @@
     "express": "^4.17.3",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.21.2",
+    "morgan": "^1.10.0",
     "stream-to-array": "^2.3.0",
     "uuid": "^8.3.2"
   },
