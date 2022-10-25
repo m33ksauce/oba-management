@@ -5,13 +5,10 @@
     "lint-fix": "npm run lint -- --fix",
     "build": "tsc",
     "build:watch": "tsc -w",
-    "serve": "npm run build && firebase emulators:start --only firestore,functions,storage",
-    "serve:watch": "npm run build && firebase emulators:start --only firestore,functions,storage",
-    "shell": "npm run build && npm run start-store && firebase functions:shell",
-    "start-store": "firebase emulators:start --only firestore",
     "start": "npm run build && node lib/index.js",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "start:watch": "npm run build:watch && node lib/index.js",
+    "deploy": "eb deploy",
+    "logs": "eb logs"
   },
   "engines": {
     "node": "16"

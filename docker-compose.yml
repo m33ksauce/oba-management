@@ -8,9 +8,10 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
       - ENV="dev"
+      - PORT=8080
       - AWS_REGION=us-east-1
       - AWS_ACCESS_KEY_ID=devkeyid
       - AWS_SECRET_ACCESS_KEY=devkeysecret
