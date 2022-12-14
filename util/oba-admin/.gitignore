@@ -11,3 +11,6 @@ oclif.manifest.json
 /bin
 *.wav
 *.mp3
+
+
+*.env.sh

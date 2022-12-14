@@ -1,18 +1,18 @@
 {
-  "Version": "0.0.10",
+  "Version": "0.0.11",
   "Categories": [
     {
       "type": 1,
-      "name": "Perjanjian Lama",
+      "name": "📕 Perjanjian Lama",
       "children": []
     },
     {
       "type": 1,
-      "name": "Perjanjian Baru",
+      "name": "📕 Perjanjian Baru",
       "children": [
         {
           "type": 1,
-          "name": "Lukas",
+          "name": "📖 Lukas",
           "children": [
             {
               "type": 1,
@@ -79,7 +79,7 @@
     {
       "id": 3,
       "type": 1,
-      "name": "Cerita-Cerita Alkitab",
+      "name": "💬 Cerita-Cerita Alkitab",
       "children": [
         {
           "type": 2,
@@ -336,7 +336,7 @@
     {
       "id": 4,
       "type": 1,
-      "name": "Lagu-Lagu",
+      "name": "🎸 Lagu-Lagu",
       "children": [
         {
           "type": 2,
