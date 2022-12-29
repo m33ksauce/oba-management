@@ -16,8 +16,7 @@ class AudioService {
         this.bucket = GetAppConfig().aws.s3.defaultBucket;
     }
 
-    findOne(fileId: string): Promise<ArrayBuffer> {
-        let translation = "yetfa";
+    findOne(translation: string, fileId: string): Promise<ArrayBuffer> {
         let key = `${translation}/audio/${fileId}`;
 
         let log = this.logger.WithFields({'FileKey': key});
@@ -57,10 +56,10 @@ class AudioService {
     }
 
     create(
+        translation: string,
         fileId: string,
         buff: Buffer
         ): Promise<void> {
-        let translation = "yetfa";
         let key = `${translation}/audio/${fileId}`;
 
         const putObjectCommand = new PutObjectCommand({

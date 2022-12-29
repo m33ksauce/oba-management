@@ -15,11 +15,12 @@ class ReleaseService {
         this.tableName = GetAppConfig().aws.dynamo.tableName;
     }
 
-    public insert(model: ReleaseModel) {
+    public insert(translation: string, model: ReleaseModel) {
+        let versionKey: string = `${translation}/${model.Version}`;
         const versionParams: PutItemCommandInput = {
             TableName: this.tableName,
             Item: {
-                VERSION: {S: model.Version},
+                VERSION: {S: versionKey},
                 METADATA: {S: JSON.stringify(model)}
             },
         };
@@ -37,11 +38,12 @@ class ReleaseService {
         }
     }
 
-    async update(version: string, model: ReleaseModel) {
+    async update(translation: string, version: string, model: ReleaseModel) {
+        let versionKey: string = `${translation}/${model.Version}`;
         const params: UpdateItemCommandInput = {
             TableName: this.tableName,
             Key: {
-                VERSION: {S: version},
+                VERSION: {S: versionKey},
             },
             UpdateExpression: "set METADATA = :v",
             ExpressionAttributeValues: {
@@ -62,7 +64,7 @@ class ReleaseService {
         }
     }
 
-    async findAll(): Promise<ReleaseModel[]> {
+    async findAll(translation: string): Promise<ReleaseModel[]> {
         const params: ScanCommandInput = {
             TableName: this.tableName,
         }
@@ -81,11 +83,12 @@ class ReleaseService {
         }
     }
 
-    async findOne(version: string): Promise<ReleaseModel | void> {
+    async findOne(translation: string, version: string): Promise<ReleaseModel | void> {
+        let versionKey: string = `${translation}/${version}`;
         const versionParams: GetItemCommandInput = {
             TableName: this.tableName,
             Key: {
-                VERSION: {S: version}
+                VERSION: {S: versionKey}
             },
         }
 
@@ -107,11 +110,12 @@ class ReleaseService {
 
     }
 
-    async delete(version: string) {
+    async delete(translation: string, version: string) {
+        let versionKey: string = `${translation}/${version}`;
         const params: DeleteItemCommandInput = {
             TableName: this.tableName,
             Key: {
-                VERSION: {S: version}
+                VERSION: {S: versionKey}
             }
         }
 

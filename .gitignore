@@ -2,3 +2,7 @@
 s3/
 data/
 certs/
+
+# Localstack
+localstack/
+localstack_data/

@@ -52,12 +52,12 @@ hello friend from oclif! (./src/commands/hello/index.ts)
     if (flags.includeAudio) {
       md.Audio.forEach(audio => {
         const [file, mimeType] = this.prepFile(audio.file);
-        publisher.PublishMedia(audio.id, mimeType, file)
+        publisher.PublishMedia(flags.translation, audio.id, mimeType, file)
         .then(() => console.log(`Published ${audio.file} with content-type: ${mimeType}`));
       })
     }
 
-    publisher.PublishMetadata(md);
+    publisher.PublishMetadata(flags.translation, md);
 
     this.log(`Include files? ${flags.includeAudio || false}`)
   }

@@ -10,8 +10,11 @@ const logger = new LoggerService();
 const audioSvc = new AudioService(store, logger);
 
 AudioController.get("/:id", (req: express.Request, res: express.Response) => {
+    const translation = (req.params['translation'] != undefined) 
+        ? req.params['translation']
+        : "yetfa";
     const fileId = req.params.id;
-    audioSvc.findOne(fileId).then((file) => {
+    audioSvc.findOne(translation, fileId).then((file) => {
         res.type("mp3");
         res.send(file);
     }).catch((err) => {

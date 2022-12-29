@@ -4,7 +4,7 @@ import {lookup} from "mime-types";
 import { Metadata } from "../interfaces";
 
 export const FirebasePublisher = {
-    PublishMetadata: (md: Metadata) => {
+    PublishMetadata: (translation: string, md: Metadata) => {
         const db = getFirestore();
 
         db.collection("releases")
@@ -15,7 +15,7 @@ export const FirebasePublisher = {
             .doc("latest")
             .set(md);
     },
-    PublishMedia: async (id: string, mime: string, file: Buffer) => {
+    PublishMedia: async (translation: string, id: string, mime: string, file: Buffer) => {
         const bucket = getStorage().bucket("oralbibleapp");
 
         const stream = bucket.file(`audio/${id}`)

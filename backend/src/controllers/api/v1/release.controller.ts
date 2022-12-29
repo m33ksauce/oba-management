@@ -11,15 +11,22 @@ const logger = new LoggerService();
 const releaseSvc = new ReleaseService(store, logger);
 
 releaseController.get("/", (req: express.Request, res: express.Response) => {
-    releaseSvc.findAll()
+    const translation = (req.params['translation'] != undefined) 
+        ? req.params['translation']
+        : "yetfa";
+    
+    releaseSvc.findAll(translation)
         .then(data => res.json(data))
         .catch(() => res.sendStatus(500))
 });
 
 releaseController.get("/:id", (req: express.Request, res: express.Response) => {
+    const translation = (req.params['translation'] != undefined) 
+        ? req.params['translation']
+        : "yetfa";
     const version = req.params.id;
 
-    releaseSvc.findOne(version)
+    releaseSvc.findOne(translation, version)
     .then((release) => {
         res.json(release);
     })
@@ -28,25 +35,34 @@ releaseController.get("/:id", (req: express.Request, res: express.Response) => {
 
 releaseController.post("/", (req: express.Request, res: express.Response) => {
     return res.sendStatus(401);
-    const dto = req.body;
-    releaseSvc.insert(dto);
-    releaseSvc.update("latest", dto);
-    res.json({Status: "success"});
+    // const translation = (req.params['translation'] != undefined) 
+    //     ? req.params['translation']
+    //     : "yetfa";
+    // const dto = req.body;
+    // releaseSvc.insert(translation, dto);
+    // releaseSvc.update(translation, "latest", dto);
+    // res.json({Status: "success"});
 });
 
 releaseController.put("/:id", async (req: express.Request, res: express.Response) => {
     return res.sendStatus(401);
-    const version = req.params.id;
-    const dto = req.body;
-    await releaseSvc.update(version, dto);
-    res.json({Status: "success"});
+    // const translation = (req.params['translation'] != undefined) 
+    //     ? req.params['translation']
+    //     : "yetfa";
+    // const version = req.params.id;
+    // const dto = req.body;
+    // await releaseSvc.update(translation, version, dto);
+    // res.json({Status: "success"});
 });
 
 releaseController.delete("/:id", async (req: express.Request, res: express.Response) => {
     return res.sendStatus(401);
-    const version = req.params.id;
-    releaseSvc.delete(version);
-    res.status(200);
+    // const translation = (req.params['translation'] != undefined) 
+    //     ? req.params['translation']
+    //     : "yetfa";
+    // const version = req.params.id;
+    // releaseSvc.delete(translation, version);
+    // res.status(200);
 })
 
 export default releaseController;

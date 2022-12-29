@@ -44,11 +44,11 @@ export class AwsPublisher implements Publisher {
         });
     }
 
-    public PublishMetadata(md: Metadata) {
+    public PublishMetadata(translation: string, md: Metadata) {
         const params: PutItemCommandInput = {
             TableName: "app.oralbible.api.releases",
             Item: {
-                VERSION: {S: md.Version},
+                VERSION: {S: `${translation}/${md.Version}`},
                 METADATA: {S: JSON.stringify(md)}
             }
         }
@@ -59,7 +59,7 @@ export class AwsPublisher implements Publisher {
         const paramsLatest: PutItemCommandInput = {
             TableName: "app.oralbible.api.releases",
             Item: {
-                VERSION: {S: "latest"},
+                VERSION: {S: `${translation}/latest`},
                 METADATA: {S: JSON.stringify(md)}
             }
         }
@@ -68,9 +68,8 @@ export class AwsPublisher implements Publisher {
         this.dynamoDb.send(commandLatest);
     }
 
-    public async PublishMedia(id: string, mime: string, file: Buffer) {
+    public async PublishMedia(translation: string, id: string, mime: string, file: Buffer) {
         let bucket = "app.oralbible.api";
-        let translation = "yetfa";
         let key = `${translation}/audio/${id}`;
 
         const putObjectCommand = new PutObjectCommand({

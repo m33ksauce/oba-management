@@ -10,6 +10,6 @@ export interface AudioFile {
 }
 
 export interface Publisher {
-    PublishMetadata(md: Metadata): void,
-    PublishMedia(id: string, mime: string, file: Buffer): Promise<void>,
+    PublishMetadata(translation: string, md: Metadata): void,
+    PublishMedia(translation: string, id: string, mime: string, file: Buffer): Promise<void>,
 }

@@ -27,8 +27,12 @@ services:
       - AWS_DEFAULT_REGION=us-east-1
       - EDGE_PORT=4566
       - SERVICES=lambda,s3
+      - DATA_DIR=/tmp/localstack/data
+      - PORT_WEB_UI=9999
     ports: 
       - '4566-4583:4566-4583'
+      - "9999:9999"
     volumes: 
+      - "./localstack_data:/tmp/localstack/data"
       - "${TEMPDIR:-/tmp/localstack}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
