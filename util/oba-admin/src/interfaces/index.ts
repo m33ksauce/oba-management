@@ -4,6 +4,12 @@ export interface Metadata {
     Audio: AudioFile[]
 }
 
+export interface Category {
+    type: number,
+    name: string,
+    children: any[],
+}
+
 export interface AudioFile {
     file: string,
     id: string

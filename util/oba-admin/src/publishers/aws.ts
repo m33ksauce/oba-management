@@ -82,7 +82,7 @@ export class AwsPublisher implements Publisher {
             this.s3
                 .send(putObjectCommand)
                 .then(() => resolve())
-                .catch(() => reject());
+                .catch((err) => reject(err));
         })
     }
 }
