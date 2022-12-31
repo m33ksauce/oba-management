@@ -1,9 +1,9 @@
 {
-  "Version": "0.0.1",
+  "Version": "0.0.2",
   "Categories": [
     {
       "type": 1,
-      "name": "Crita Alkitab",
+      "name": "💬 Crita Alkitab",
       "children": [
         {
           "type": 2,
@@ -34,7 +34,7 @@
     },
     {
       "type": 1,
-      "name": "Crita Skola Minggu",
+      "name": "💬 Crita Skola Minggu",
       "children": [
         {
           "type": 2,
@@ -65,7 +65,7 @@
     },
     {
       "type": 1,
-      "name": "Lagu",
+      "name": "🎸 Lagu",
       "children": [
         {
           "type": 2,
@@ -96,7 +96,7 @@
     },
     {
       "type": 1,
-      "name": "Perjanjian Baru",
+      "name": "📕 Perjanjian Baru",
       "children": [
         {
           "type": 1,
@@ -110,16 +110,6 @@
                   "type": 2,
                   "name": "1 Timotius 1_1",
                   "audioTargetId": "02f5a95b-6cc8-4f22-bec6-4c786c28b0fb"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_10",
-                  "audioTargetId": "34c96136-f0c0-4710-bcf4-520543652a44"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_11",
-                  "audioTargetId": "444de503-82e6-4789-a0a0-b16f8282845f"
                 },
                 {
                   "type": 2,
@@ -155,6 +145,16 @@
                   "type": 2,
                   "name": "1 Timotius 1_8",
                   "audioTargetId": "2e9befad-35a5-4667-bfd6-a95b9714a12e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_10",
+                  "audioTargetId": "34c96136-f0c0-4710-bcf4-520543652a44"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_11",
+                  "audioTargetId": "444de503-82e6-4789-a0a0-b16f8282845f"
                 }
               ]
             }
@@ -172,6 +172,46 @@
                   "type": 2,
                   "name": "Lukas 1_1",
                   "audioTargetId": "a1bdfd0b-71c6-44a1-a2e7-3fcf707a6b6b"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_2",
+                  "audioTargetId": "f72c8810-f849-4e55-bd66-4ed80f3e9e7f"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_3",
+                  "audioTargetId": "60b54f4c-f950-4e01-bb59-196d9ea04f96"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_4",
+                  "audioTargetId": "eca5a576-db6a-4441-a3d2-05f33b0f0e19"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_5",
+                  "audioTargetId": "d1e64b49-870c-49f5-b9c9-503c2a699e48"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_6",
+                  "audioTargetId": "ca92a1eb-d8a3-4a4b-9671-34a83eb921ba"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_7",
+                  "audioTargetId": "9215f8b1-6664-4b2d-88e6-e6c9947beae2"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_8",
+                  "audioTargetId": "b72166b6-ceaa-415c-bd77-d1909a1317d1"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_9",
+                  "audioTargetId": "7439170e-4156-4e04-be38-915a833e8fe7"
                 },
                 {
                   "type": 2,
@@ -225,11 +265,6 @@
                 },
                 {
                   "type": 2,
-                  "name": "Lukas 1_2",
-                  "audioTargetId": "f72c8810-f849-4e55-bd66-4ed80f3e9e7f"
-                },
-                {
-                  "type": 2,
                   "name": "Lukas 1_20",
                   "audioTargetId": "c8eeb313-3619-4684-886c-bae5da463373"
                 },
@@ -257,41 +292,6 @@
                   "type": 2,
                   "name": "Lukas 1_25",
                   "audioTargetId": "8e7246e7-46b9-4ca5-8b5b-51d878b7d38b"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_3",
-                  "audioTargetId": "60b54f4c-f950-4e01-bb59-196d9ea04f96"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_4",
-                  "audioTargetId": "eca5a576-db6a-4441-a3d2-05f33b0f0e19"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_5",
-                  "audioTargetId": "d1e64b49-870c-49f5-b9c9-503c2a699e48"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_6",
-                  "audioTargetId": "ca92a1eb-d8a3-4a4b-9671-34a83eb921ba"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_7",
-                  "audioTargetId": "9215f8b1-6664-4b2d-88e6-e6c9947beae2"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_8",
-                  "audioTargetId": "b72166b6-ceaa-415c-bd77-d1909a1317d1"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_9",
-                  "audioTargetId": "7439170e-4156-4e04-be38-915a833e8fe7"
                 }
               ]
             }
@@ -301,7 +301,7 @@
     },
     {
       "type": 1,
-      "name": "Perjanjian Lama",
+      "name": "📕 Perjanjian Lama",
       "children": [
         {
           "type": 1,
@@ -315,6 +315,46 @@
                   "type": 2,
                   "name": "kejadian 1_1",
                   "audioTargetId": "c660b308-4f71-498a-abd2-c15b0adeaa2f"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_2",
+                  "audioTargetId": "13ab40fa-4114-45a0-8f4b-3acffabbe183"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_3",
+                  "audioTargetId": "4c30efab-0f65-407d-9df6-f445c2a8bd1c"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_4",
+                  "audioTargetId": "6a55ce89-b9df-49fd-acfc-b79e4112a297"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_5",
+                  "audioTargetId": "460a14cf-0c22-4d75-9e32-f94ec0dc96ff"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_6",
+                  "audioTargetId": "5c409618-e5d5-4df4-9dfe-23438c15ed0f"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_7",
+                  "audioTargetId": "67b35871-9d58-4541-9ae4-57649b932908"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_8",
+                  "audioTargetId": "32713602-1132-411a-8bd6-bfa46f35b6df"
+                },
+                {
+                  "type": 2,
+                  "name": "kejadian 1_9",
+                  "audioTargetId": "490aa3e8-7418-4898-ac64-5a402248827a"
                 },
                 {
                   "type": 2,
@@ -368,11 +408,6 @@
                 },
                 {
                   "type": 2,
-                  "name": "kejadian 1_2",
-                  "audioTargetId": "13ab40fa-4114-45a0-8f4b-3acffabbe183"
-                },
-                {
-                  "type": 2,
                   "name": "kejadian 1_20",
                   "audioTargetId": "72a32c44-dbbd-4ed5-9149-0608413152bc"
                 },
@@ -423,11 +458,6 @@
                 },
                 {
                   "type": 2,
-                  "name": "kejadian 1_3",
-                  "audioTargetId": "4c30efab-0f65-407d-9df6-f445c2a8bd1c"
-                },
-                {
-                  "type": 2,
                   "name": "kejadian 1_30",
                   "audioTargetId": "e51896b3-3f4f-487e-a751-a1552cca6705"
                 },
@@ -435,36 +465,6 @@
                   "type": 2,
                   "name": "kejadian 1_31",
                   "audioTargetId": "783a6b47-8242-423b-87bf-c15493b1b1ea"
-                },
-                {
-                  "type": 2,
-                  "name": "kejadian 1_4",
-                  "audioTargetId": "6a55ce89-b9df-49fd-acfc-b79e4112a297"
-                },
-                {
-                  "type": 2,
-                  "name": "kejadian 1_5",
-                  "audioTargetId": "460a14cf-0c22-4d75-9e32-f94ec0dc96ff"
-                },
-                {
-                  "type": 2,
-                  "name": "kejadian 1_6",
-                  "audioTargetId": "5c409618-e5d5-4df4-9dfe-23438c15ed0f"
-                },
-                {
-                  "type": 2,
-                  "name": "kejadian 1_7",
-                  "audioTargetId": "67b35871-9d58-4541-9ae4-57649b932908"
-                },
-                {
-                  "type": 2,
-                  "name": "kejadian 1_8",
-                  "audioTargetId": "32713602-1132-411a-8bd6-bfa46f35b6df"
-                },
-                {
-                  "type": 2,
-                  "name": "kejadian 1_9",
-                  "audioTargetId": "490aa3e8-7418-4898-ac64-5a402248827a"
                 }
               ]
             }
@@ -482,6 +482,41 @@
                   "type": 2,
                   "name": "Yunus 1_1",
                   "audioTargetId": "a1b22260-27da-428d-8f73-98fb49d5e478"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1_2",
+                  "audioTargetId": "06496293-dff1-443a-a288-825967dbbe12"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1_3",
+                  "audioTargetId": "6937dcb0-46db-44d5-b6d6-5c8f04e4fa3b"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1_4-5",
+                  "audioTargetId": "0017ca04-b84c-47d3-adbd-2f1c05c11615"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1_6",
+                  "audioTargetId": "a1d4122c-9c35-48d3-bfc8-6e132fc91d3c"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1_7",
+                  "audioTargetId": "651189d4-854e-4714-aae2-3d4c094a0094"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1_8",
+                  "audioTargetId": "f3420443-113a-46ee-a8df-10bd0f05818e"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1_9",
+                  "audioTargetId": "25d1c24a-569d-48f5-889e-13fa6578ad25"
                 },
                 {
                   "type": 2,
@@ -522,41 +557,6 @@
                   "type": 2,
                   "name": "Yunus 1_17",
                   "audioTargetId": "37112cbc-0dea-41be-95ab-94d4ba619efd"
-                },
-                {
-                  "type": 2,
-                  "name": "Yunus 1_2",
-                  "audioTargetId": "06496293-dff1-443a-a288-825967dbbe12"
-                },
-                {
-                  "type": 2,
-                  "name": "Yunus 1_3",
-                  "audioTargetId": "6937dcb0-46db-44d5-b6d6-5c8f04e4fa3b"
-                },
-                {
-                  "type": 2,
-                  "name": "Yunus 1_4-5",
-                  "audioTargetId": "0017ca04-b84c-47d3-adbd-2f1c05c11615"
-                },
-                {
-                  "type": 2,
-                  "name": "Yunus 1_6",
-                  "audioTargetId": "a1d4122c-9c35-48d3-bfc8-6e132fc91d3c"
-                },
-                {
-                  "type": 2,
-                  "name": "Yunus 1_7",
-                  "audioTargetId": "651189d4-854e-4714-aae2-3d4c094a0094"
-                },
-                {
-                  "type": 2,
-                  "name": "Yunus 1_8",
-                  "audioTargetId": "f3420443-113a-46ee-a8df-10bd0f05818e"
-                },
-                {
-                  "type": 2,
-                  "name": "Yunus 1_9",
-                  "audioTargetId": "25d1c24a-569d-48f5-889e-13fa6578ad25"
                 }
               ]
             }

@@ -33,6 +33,8 @@ services:
       - '4566-4583:4566-4583'
       - "9999:9999"
     volumes: 
-      - "./localstack_data:/tmp/localstack/data"
+      - "localstack_data:/tmp/localstack/data"
       - "${TEMPDIR:-/tmp/localstack}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
+volumes:
+  localstack_data:
