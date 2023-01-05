@@ -1,304 +1,6 @@
 {
-  "Version": "0.0.2",
+  "Version": "0.0.3",
   "Categories": [
-    {
-      "type": 1,
-      "name": "💬 Crita Alkitab",
-      "children": [
-        {
-          "type": 2,
-          "name": "Cerita 01 Tuhan Bikin Manusia Laki-laki",
-          "audioTargetId": "9750add8-18fc-4f20-8d79-f794ef2fcc53"
-        },
-        {
-          "type": 2,
-          "name": "Cerita 02 Tuhan Bikin Manusia Perempuan",
-          "audioTargetId": "ea759a45-3ce2-49f2-bba9-d24984c151e4"
-        },
-        {
-          "type": 2,
-          "name": "Cerita 03 Manusia Jatuh Dalam Dosa",
-          "audioTargetId": "c6257396-e137-4bc8-914e-1ecbacf16b34"
-        },
-        {
-          "type": 2,
-          "name": "Cerita 04 Manusia Dapa Hukum",
-          "audioTargetId": "35876d63-3d6a-463f-a717-fff59e5157c9"
-        },
-        {
-          "type": 2,
-          "name": "Cerita 05 Tuhan Pu Janji Sama Abraham",
-          "audioTargetId": "763fc03f-821c-47f8-987d-6dec0df8c513"
-        }
-      ]
-    },
-    {
-      "type": 1,
-      "name": "💬 Crita Skola Minggu",
-      "children": [
-        {
-          "type": 2,
-          "name": "Crita SM Minggu 1",
-          "audioTargetId": "029426ad-b9cc-4fac-b041-823470da1ee9"
-        },
-        {
-          "type": 2,
-          "name": "Crita SM Minggu 2",
-          "audioTargetId": "79fb025a-fa2c-4b63-be21-39b8d292bd2a"
-        },
-        {
-          "type": 2,
-          "name": "Crita SM Minggu 3",
-          "audioTargetId": "50061de2-f607-44ee-a1ad-cad39ce1f4b4"
-        },
-        {
-          "type": 2,
-          "name": "Crita SM Minggu 4",
-          "audioTargetId": "845b65b7-9805-4f8b-a36b-4ddf24c9c101"
-        },
-        {
-          "type": 2,
-          "name": "Crita SM Minggu 5",
-          "audioTargetId": "98f53996-0390-435c-a8f5-55cf5e1f1cd4"
-        }
-      ]
-    },
-    {
-      "type": 1,
-      "name": "🎸 Lagu",
-      "children": [
-        {
-          "type": 2,
-          "name": "1. Indah pada waktuNya",
-          "audioTargetId": "84ea494f-2f42-4602-aef1-b3424ad3c217"
-        },
-        {
-          "type": 2,
-          "name": "2. Ko Khusus Ko Perkasa",
-          "audioTargetId": "74cdac6f-feb1-43b0-b3ac-c478021fdfd2"
-        },
-        {
-          "type": 2,
-          "name": "3. Tuhan Trada yg sperti KO",
-          "audioTargetId": "f9b40dd0-9855-49c4-af5c-074cb1d5accb"
-        },
-        {
-          "type": 2,
-          "name": "4. De Allah",
-          "audioTargetId": "bb974b10-8f48-4e40-9fd0-5f9e81a99a3a"
-        },
-        {
-          "type": 2,
-          "name": "5. Yesus Ko bilang",
-          "audioTargetId": "f1bf3e2d-c103-4ff4-9116-76aae6311106"
-        }
-      ]
-    },
-    {
-      "type": 1,
-      "name": "📕 Perjanjian Baru",
-      "children": [
-        {
-          "type": 1,
-          "name": "1 Timotius",
-          "children": [
-            {
-              "type": 1,
-              "name": "1 Timotius 1",
-              "children": [
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_1",
-                  "audioTargetId": "02f5a95b-6cc8-4f22-bec6-4c786c28b0fb"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_2",
-                  "audioTargetId": "f6a15e51-0cb9-4478-a8ba-f647df36b168"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_3",
-                  "audioTargetId": "d7ae19f8-77cb-44da-ba33-2cedb9c00384"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_4",
-                  "audioTargetId": "0ab98092-710b-4f52-822c-1777d8599a9b"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_5",
-                  "audioTargetId": "4324281c-89ca-4bf3-96e2-325ac3203de4"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_6",
-                  "audioTargetId": "eabf731d-fdfc-43d9-8291-b7b8f1162f8e"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_7",
-                  "audioTargetId": "fad94137-9aa9-4d4e-a07c-710800164a60"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_8",
-                  "audioTargetId": "2e9befad-35a5-4667-bfd6-a95b9714a12e"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_10",
-                  "audioTargetId": "34c96136-f0c0-4710-bcf4-520543652a44"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_11",
-                  "audioTargetId": "444de503-82e6-4789-a0a0-b16f8282845f"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": 1,
-          "name": "Lukas",
-          "children": [
-            {
-              "type": 1,
-              "name": "Lukas 1",
-              "children": [
-                {
-                  "type": 2,
-                  "name": "Lukas 1_1",
-                  "audioTargetId": "a1bdfd0b-71c6-44a1-a2e7-3fcf707a6b6b"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_2",
-                  "audioTargetId": "f72c8810-f849-4e55-bd66-4ed80f3e9e7f"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_3",
-                  "audioTargetId": "60b54f4c-f950-4e01-bb59-196d9ea04f96"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_4",
-                  "audioTargetId": "eca5a576-db6a-4441-a3d2-05f33b0f0e19"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_5",
-                  "audioTargetId": "d1e64b49-870c-49f5-b9c9-503c2a699e48"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_6",
-                  "audioTargetId": "ca92a1eb-d8a3-4a4b-9671-34a83eb921ba"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_7",
-                  "audioTargetId": "9215f8b1-6664-4b2d-88e6-e6c9947beae2"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_8",
-                  "audioTargetId": "b72166b6-ceaa-415c-bd77-d1909a1317d1"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_9",
-                  "audioTargetId": "7439170e-4156-4e04-be38-915a833e8fe7"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_10",
-                  "audioTargetId": "ae6f3807-1957-473f-8d65-085ebf72dee6"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_11",
-                  "audioTargetId": "5d70ad69-6d86-4ef1-bb3b-89266bebc0eb"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_12",
-                  "audioTargetId": "4408d2a1-49af-485b-b3a9-13ac7f5ba32b"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_13",
-                  "audioTargetId": "b8571e0b-6fb1-4a50-a0d5-4277b7bdb46d"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_14",
-                  "audioTargetId": "4a068894-d56f-476e-91ad-acaf60efed82"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_15",
-                  "audioTargetId": "aeb330ce-f6c3-47af-963e-aca555423850"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_16",
-                  "audioTargetId": "82842453-bc12-40e5-92c5-487e53e5528e"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_17",
-                  "audioTargetId": "918d4282-ef51-4947-88fc-31e05948d924"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_18",
-                  "audioTargetId": "afe3046d-9562-4db4-be8c-ebdff7bd96b7"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_19",
-                  "audioTargetId": "26e020ce-322a-4431-84b0-790b03599cc5"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_20",
-                  "audioTargetId": "c8eeb313-3619-4684-886c-bae5da463373"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_21",
-                  "audioTargetId": "1b2b9768-dd52-43d7-82b6-bc36867a485f"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_22",
-                  "audioTargetId": "7d2d7625-6556-43ee-bd48-970ddb723e9c"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_23",
-                  "audioTargetId": "63ea101e-efd8-4504-a5ff-7702b39ec444"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_24",
-                  "audioTargetId": "59f2f88c-4ad8-4a7e-ba10-a05a6650eae5"
-                },
-                {
-                  "type": 2,
-                  "name": "Lukas 1_25",
-                  "audioTargetId": "8e7246e7-46b9-4ca5-8b5b-51d878b7d38b"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
     {
       "type": 1,
       "name": "📕 Perjanjian Lama",
@@ -561,6 +263,304 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "📕 Perjanjian Baru",
+      "children": [
+        {
+          "type": 1,
+          "name": "1 Timotius",
+          "children": [
+            {
+              "type": 1,
+              "name": "1 Timotius 1",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_1",
+                  "audioTargetId": "02f5a95b-6cc8-4f22-bec6-4c786c28b0fb"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_2",
+                  "audioTargetId": "f6a15e51-0cb9-4478-a8ba-f647df36b168"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_3",
+                  "audioTargetId": "d7ae19f8-77cb-44da-ba33-2cedb9c00384"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_4",
+                  "audioTargetId": "0ab98092-710b-4f52-822c-1777d8599a9b"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_5",
+                  "audioTargetId": "4324281c-89ca-4bf3-96e2-325ac3203de4"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_6",
+                  "audioTargetId": "eabf731d-fdfc-43d9-8291-b7b8f1162f8e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_7",
+                  "audioTargetId": "fad94137-9aa9-4d4e-a07c-710800164a60"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_8",
+                  "audioTargetId": "2e9befad-35a5-4667-bfd6-a95b9714a12e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_10",
+                  "audioTargetId": "34c96136-f0c0-4710-bcf4-520543652a44"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_11",
+                  "audioTargetId": "444de503-82e6-4789-a0a0-b16f8282845f"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": 1,
+          "name": "Lukas",
+          "children": [
+            {
+              "type": 1,
+              "name": "Lukas 1",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "Lukas 1_1",
+                  "audioTargetId": "a1bdfd0b-71c6-44a1-a2e7-3fcf707a6b6b"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_2",
+                  "audioTargetId": "f72c8810-f849-4e55-bd66-4ed80f3e9e7f"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_3",
+                  "audioTargetId": "60b54f4c-f950-4e01-bb59-196d9ea04f96"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_4",
+                  "audioTargetId": "eca5a576-db6a-4441-a3d2-05f33b0f0e19"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_5",
+                  "audioTargetId": "d1e64b49-870c-49f5-b9c9-503c2a699e48"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_6",
+                  "audioTargetId": "ca92a1eb-d8a3-4a4b-9671-34a83eb921ba"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_7",
+                  "audioTargetId": "9215f8b1-6664-4b2d-88e6-e6c9947beae2"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_8",
+                  "audioTargetId": "b72166b6-ceaa-415c-bd77-d1909a1317d1"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_9",
+                  "audioTargetId": "7439170e-4156-4e04-be38-915a833e8fe7"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_10",
+                  "audioTargetId": "ae6f3807-1957-473f-8d65-085ebf72dee6"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_11",
+                  "audioTargetId": "5d70ad69-6d86-4ef1-bb3b-89266bebc0eb"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_12",
+                  "audioTargetId": "4408d2a1-49af-485b-b3a9-13ac7f5ba32b"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_13",
+                  "audioTargetId": "b8571e0b-6fb1-4a50-a0d5-4277b7bdb46d"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_14",
+                  "audioTargetId": "4a068894-d56f-476e-91ad-acaf60efed82"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_15",
+                  "audioTargetId": "aeb330ce-f6c3-47af-963e-aca555423850"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_16",
+                  "audioTargetId": "82842453-bc12-40e5-92c5-487e53e5528e"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_17",
+                  "audioTargetId": "918d4282-ef51-4947-88fc-31e05948d924"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_18",
+                  "audioTargetId": "afe3046d-9562-4db4-be8c-ebdff7bd96b7"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_19",
+                  "audioTargetId": "26e020ce-322a-4431-84b0-790b03599cc5"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_20",
+                  "audioTargetId": "c8eeb313-3619-4684-886c-bae5da463373"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_21",
+                  "audioTargetId": "1b2b9768-dd52-43d7-82b6-bc36867a485f"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_22",
+                  "audioTargetId": "7d2d7625-6556-43ee-bd48-970ddb723e9c"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_23",
+                  "audioTargetId": "63ea101e-efd8-4504-a5ff-7702b39ec444"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_24",
+                  "audioTargetId": "59f2f88c-4ad8-4a7e-ba10-a05a6650eae5"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1_25",
+                  "audioTargetId": "8e7246e7-46b9-4ca5-8b5b-51d878b7d38b"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "💬 Crita Alkitab",
+      "children": [
+        {
+          "type": 2,
+          "name": "Cerita 01 Tuhan Bikin Manusia Laki-laki",
+          "audioTargetId": "9750add8-18fc-4f20-8d79-f794ef2fcc53"
+        },
+        {
+          "type": 2,
+          "name": "Cerita 02 Tuhan Bikin Manusia Perempuan",
+          "audioTargetId": "ea759a45-3ce2-49f2-bba9-d24984c151e4"
+        },
+        {
+          "type": 2,
+          "name": "Cerita 03 Manusia Jatuh Dalam Dosa",
+          "audioTargetId": "c6257396-e137-4bc8-914e-1ecbacf16b34"
+        },
+        {
+          "type": 2,
+          "name": "Cerita 04 Manusia Dapa Hukum",
+          "audioTargetId": "35876d63-3d6a-463f-a717-fff59e5157c9"
+        },
+        {
+          "type": 2,
+          "name": "Cerita 05 Tuhan Pu Janji Sama Abraham",
+          "audioTargetId": "763fc03f-821c-47f8-987d-6dec0df8c513"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "💬 Crita Skola Minggu",
+      "children": [
+        {
+          "type": 2,
+          "name": "Crita SM Minggu 1",
+          "audioTargetId": "029426ad-b9cc-4fac-b041-823470da1ee9"
+        },
+        {
+          "type": 2,
+          "name": "Crita SM Minggu 2",
+          "audioTargetId": "79fb025a-fa2c-4b63-be21-39b8d292bd2a"
+        },
+        {
+          "type": 2,
+          "name": "Crita SM Minggu 3",
+          "audioTargetId": "50061de2-f607-44ee-a1ad-cad39ce1f4b4"
+        },
+        {
+          "type": 2,
+          "name": "Crita SM Minggu 4",
+          "audioTargetId": "845b65b7-9805-4f8b-a36b-4ddf24c9c101"
+        },
+        {
+          "type": 2,
+          "name": "Crita SM Minggu 5",
+          "audioTargetId": "98f53996-0390-435c-a8f5-55cf5e1f1cd4"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "🎸 Lagu",
+      "children": [
+        {
+          "type": 2,
+          "name": "1. Indah pada waktuNya",
+          "audioTargetId": "84ea494f-2f42-4602-aef1-b3424ad3c217"
+        },
+        {
+          "type": 2,
+          "name": "2. Ko Khusus Ko Perkasa",
+          "audioTargetId": "74cdac6f-feb1-43b0-b3ac-c478021fdfd2"
+        },
+        {
+          "type": 2,
+          "name": "3. Tuhan Trada yg sperti KO",
+          "audioTargetId": "f9b40dd0-9855-49c4-af5c-074cb1d5accb"
+        },
+        {
+          "type": 2,
+          "name": "4. De Allah",
+          "audioTargetId": "bb974b10-8f48-4e40-9fd0-5f9e81a99a3a"
+        },
+        {
+          "type": 2,
+          "name": "5. Yesus Ko bilang",
+          "audioTargetId": "f1bf3e2d-c103-4ff4-9116-76aae6311106"
         }
       ]
     }
