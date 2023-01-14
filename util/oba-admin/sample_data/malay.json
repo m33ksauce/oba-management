@@ -1,5 +1,5 @@
 {
-  "Version": "0.0.3",
+  "Version": "0.0.4",
   "Categories": [
     {
       "type": 1,
@@ -272,68 +272,6 @@
       "children": [
         {
           "type": 1,
-          "name": "1 Timotius",
-          "children": [
-            {
-              "type": 1,
-              "name": "1 Timotius 1",
-              "children": [
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_1",
-                  "audioTargetId": "02f5a95b-6cc8-4f22-bec6-4c786c28b0fb"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_2",
-                  "audioTargetId": "f6a15e51-0cb9-4478-a8ba-f647df36b168"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_3",
-                  "audioTargetId": "d7ae19f8-77cb-44da-ba33-2cedb9c00384"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_4",
-                  "audioTargetId": "0ab98092-710b-4f52-822c-1777d8599a9b"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_5",
-                  "audioTargetId": "4324281c-89ca-4bf3-96e2-325ac3203de4"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_6",
-                  "audioTargetId": "eabf731d-fdfc-43d9-8291-b7b8f1162f8e"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_7",
-                  "audioTargetId": "fad94137-9aa9-4d4e-a07c-710800164a60"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_8",
-                  "audioTargetId": "2e9befad-35a5-4667-bfd6-a95b9714a12e"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_10",
-                  "audioTargetId": "34c96136-f0c0-4710-bcf4-520543652a44"
-                },
-                {
-                  "type": 2,
-                  "name": "1 Timotius 1_11",
-                  "audioTargetId": "444de503-82e6-4789-a0a0-b16f8282845f"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": 1,
           "name": "Lukas",
           "children": [
             {
@@ -468,6 +406,68 @@
               ]
             }
           ]
+        },
+        {
+          "type": 1,
+          "name": "1 Timotius",
+          "children": [
+            {
+              "type": 1,
+              "name": "1 Timotius 1",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_1",
+                  "audioTargetId": "02f5a95b-6cc8-4f22-bec6-4c786c28b0fb"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_2",
+                  "audioTargetId": "f6a15e51-0cb9-4478-a8ba-f647df36b168"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_3",
+                  "audioTargetId": "d7ae19f8-77cb-44da-ba33-2cedb9c00384"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_4",
+                  "audioTargetId": "0ab98092-710b-4f52-822c-1777d8599a9b"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_5",
+                  "audioTargetId": "4324281c-89ca-4bf3-96e2-325ac3203de4"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_6",
+                  "audioTargetId": "eabf731d-fdfc-43d9-8291-b7b8f1162f8e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_7",
+                  "audioTargetId": "fad94137-9aa9-4d4e-a07c-710800164a60"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_8",
+                  "audioTargetId": "2e9befad-35a5-4667-bfd6-a95b9714a12e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_10",
+                  "audioTargetId": "34c96136-f0c0-4710-bcf4-520543652a44"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1_11",
+                  "audioTargetId": "444de503-82e6-4789-a0a0-b16f8282845f"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -477,27 +477,27 @@
       "children": [
         {
           "type": 2,
-          "name": "Cerita 01 Tuhan Bikin Manusia Laki-laki",
+          "name": "01 Tuhan Bikin Manusia Laki-laki",
           "audioTargetId": "9750add8-18fc-4f20-8d79-f794ef2fcc53"
         },
         {
           "type": 2,
-          "name": "Cerita 02 Tuhan Bikin Manusia Perempuan",
+          "name": "02 Tuhan Bikin Manusia Perempuan",
           "audioTargetId": "ea759a45-3ce2-49f2-bba9-d24984c151e4"
         },
         {
           "type": 2,
-          "name": "Cerita 03 Manusia Jatuh Dalam Dosa",
+          "name": "03 Manusia Jatuh Dalam Dosa",
           "audioTargetId": "c6257396-e137-4bc8-914e-1ecbacf16b34"
         },
         {
           "type": 2,
-          "name": "Cerita 04 Manusia Dapa Hukum",
+          "name": "04 Manusia Dapa Hukum",
           "audioTargetId": "35876d63-3d6a-463f-a717-fff59e5157c9"
         },
         {
           "type": 2,
-          "name": "Cerita 05 Tuhan Pu Janji Sama Abraham",
+          "name": "05 Tuhan Pu Janji Sama Abraham",
           "audioTargetId": "763fc03f-821c-47f8-987d-6dec0df8c513"
         }
       ]
@@ -508,27 +508,27 @@
       "children": [
         {
           "type": 2,
-          "name": "Crita SM Minggu 1",
+          "name": "Minggu 1",
           "audioTargetId": "029426ad-b9cc-4fac-b041-823470da1ee9"
         },
         {
           "type": 2,
-          "name": "Crita SM Minggu 2",
+          "name": "Minggu 2",
           "audioTargetId": "79fb025a-fa2c-4b63-be21-39b8d292bd2a"
         },
         {
           "type": 2,
-          "name": "Crita SM Minggu 3",
+          "name": "Minggu 3",
           "audioTargetId": "50061de2-f607-44ee-a1ad-cad39ce1f4b4"
         },
         {
           "type": 2,
-          "name": "Crita SM Minggu 4",
+          "name": "Minggu 4",
           "audioTargetId": "845b65b7-9805-4f8b-a36b-4ddf24c9c101"
         },
         {
           "type": 2,
-          "name": "Crita SM Minggu 5",
+          "name": "Minggu 5",
           "audioTargetId": "98f53996-0390-435c-a8f5-55cf5e1f1cd4"
         }
       ]
