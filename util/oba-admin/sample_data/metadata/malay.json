@@ -1,0 +1,1915 @@
+{
+  "Version": "0.0.6",
+  "Categories": [
+    {
+      "type": 1,
+      "name": "📕 Perjanjian Lama",
+      "children": [
+        {
+          "type": 1,
+          "name": "Kejadian",
+          "children": [
+            {
+              "type": 1,
+              "name": "Kejadian 1",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:1",
+                  "audioTargetId": "c660b308-4f71-498a-abd2-c15b0adeaa2f"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:2",
+                  "audioTargetId": "13ab40fa-4114-45a0-8f4b-3acffabbe183"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:3",
+                  "audioTargetId": "4c30efab-0f65-407d-9df6-f445c2a8bd1c"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:4",
+                  "audioTargetId": "6a55ce89-b9df-49fd-acfc-b79e4112a297"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:5",
+                  "audioTargetId": "460a14cf-0c22-4d75-9e32-f94ec0dc96ff"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:6",
+                  "audioTargetId": "5c409618-e5d5-4df4-9dfe-23438c15ed0f"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:7",
+                  "audioTargetId": "67b35871-9d58-4541-9ae4-57649b932908"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:8",
+                  "audioTargetId": "32713602-1132-411a-8bd6-bfa46f35b6df"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:9",
+                  "audioTargetId": "490aa3e8-7418-4898-ac64-5a402248827a"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:10",
+                  "audioTargetId": "fb6a7a0b-e6c4-420e-80e4-e98caf9216b2"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:11",
+                  "audioTargetId": "a3c7c930-41fa-4f7b-a645-60f3a1dc05d7"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:12",
+                  "audioTargetId": "bab4262f-2e5e-4e2a-b5eb-386a05d8fcd6"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:13",
+                  "audioTargetId": "bd5bdf4b-4cf0-4faf-b28a-a04757c6ab81"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:14",
+                  "audioTargetId": "1cdd967e-e289-4afc-8ce2-718e3c31f9a3"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:15",
+                  "audioTargetId": "be530185-cf75-4a10-90a4-2b62b2a016bf"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:16",
+                  "audioTargetId": "cebed62d-3248-4957-a884-603b2a792494"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:17",
+                  "audioTargetId": "9c94eb72-9af1-4aa1-984d-0b5fffa3643a"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:18",
+                  "audioTargetId": "16559876-71b4-4606-b482-40ec5e46dc4e"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:19",
+                  "audioTargetId": "c9058e74-17c8-41a7-b6ea-80f64d02a663"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:20",
+                  "audioTargetId": "72a32c44-dbbd-4ed5-9149-0608413152bc"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:21",
+                  "audioTargetId": "aafe5b84-def0-4e03-9deb-70dd7bb97691"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:22",
+                  "audioTargetId": "62869f5c-59e3-47eb-9110-316420b8838a"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:23",
+                  "audioTargetId": "2c4a7d14-698e-4b2a-90a8-fac8653d267d"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:24",
+                  "audioTargetId": "1a5f26e1-1e11-45f8-9669-1561ad93dd6a"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:25",
+                  "audioTargetId": "c508a40a-2fe5-481e-a81a-6fed3f4c304a"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:26",
+                  "audioTargetId": "31cb74b3-cfe6-460a-9803-fd4ee54dea17"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:27",
+                  "audioTargetId": "ef5c8c8a-d9c4-482e-850c-995b6f9abfb8"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:28",
+                  "audioTargetId": "5053bbad-a15e-4d40-91d6-537846723dc9"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:29",
+                  "audioTargetId": "d6585830-13e7-4a93-9be2-105e1df66e92"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:30",
+                  "audioTargetId": "e51896b3-3f4f-487e-a751-a1552cca6705"
+                },
+                {
+                  "type": 2,
+                  "name": "Kejadian 1:31",
+                  "audioTargetId": "783a6b47-8242-423b-87bf-c15493b1b1ea"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": 1,
+          "name": "Yunus",
+          "children": [
+            {
+              "type": 1,
+              "name": "Yunus 1",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "Yunus 1:1",
+                  "audioTargetId": "a1b22260-27da-428d-8f73-98fb49d5e478"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:2",
+                  "audioTargetId": "06496293-dff1-443a-a288-825967dbbe12"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:3",
+                  "audioTargetId": "6937dcb0-46db-44d5-b6d6-5c8f04e4fa3b"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:4-5",
+                  "audioTargetId": "0017ca04-b84c-47d3-adbd-2f1c05c11615"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:6",
+                  "audioTargetId": "a1d4122c-9c35-48d3-bfc8-6e132fc91d3c"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:7",
+                  "audioTargetId": "651189d4-854e-4714-aae2-3d4c094a0094"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:8",
+                  "audioTargetId": "f3420443-113a-46ee-a8df-10bd0f05818e"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:9",
+                  "audioTargetId": "25d1c24a-569d-48f5-889e-13fa6578ad25"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:10",
+                  "audioTargetId": "766fc764-e946-43b1-9f9c-a4ad4d56d010"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:11",
+                  "audioTargetId": "8ce4bae8-8e4a-406f-9027-3b16a5e512be"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:12",
+                  "audioTargetId": "6d97702c-35b4-4a57-8af2-b0cefdc5ca3d"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:13",
+                  "audioTargetId": "2e46050b-12bf-47a7-9c25-5d9693b61035"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:14",
+                  "audioTargetId": "d9a99af2-e002-4265-88d8-fcc4ff397a02"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:15",
+                  "audioTargetId": "d0840ea0-fb14-4333-9e94-507e49460b6e"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:16",
+                  "audioTargetId": "69e90ff0-17b3-42ef-b28e-8ece766ef09b"
+                },
+                {
+                  "type": 2,
+                  "name": "Yunus 1:17",
+                  "audioTargetId": "37112cbc-0dea-41be-95ab-94d4ba619efd"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "📕 Perjanjian Baru",
+      "children": [
+        {
+          "type": 1,
+          "name": "Lukas",
+          "children": [
+            {
+              "type": 1,
+              "name": "Lukas 1",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "Lukas 1:1",
+                  "audioTargetId": "a1bdfd0b-71c6-44a1-a2e7-3fcf707a6b6b"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:2",
+                  "audioTargetId": "f72c8810-f849-4e55-bd66-4ed80f3e9e7f"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:3",
+                  "audioTargetId": "60b54f4c-f950-4e01-bb59-196d9ea04f96"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:4",
+                  "audioTargetId": "eca5a576-db6a-4441-a3d2-05f33b0f0e19"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:5",
+                  "audioTargetId": "d1e64b49-870c-49f5-b9c9-503c2a699e48"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:6",
+                  "audioTargetId": "ca92a1eb-d8a3-4a4b-9671-34a83eb921ba"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:7",
+                  "audioTargetId": "9215f8b1-6664-4b2d-88e6-e6c9947beae2"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:8",
+                  "audioTargetId": "b72166b6-ceaa-415c-bd77-d1909a1317d1"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:9",
+                  "audioTargetId": "7439170e-4156-4e04-be38-915a833e8fe7"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:10",
+                  "audioTargetId": "ae6f3807-1957-473f-8d65-085ebf72dee6"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:11",
+                  "audioTargetId": "5d70ad69-6d86-4ef1-bb3b-89266bebc0eb"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:12",
+                  "audioTargetId": "4408d2a1-49af-485b-b3a9-13ac7f5ba32b"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:13",
+                  "audioTargetId": "b8571e0b-6fb1-4a50-a0d5-4277b7bdb46d"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:14",
+                  "audioTargetId": "4a068894-d56f-476e-91ad-acaf60efed82"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:15",
+                  "audioTargetId": "aeb330ce-f6c3-47af-963e-aca555423850"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:16",
+                  "audioTargetId": "82842453-bc12-40e5-92c5-487e53e5528e"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:17",
+                  "audioTargetId": "918d4282-ef51-4947-88fc-31e05948d924"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:18",
+                  "audioTargetId": "afe3046d-9562-4db4-be8c-ebdff7bd96b7"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:19",
+                  "audioTargetId": "26e020ce-322a-4431-84b0-790b03599cc5"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:20",
+                  "audioTargetId": "c8eeb313-3619-4684-886c-bae5da463373"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:21",
+                  "audioTargetId": "1b2b9768-dd52-43d7-82b6-bc36867a485f"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:22",
+                  "audioTargetId": "7d2d7625-6556-43ee-bd48-970ddb723e9c"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:23",
+                  "audioTargetId": "63ea101e-efd8-4504-a5ff-7702b39ec444"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:24",
+                  "audioTargetId": "59f2f88c-4ad8-4a7e-ba10-a05a6650eae5"
+                },
+                {
+                  "type": 2,
+                  "name": "Lukas 1:25",
+                  "audioTargetId": "8e7246e7-46b9-4ca5-8b5b-51d878b7d38b"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": 1,
+          "name": "1 Timotius",
+          "children": [
+            {
+              "type": 1,
+              "name": "1 Timotius 1",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:1",
+                  "audioTargetId": "02f5a95b-6cc8-4f22-bec6-4c786c28b0fb"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:2",
+                  "audioTargetId": "f6a15e51-0cb9-4478-a8ba-f647df36b168"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:3",
+                  "audioTargetId": "d7ae19f8-77cb-44da-ba33-2cedb9c00384"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:4",
+                  "audioTargetId": "0ab98092-710b-4f52-822c-1777d8599a9b"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:5",
+                  "audioTargetId": "4324281c-89ca-4bf3-96e2-325ac3203de4"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:6",
+                  "audioTargetId": "eabf731d-fdfc-43d9-8291-b7b8f1162f8e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:7",
+                  "audioTargetId": "fad94137-9aa9-4d4e-a07c-710800164a60"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:8",
+                  "audioTargetId": "2e9befad-35a5-4667-bfd6-a95b9714a12e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:9",
+                  "audioTargetId": "ae2400dc-ec6f-42bc-8f02-55e525c6738d"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:10",
+                  "audioTargetId": "34c96136-f0c0-4710-bcf4-520543652a44"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:11",
+                  "audioTargetId": "444de503-82e6-4789-a0a0-b16f8282845f"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:12",
+                  "audioTargetId": "a1b5d524-fe40-40cf-abb1-f30f7a31e7c1"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:13",
+                  "audioTargetId": "26e18a95-40fa-469b-9f31-67bc6adae990"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:14",
+                  "audioTargetId": "57d69762-f436-4efd-a1fd-42a5a88002e4"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:15",
+                  "audioTargetId": "f8587ae2-732c-4ef3-8cd7-60908f36015d"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:16",
+                  "audioTargetId": "1d10a577-fabc-4631-8b91-b394f296c147"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:17",
+                  "audioTargetId": "8585bd4c-219e-4b92-bd6b-285586343166"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:18",
+                  "audioTargetId": "75d0b81b-b959-4bdb-a06a-88d86f3217ec"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 1:19",
+                  "audioTargetId": "0fc46dff-82c9-40a7-8854-c8a8a9e78080"
+                }
+              ]
+            },
+            {
+              "type": 1,
+              "name": "1 Timotius 2",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:1",
+                  "audioTargetId": "09c1927f-9e4e-410f-9025-edbf04c0fc9f"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:2",
+                  "audioTargetId": "550ef103-75cf-4cb1-b463-1162d2bfe210"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:3",
+                  "audioTargetId": "28725acc-8f8f-4492-8947-f892ae1deb49"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:4",
+                  "audioTargetId": "c6b2e589-a65a-4bcd-9c63-58f8e3087078"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:5",
+                  "audioTargetId": "1e8c45da-806f-4237-8474-c5265d89192a"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:6",
+                  "audioTargetId": "b69d11e0-a5f6-4841-bafe-ea222b935da3"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:7",
+                  "audioTargetId": "df3fec33-5259-4b1b-b77c-b00c56b412b0"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:8",
+                  "audioTargetId": "c9c2a8bf-f92d-462c-8bf7-9f78ca7704ef"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:9",
+                  "audioTargetId": "caa7a044-f50f-4df5-baa2-5086ae898b17"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:10",
+                  "audioTargetId": "1d4613da-0568-41f4-9ce2-3779a5217d01"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:11",
+                  "audioTargetId": "9f64c1b7-32a6-43c5-bbb5-7fd0a0a6de68"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:12",
+                  "audioTargetId": "634f5762-085a-43c1-946a-085d9ad3bf00"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:13",
+                  "audioTargetId": "15d0fa48-e6a9-4f66-b512-f1a8f89a6e83"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:14",
+                  "audioTargetId": "a5bcfe43-087c-4047-953c-32b816c60f9c"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 2:15",
+                  "audioTargetId": "73cffb55-734e-4a53-9c0a-0f206654c24a"
+                }
+              ]
+            },
+            {
+              "type": 1,
+              "name": "1 Timotius 3",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:1",
+                  "audioTargetId": "84f3d11c-fbc9-4f6e-9c0a-5d4630f75dc9"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:2",
+                  "audioTargetId": "028a1a0d-dd7b-419e-989d-ae885d181997"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:3",
+                  "audioTargetId": "38699c3d-0dde-487e-ab22-3cd875e6e325"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:4",
+                  "audioTargetId": "14987105-4538-40ad-b6b7-580a0647f27b"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:5",
+                  "audioTargetId": "d3324060-174b-4350-88e8-332113133082"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:6",
+                  "audioTargetId": "51629819-5ce6-46b9-b335-57ff8284e083"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:7",
+                  "audioTargetId": "1f3759ff-83bf-4462-a123-5221b312e5ba"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:8",
+                  "audioTargetId": "1e68f42c-d231-4118-abd5-e909980bc089"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:9",
+                  "audioTargetId": "b41582d1-69aa-4634-b208-54d9a3b68ab5"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:10",
+                  "audioTargetId": "94e3d07e-5a86-48cd-862f-274849d7b096"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:11",
+                  "audioTargetId": "ccf75fc0-8d8c-4888-85f8-9119458e8eb0"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:12",
+                  "audioTargetId": "7b326f69-b398-4061-86d1-81261e06ebb0"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:13",
+                  "audioTargetId": "a4226132-8f73-4985-bc90-e17053e5c97f"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:14",
+                  "audioTargetId": "d84fa319-4704-48e1-8aa0-b602bb62bd75"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:15",
+                  "audioTargetId": "066e13ea-3f0c-4841-b1ca-3c6ec684125a"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 3:16",
+                  "audioTargetId": "fff60f85-a8c2-49b5-8974-0b5fffa8cc41"
+                }
+              ]
+            },
+            {
+              "type": 1,
+              "name": "1 Timotius 4",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:1",
+                  "audioTargetId": "7f721ff3-fbb2-487b-8cb2-4f27c00c762f"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:2",
+                  "audioTargetId": "cf512c2f-8ea5-4dd2-8ffe-f8be11169e21"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:3",
+                  "audioTargetId": "03214ab3-ff87-477f-826c-970bdb704d55"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:4",
+                  "audioTargetId": "908b0829-8e29-46bd-9ea5-08b4c314efa0"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:5",
+                  "audioTargetId": "46bf22d3-b18b-4508-ad22-a19d56a65588"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:6",
+                  "audioTargetId": "9a5c12eb-fead-4d20-9efc-72126c66ebb2"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:7",
+                  "audioTargetId": "a6ee237a-cfdc-465b-98cf-25c3625cf634"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:8",
+                  "audioTargetId": "bf57092c-eac1-4496-90b4-138c33b61e91"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:9",
+                  "audioTargetId": "921c5b39-a447-4a4f-bbe7-44e6f0f5863c"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:10",
+                  "audioTargetId": "43b11a18-a3a8-411b-ad9e-8f8437c3ff9f"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:11",
+                  "audioTargetId": "ccf7387f-991d-4854-9952-13f40316b204"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:12",
+                  "audioTargetId": "e01418d7-2ce0-4f75-a5b4-ac5c03e95a1e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:13",
+                  "audioTargetId": "c86b32e2-4a15-4702-a2c1-b518b268f7ef"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:14",
+                  "audioTargetId": "f0793d94-6031-42e1-a7dd-93457d4d9fe1"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:15",
+                  "audioTargetId": "b57eaaac-5a0d-420a-9992-a264544d9a8d"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 4:16",
+                  "audioTargetId": "0f56b99f-4943-4cd6-bc6c-8881e30b7274"
+                }
+              ]
+            },
+            {
+              "type": 1,
+              "name": "1 Timotius 5",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:1",
+                  "audioTargetId": "589e49a7-3a5f-4988-b057-7af418903891"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:2",
+                  "audioTargetId": "ab42c327-6ad8-4878-8c54-ba5f96b799f9"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:3",
+                  "audioTargetId": "f5fbce8f-ba64-4463-a7de-ff4cca275063"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:4",
+                  "audioTargetId": "32d46ca6-3c70-41f4-a044-9135266a149d"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:5",
+                  "audioTargetId": "c9fc62fe-b1af-43c4-89db-7f4b1eb6df73"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:6",
+                  "audioTargetId": "3e8e1f7a-6885-4d3c-bfa1-9a0c7aebf560"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:7",
+                  "audioTargetId": "7f13052f-fc5c-46f8-b4fb-d917667242e8"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:8",
+                  "audioTargetId": "83b0b6eb-f3d0-482f-9a3c-2e9856a1f159"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:9",
+                  "audioTargetId": "bd1ef0b3-25a8-44f5-b0d5-40ab03df71e4"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:10",
+                  "audioTargetId": "baef599c-df00-4ca1-ba6f-a87543c84f3d"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:11",
+                  "audioTargetId": "7f26f5b6-df1b-4712-a31c-3bbf082a9042"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:12",
+                  "audioTargetId": "d14f9b36-577f-4cef-8ef1-fb63063ed99b"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:13",
+                  "audioTargetId": "3d568c2f-ac53-467b-aeda-5a68e1d906e6"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:14",
+                  "audioTargetId": "e88f7d01-c095-43db-a0ec-7bc4651a8964"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:15",
+                  "audioTargetId": "3a4fd1e4-7663-47d7-bc7f-29b4b3e78581"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:16",
+                  "audioTargetId": "c4609f18-ad44-4cd2-a07c-0999976cfa1f"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:17",
+                  "audioTargetId": "03aecc50-df40-480d-a158-4c6b45117635"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:18",
+                  "audioTargetId": "2a460163-1cfa-44bb-98cf-561fb57810ac"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:19",
+                  "audioTargetId": "350d321d-d538-456f-bf3e-0c1df0e43671"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:20",
+                  "audioTargetId": "1bf8998d-748a-4b0b-b9f6-37b647003e23"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:21",
+                  "audioTargetId": "6bcf6690-6a27-455d-b4ee-7d09a29df9e3"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:22",
+                  "audioTargetId": "ac076289-4bdc-4b5e-9938-b2f4501c41b5"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:23",
+                  "audioTargetId": "48ecf27a-86f4-4e59-8e89-0eb98556e093"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:24",
+                  "audioTargetId": "437b3dc0-c404-42d5-af3d-0e4491af3013"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 5:25",
+                  "audioTargetId": "fd9e3fd9-e8cb-4a9d-abe3-698a2ea70c9c"
+                }
+              ]
+            },
+            {
+              "type": 1,
+              "name": "1 Timotius 6",
+              "children": [
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:1",
+                  "audioTargetId": "aa36dd2e-792b-4a9d-b80e-a90cc304c8cc"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:2a",
+                  "audioTargetId": "660cacf9-c39e-438b-bf93-8ee24cdac18e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:2b",
+                  "audioTargetId": "9454fae3-63d4-434f-a954-c46c55390001"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:3",
+                  "audioTargetId": "d23570ca-06e2-4ad3-a163-6062bcd324c2"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:4",
+                  "audioTargetId": "0f677474-9042-41d1-b1ea-d5d023669e1e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:5",
+                  "audioTargetId": "cc7adc8f-31fb-4bac-97e4-f6fdd82e134b"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:6",
+                  "audioTargetId": "1bdf6d78-5789-442c-8912-a21966207875"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:7",
+                  "audioTargetId": "14145ed9-4257-4320-9339-0b77bb8c3cee"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:8",
+                  "audioTargetId": "a1c6d8c1-a7f7-47c3-8af2-b44aa0048676"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:9",
+                  "audioTargetId": "16ecb726-f522-4809-9d24-93d3f89ab26e"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:10",
+                  "audioTargetId": "54eb6d6d-429c-4b45-a3a8-bc348740a605"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:11",
+                  "audioTargetId": "a698946a-f703-4150-89df-fb1fdc15b45c"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:12",
+                  "audioTargetId": "6e4a018c-8eb1-4d7b-b221-e72aac5e5897"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:13",
+                  "audioTargetId": "4a4ac51f-f82c-4837-a807-61fd7068e4f9"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:14",
+                  "audioTargetId": "ca7bed57-0521-4c64-9831-a6b48f84d086"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:15",
+                  "audioTargetId": "9358d435-44fd-4a23-82a6-f8b11e7eb29d"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:16",
+                  "audioTargetId": "b811e596-ffc4-4a4d-8e91-677f8345c125"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:17",
+                  "audioTargetId": "bcf27c9f-c11a-4ef7-a6e4-d45c2b344262"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:18",
+                  "audioTargetId": "ce39241a-60d1-4736-87c9-88e48ca3cd19"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:19",
+                  "audioTargetId": "2a1c2091-9ee3-428b-82ef-8006edd172d5"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:20",
+                  "audioTargetId": "a3382efe-92a4-46c9-a7df-a8c641799b84"
+                },
+                {
+                  "type": 2,
+                  "name": "1 Timotius 6:21",
+                  "audioTargetId": "ca5cca35-9c0b-4083-984b-bb110cdd0956"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "💬 Crita Alkitab",
+      "children": [
+        {
+          "type": 2,
+          "name": "01 Tuhan Bikin Manusia Laki-laki",
+          "audioTargetId": "9750add8-18fc-4f20-8d79-f794ef2fcc53"
+        },
+        {
+          "type": 2,
+          "name": "02 Tuhan Bikin Manusia Perempuan",
+          "audioTargetId": "ea759a45-3ce2-49f2-bba9-d24984c151e4"
+        },
+        {
+          "type": 2,
+          "name": "03 Manusia Jatuh Dalam Dosa",
+          "audioTargetId": "c6257396-e137-4bc8-914e-1ecbacf16b34"
+        },
+        {
+          "type": 2,
+          "name": "04 Manusia Dapa Hukum",
+          "audioTargetId": "35876d63-3d6a-463f-a717-fff59e5157c9"
+        },
+        {
+          "type": 2,
+          "name": "05 Tuhan Pu Janji Sama Abraham",
+          "audioTargetId": "763fc03f-821c-47f8-987d-6dec0df8c513"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "💬 Crita Skola Minggu",
+      "children": [
+        {
+          "type": 2,
+          "name": "Minggu 1",
+          "audioTargetId": "029426ad-b9cc-4fac-b041-823470da1ee9"
+        },
+        {
+          "type": 2,
+          "name": "Minggu 2",
+          "audioTargetId": "79fb025a-fa2c-4b63-be21-39b8d292bd2a"
+        },
+        {
+          "type": 2,
+          "name": "Minggu 3",
+          "audioTargetId": "50061de2-f607-44ee-a1ad-cad39ce1f4b4"
+        },
+        {
+          "type": 2,
+          "name": "Minggu 4",
+          "audioTargetId": "845b65b7-9805-4f8b-a36b-4ddf24c9c101"
+        },
+        {
+          "type": 2,
+          "name": "Minggu 5",
+          "audioTargetId": "98f53996-0390-435c-a8f5-55cf5e1f1cd4"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "name": "🎸 Lagu",
+      "children": [
+        {
+          "type": 2,
+          "name": "1. Indah pada waktuNya",
+          "audioTargetId": "84ea494f-2f42-4602-aef1-b3424ad3c217"
+        },
+        {
+          "type": 2,
+          "name": "2. Ko Khusus Ko Perkasa",
+          "audioTargetId": "74cdac6f-feb1-43b0-b3ac-c478021fdfd2"
+        },
+        {
+          "type": 2,
+          "name": "3. Tuhan Trada yg sperti KO",
+          "audioTargetId": "f9b40dd0-9855-49c4-af5c-074cb1d5accb"
+        },
+        {
+          "type": 2,
+          "name": "4. De Allah",
+          "audioTargetId": "bb974b10-8f48-4e40-9fd0-5f9e81a99a3a"
+        },
+        {
+          "type": 2,
+          "name": "5. Yesus Ko bilang",
+          "audioTargetId": "f1bf3e2d-c103-4ff4-9116-76aae6311106"
+        }
+      ]
+    }
+  ],
+  "Audio": [
+    {
+      "id": "9750add8-18fc-4f20-8d79-f794ef2fcc53",
+      "file": "sample_data/PapuanMalay/Crita Alkitab (Bible Stories)/Cerita 01 Tuhan Bikin Manusia Laki-laki.mp3"
+    },
+    {
+      "id": "ea759a45-3ce2-49f2-bba9-d24984c151e4",
+      "file": "sample_data/PapuanMalay/Crita Alkitab (Bible Stories)/Cerita 02 Tuhan Bikin Manusia Perempuan.mp3"
+    },
+    {
+      "id": "c6257396-e137-4bc8-914e-1ecbacf16b34",
+      "file": "sample_data/PapuanMalay/Crita Alkitab (Bible Stories)/Cerita 03 Manusia Jatuh Dalam Dosa.mp3"
+    },
+    {
+      "id": "35876d63-3d6a-463f-a717-fff59e5157c9",
+      "file": "sample_data/PapuanMalay/Crita Alkitab (Bible Stories)/Cerita 04 Manusia Dapa Hukum.mp3"
+    },
+    {
+      "id": "763fc03f-821c-47f8-987d-6dec0df8c513",
+      "file": "sample_data/PapuanMalay/Crita Alkitab (Bible Stories)/Cerita 05 Tuhan Pu Janji Sama Abraham.mp3"
+    },
+    {
+      "id": "029426ad-b9cc-4fac-b041-823470da1ee9",
+      "file": "sample_data/PapuanMalay/Crita Skola Minggu (Sunday School Lessons)/Crita SM Minggu 1.mp3"
+    },
+    {
+      "id": "79fb025a-fa2c-4b63-be21-39b8d292bd2a",
+      "file": "sample_data/PapuanMalay/Crita Skola Minggu (Sunday School Lessons)/Crita SM Minggu 2.mp3"
+    },
+    {
+      "id": "50061de2-f607-44ee-a1ad-cad39ce1f4b4",
+      "file": "sample_data/PapuanMalay/Crita Skola Minggu (Sunday School Lessons)/Crita SM Minggu 3.mp3"
+    },
+    {
+      "id": "845b65b7-9805-4f8b-a36b-4ddf24c9c101",
+      "file": "sample_data/PapuanMalay/Crita Skola Minggu (Sunday School Lessons)/Crita SM Minggu 4.mp3"
+    },
+    {
+      "id": "98f53996-0390-435c-a8f5-55cf5e1f1cd4",
+      "file": "sample_data/PapuanMalay/Crita Skola Minggu (Sunday School Lessons)/Crita SM Minggu 5.mp3"
+    },
+    {
+      "id": "84ea494f-2f42-4602-aef1-b3424ad3c217",
+      "file": "sample_data/PapuanMalay/Lagu (Songs)/1. Indah pada waktuNya.mp3"
+    },
+    {
+      "id": "74cdac6f-feb1-43b0-b3ac-c478021fdfd2",
+      "file": "sample_data/PapuanMalay/Lagu (Songs)/2. Ko Khusus Ko Perkasa.mp3"
+    },
+    {
+      "id": "f9b40dd0-9855-49c4-af5c-074cb1d5accb",
+      "file": "sample_data/PapuanMalay/Lagu (Songs)/3. Tuhan Trada yg sperti KO.mp3"
+    },
+    {
+      "id": "bb974b10-8f48-4e40-9fd0-5f9e81a99a3a",
+      "file": "sample_data/PapuanMalay/Lagu (Songs)/4. De Allah.mp3"
+    },
+    {
+      "id": "f1bf3e2d-c103-4ff4-9116-76aae6311106",
+      "file": "sample_data/PapuanMalay/Lagu (Songs)/5. Yesus Ko bilang.mp3"
+    },
+    {
+      "id": "02f5a95b-6cc8-4f22-bec6-4c786c28b0fb",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_1.mp3"
+    },
+    {
+      "id": "34c96136-f0c0-4710-bcf4-520543652a44",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_10.mp3"
+    },
+    {
+      "id": "444de503-82e6-4789-a0a0-b16f8282845f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_11.mp3"
+    },
+    {
+      "id": "a1b5d524-fe40-40cf-abb1-f30f7a31e7c1",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_12.mp3"
+    },
+    {
+      "id": "26e18a95-40fa-469b-9f31-67bc6adae990",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_13.mp3"
+    },
+    {
+      "id": "57d69762-f436-4efd-a1fd-42a5a88002e4",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_14.mp3"
+    },
+    {
+      "id": "f8587ae2-732c-4ef3-8cd7-60908f36015d",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_15.mp3"
+    },
+    {
+      "id": "1d10a577-fabc-4631-8b91-b394f296c147",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_16.mp3"
+    },
+    {
+      "id": "8585bd4c-219e-4b92-bd6b-285586343166",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_17.mp3"
+    },
+    {
+      "id": "75d0b81b-b959-4bdb-a06a-88d86f3217ec",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_18.mp3"
+    },
+    {
+      "id": "0fc46dff-82c9-40a7-8854-c8a8a9e78080",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_19.mp3"
+    },
+    {
+      "id": "f6a15e51-0cb9-4478-a8ba-f647df36b168",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_2.mp3"
+    },
+    {
+      "id": "d7ae19f8-77cb-44da-ba33-2cedb9c00384",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_3.mp3"
+    },
+    {
+      "id": "0ab98092-710b-4f52-822c-1777d8599a9b",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_4.mp3"
+    },
+    {
+      "id": "4324281c-89ca-4bf3-96e2-325ac3203de4",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_5.mp3"
+    },
+    {
+      "id": "eabf731d-fdfc-43d9-8291-b7b8f1162f8e",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_6.mp3"
+    },
+    {
+      "id": "fad94137-9aa9-4d4e-a07c-710800164a60",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_7.mp3"
+    },
+    {
+      "id": "2e9befad-35a5-4667-bfd6-a95b9714a12e",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1 Timotius 1_8.mp3"
+    },
+    {
+      "id": "ae2400dc-ec6f-42bc-8f02-55e525c6738d",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 1/1_9.mp3"
+    },
+    {
+      "id": "09c1927f-9e4e-410f-9025-edbf04c0fc9f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_1.mp3"
+    },
+    {
+      "id": "1d4613da-0568-41f4-9ce2-3779a5217d01",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_10.mp3"
+    },
+    {
+      "id": "9f64c1b7-32a6-43c5-bbb5-7fd0a0a6de68",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_11.mp3"
+    },
+    {
+      "id": "634f5762-085a-43c1-946a-085d9ad3bf00",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_12.mp3"
+    },
+    {
+      "id": "15d0fa48-e6a9-4f66-b512-f1a8f89a6e83",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_13.mp3"
+    },
+    {
+      "id": "a5bcfe43-087c-4047-953c-32b816c60f9c",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_14.mp3"
+    },
+    {
+      "id": "73cffb55-734e-4a53-9c0a-0f206654c24a",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_15.mp3"
+    },
+    {
+      "id": "550ef103-75cf-4cb1-b463-1162d2bfe210",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_2.mp3"
+    },
+    {
+      "id": "28725acc-8f8f-4492-8947-f892ae1deb49",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_3.mp3"
+    },
+    {
+      "id": "c6b2e589-a65a-4bcd-9c63-58f8e3087078",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_4.mp3"
+    },
+    {
+      "id": "1e8c45da-806f-4237-8474-c5265d89192a",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_5.mp3"
+    },
+    {
+      "id": "b69d11e0-a5f6-4841-bafe-ea222b935da3",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_6.mp3"
+    },
+    {
+      "id": "df3fec33-5259-4b1b-b77c-b00c56b412b0",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_7.mp3"
+    },
+    {
+      "id": "c9c2a8bf-f92d-462c-8bf7-9f78ca7704ef",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_8.mp3"
+    },
+    {
+      "id": "caa7a044-f50f-4df5-baa2-5086ae898b17",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 2/2_9.mp3"
+    },
+    {
+      "id": "84f3d11c-fbc9-4f6e-9c0a-5d4630f75dc9",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_1.mp3"
+    },
+    {
+      "id": "94e3d07e-5a86-48cd-862f-274849d7b096",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_10.mp3"
+    },
+    {
+      "id": "ccf75fc0-8d8c-4888-85f8-9119458e8eb0",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_11.mp3"
+    },
+    {
+      "id": "7b326f69-b398-4061-86d1-81261e06ebb0",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_12.mp3"
+    },
+    {
+      "id": "a4226132-8f73-4985-bc90-e17053e5c97f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_13.mp3"
+    },
+    {
+      "id": "d84fa319-4704-48e1-8aa0-b602bb62bd75",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_14.mp3"
+    },
+    {
+      "id": "066e13ea-3f0c-4841-b1ca-3c6ec684125a",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_15.mp3"
+    },
+    {
+      "id": "fff60f85-a8c2-49b5-8974-0b5fffa8cc41",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_16.mp3"
+    },
+    {
+      "id": "028a1a0d-dd7b-419e-989d-ae885d181997",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_2.mp3"
+    },
+    {
+      "id": "38699c3d-0dde-487e-ab22-3cd875e6e325",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_3.mp3"
+    },
+    {
+      "id": "14987105-4538-40ad-b6b7-580a0647f27b",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_4.mp3"
+    },
+    {
+      "id": "d3324060-174b-4350-88e8-332113133082",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_5.mp3"
+    },
+    {
+      "id": "51629819-5ce6-46b9-b335-57ff8284e083",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_6.mp3"
+    },
+    {
+      "id": "1f3759ff-83bf-4462-a123-5221b312e5ba",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_7.mp3"
+    },
+    {
+      "id": "1e68f42c-d231-4118-abd5-e909980bc089",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_8.mp3"
+    },
+    {
+      "id": "b41582d1-69aa-4634-b208-54d9a3b68ab5",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 3/3_9.mp3"
+    },
+    {
+      "id": "7f721ff3-fbb2-487b-8cb2-4f27c00c762f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_1.mp3"
+    },
+    {
+      "id": "43b11a18-a3a8-411b-ad9e-8f8437c3ff9f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_10.mp3"
+    },
+    {
+      "id": "ccf7387f-991d-4854-9952-13f40316b204",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_11.mp3"
+    },
+    {
+      "id": "e01418d7-2ce0-4f75-a5b4-ac5c03e95a1e",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_12.mp3"
+    },
+    {
+      "id": "c86b32e2-4a15-4702-a2c1-b518b268f7ef",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_13.mp3"
+    },
+    {
+      "id": "f0793d94-6031-42e1-a7dd-93457d4d9fe1",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_14.mp3"
+    },
+    {
+      "id": "b57eaaac-5a0d-420a-9992-a264544d9a8d",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_15.mp3"
+    },
+    {
+      "id": "0f56b99f-4943-4cd6-bc6c-8881e30b7274",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_16.mp3"
+    },
+    {
+      "id": "cf512c2f-8ea5-4dd2-8ffe-f8be11169e21",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_2.mp3"
+    },
+    {
+      "id": "03214ab3-ff87-477f-826c-970bdb704d55",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_3.mp3"
+    },
+    {
+      "id": "908b0829-8e29-46bd-9ea5-08b4c314efa0",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_4.mp3"
+    },
+    {
+      "id": "46bf22d3-b18b-4508-ad22-a19d56a65588",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_5.mp3"
+    },
+    {
+      "id": "9a5c12eb-fead-4d20-9efc-72126c66ebb2",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_6.mp3"
+    },
+    {
+      "id": "a6ee237a-cfdc-465b-98cf-25c3625cf634",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_7.mp3"
+    },
+    {
+      "id": "bf57092c-eac1-4496-90b4-138c33b61e91",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_8.mp3"
+    },
+    {
+      "id": "921c5b39-a447-4a4f-bbe7-44e6f0f5863c",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 4/4_9.mp3"
+    },
+    {
+      "id": "589e49a7-3a5f-4988-b057-7af418903891",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_00.mp3"
+    },
+    {
+      "id": "baef599c-df00-4ca1-ba6f-a87543c84f3d",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_10.mp3"
+    },
+    {
+      "id": "7f26f5b6-df1b-4712-a31c-3bbf082a9042",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_11.mp3"
+    },
+    {
+      "id": "d14f9b36-577f-4cef-8ef1-fb63063ed99b",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_12.mp3"
+    },
+    {
+      "id": "3d568c2f-ac53-467b-aeda-5a68e1d906e6",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_13.mp3"
+    },
+    {
+      "id": "e88f7d01-c095-43db-a0ec-7bc4651a8964",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_14.mp3"
+    },
+    {
+      "id": "3a4fd1e4-7663-47d7-bc7f-29b4b3e78581",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_15.mp3"
+    },
+    {
+      "id": "c4609f18-ad44-4cd2-a07c-0999976cfa1f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_16.mp3"
+    },
+    {
+      "id": "03aecc50-df40-480d-a158-4c6b45117635",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_17.mp3"
+    },
+    {
+      "id": "2a460163-1cfa-44bb-98cf-561fb57810ac",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_18.mp3"
+    },
+    {
+      "id": "350d321d-d538-456f-bf3e-0c1df0e43671",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_19.mp3"
+    },
+    {
+      "id": "ab42c327-6ad8-4878-8c54-ba5f96b799f9",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_2.mp3"
+    },
+    {
+      "id": "1bf8998d-748a-4b0b-b9f6-37b647003e23",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_20.mp3"
+    },
+    {
+      "id": "6bcf6690-6a27-455d-b4ee-7d09a29df9e3",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_21.mp3"
+    },
+    {
+      "id": "ac076289-4bdc-4b5e-9938-b2f4501c41b5",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_22.mp3"
+    },
+    {
+      "id": "48ecf27a-86f4-4e59-8e89-0eb98556e093",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_23.mp3"
+    },
+    {
+      "id": "437b3dc0-c404-42d5-af3d-0e4491af3013",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_24.mp3"
+    },
+    {
+      "id": "fd9e3fd9-e8cb-4a9d-abe3-698a2ea70c9c",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_25.mp3"
+    },
+    {
+      "id": "f5fbce8f-ba64-4463-a7de-ff4cca275063",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_3.mp3"
+    },
+    {
+      "id": "32d46ca6-3c70-41f4-a044-9135266a149d",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_4.mp3"
+    },
+    {
+      "id": "c9fc62fe-b1af-43c4-89db-7f4b1eb6df73",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_5.mp3"
+    },
+    {
+      "id": "3e8e1f7a-6885-4d3c-bfa1-9a0c7aebf560",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_6.mp3"
+    },
+    {
+      "id": "7f13052f-fc5c-46f8-b4fb-d917667242e8",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_7.mp3"
+    },
+    {
+      "id": "83b0b6eb-f3d0-482f-9a3c-2e9856a1f159",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_8.mp3"
+    },
+    {
+      "id": "bd1ef0b3-25a8-44f5-b0d5-40ab03df71e4",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 5/1 Timotius 5.mp3_9.mp3"
+    },
+    {
+      "id": "aa36dd2e-792b-4a9d-b80e-a90cc304c8cc",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_1.mp3"
+    },
+    {
+      "id": "54eb6d6d-429c-4b45-a3a8-bc348740a605",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_10.mp3"
+    },
+    {
+      "id": "a698946a-f703-4150-89df-fb1fdc15b45c",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_11.mp3"
+    },
+    {
+      "id": "6e4a018c-8eb1-4d7b-b221-e72aac5e5897",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_12.mp3"
+    },
+    {
+      "id": "4a4ac51f-f82c-4837-a807-61fd7068e4f9",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_13.mp3"
+    },
+    {
+      "id": "ca7bed57-0521-4c64-9831-a6b48f84d086",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_14.mp3"
+    },
+    {
+      "id": "9358d435-44fd-4a23-82a6-f8b11e7eb29d",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_15.mp3"
+    },
+    {
+      "id": "b811e596-ffc4-4a4d-8e91-677f8345c125",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_16.mp3"
+    },
+    {
+      "id": "bcf27c9f-c11a-4ef7-a6e4-d45c2b344262",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_17.mp3"
+    },
+    {
+      "id": "ce39241a-60d1-4736-87c9-88e48ca3cd19",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_18.mp3"
+    },
+    {
+      "id": "2a1c2091-9ee3-428b-82ef-8006edd172d5",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_19.mp3"
+    },
+    {
+      "id": "a3382efe-92a4-46c9-a7df-a8c641799b84",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_20.mp3"
+    },
+    {
+      "id": "ca5cca35-9c0b-4083-984b-bb110cdd0956",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_21.mp3"
+    },
+    {
+      "id": "660cacf9-c39e-438b-bf93-8ee24cdac18e",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_2a.mp3"
+    },
+    {
+      "id": "9454fae3-63d4-434f-a954-c46c55390001",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_2b.mp3"
+    },
+    {
+      "id": "d23570ca-06e2-4ad3-a163-6062bcd324c2",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_3.mp3"
+    },
+    {
+      "id": "0f677474-9042-41d1-b1ea-d5d023669e1e",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_4.mp3"
+    },
+    {
+      "id": "cc7adc8f-31fb-4bac-97e4-f6fdd82e134b",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_5.mp3"
+    },
+    {
+      "id": "1bdf6d78-5789-442c-8912-a21966207875",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_6.mp3"
+    },
+    {
+      "id": "14145ed9-4257-4320-9339-0b77bb8c3cee",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_7.mp3"
+    },
+    {
+      "id": "a1c6d8c1-a7f7-47c3-8af2-b44aa0048676",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_8.mp3"
+    },
+    {
+      "id": "16ecb726-f522-4809-9d24-93d3f89ab26e",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/1 Timotius/1 Timotius 6/6_9.mp3"
+    },
+    {
+      "id": "a1bdfd0b-71c6-44a1-a2e7-3fcf707a6b6b",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_1.mp3"
+    },
+    {
+      "id": "ae6f3807-1957-473f-8d65-085ebf72dee6",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_10.mp3"
+    },
+    {
+      "id": "5d70ad69-6d86-4ef1-bb3b-89266bebc0eb",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_11.mp3"
+    },
+    {
+      "id": "4408d2a1-49af-485b-b3a9-13ac7f5ba32b",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_12.mp3"
+    },
+    {
+      "id": "b8571e0b-6fb1-4a50-a0d5-4277b7bdb46d",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_13.mp3"
+    },
+    {
+      "id": "4a068894-d56f-476e-91ad-acaf60efed82",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_14.mp3"
+    },
+    {
+      "id": "aeb330ce-f6c3-47af-963e-aca555423850",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_15.mp3"
+    },
+    {
+      "id": "82842453-bc12-40e5-92c5-487e53e5528e",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_16.mp3"
+    },
+    {
+      "id": "918d4282-ef51-4947-88fc-31e05948d924",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_17.mp3"
+    },
+    {
+      "id": "afe3046d-9562-4db4-be8c-ebdff7bd96b7",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_18.mp3"
+    },
+    {
+      "id": "26e020ce-322a-4431-84b0-790b03599cc5",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_19.mp3"
+    },
+    {
+      "id": "f72c8810-f849-4e55-bd66-4ed80f3e9e7f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_2.mp3"
+    },
+    {
+      "id": "c8eeb313-3619-4684-886c-bae5da463373",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_20.mp3"
+    },
+    {
+      "id": "1b2b9768-dd52-43d7-82b6-bc36867a485f",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_21.mp3"
+    },
+    {
+      "id": "7d2d7625-6556-43ee-bd48-970ddb723e9c",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_22.mp3"
+    },
+    {
+      "id": "63ea101e-efd8-4504-a5ff-7702b39ec444",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_23.mp3"
+    },
+    {
+      "id": "59f2f88c-4ad8-4a7e-ba10-a05a6650eae5",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_24.mp3"
+    },
+    {
+      "id": "8e7246e7-46b9-4ca5-8b5b-51d878b7d38b",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_25.mp3"
+    },
+    {
+      "id": "60b54f4c-f950-4e01-bb59-196d9ea04f96",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_3.mp3"
+    },
+    {
+      "id": "eca5a576-db6a-4441-a3d2-05f33b0f0e19",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_4.mp3"
+    },
+    {
+      "id": "d1e64b49-870c-49f5-b9c9-503c2a699e48",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_5.mp3"
+    },
+    {
+      "id": "ca92a1eb-d8a3-4a4b-9671-34a83eb921ba",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_6.mp3"
+    },
+    {
+      "id": "9215f8b1-6664-4b2d-88e6-e6c9947beae2",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_7.mp3"
+    },
+    {
+      "id": "b72166b6-ceaa-415c-bd77-d1909a1317d1",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_8.mp3"
+    },
+    {
+      "id": "7439170e-4156-4e04-be38-915a833e8fe7",
+      "file": "sample_data/PapuanMalay/Perjanjian Baru (New Testament)/Lukas (Luke)/Lukas 1/Lukas 1_9.mp3"
+    },
+    {
+      "id": "c660b308-4f71-498a-abd2-c15b0adeaa2f",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_1.mp3"
+    },
+    {
+      "id": "fb6a7a0b-e6c4-420e-80e4-e98caf9216b2",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_10.mp3"
+    },
+    {
+      "id": "a3c7c930-41fa-4f7b-a645-60f3a1dc05d7",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_11.mp3"
+    },
+    {
+      "id": "bab4262f-2e5e-4e2a-b5eb-386a05d8fcd6",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_12.mp3"
+    },
+    {
+      "id": "bd5bdf4b-4cf0-4faf-b28a-a04757c6ab81",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_13.mp3"
+    },
+    {
+      "id": "1cdd967e-e289-4afc-8ce2-718e3c31f9a3",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_14.mp3"
+    },
+    {
+      "id": "be530185-cf75-4a10-90a4-2b62b2a016bf",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_15.mp3"
+    },
+    {
+      "id": "cebed62d-3248-4957-a884-603b2a792494",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_16.mp3"
+    },
+    {
+      "id": "9c94eb72-9af1-4aa1-984d-0b5fffa3643a",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_17.mp3"
+    },
+    {
+      "id": "16559876-71b4-4606-b482-40ec5e46dc4e",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_18.mp3"
+    },
+    {
+      "id": "c9058e74-17c8-41a7-b6ea-80f64d02a663",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_19.mp3"
+    },
+    {
+      "id": "13ab40fa-4114-45a0-8f4b-3acffabbe183",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_2.mp3"
+    },
+    {
+      "id": "72a32c44-dbbd-4ed5-9149-0608413152bc",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_20.mp3"
+    },
+    {
+      "id": "aafe5b84-def0-4e03-9deb-70dd7bb97691",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_21.mp3"
+    },
+    {
+      "id": "62869f5c-59e3-47eb-9110-316420b8838a",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_22.mp3"
+    },
+    {
+      "id": "2c4a7d14-698e-4b2a-90a8-fac8653d267d",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_23.mp3"
+    },
+    {
+      "id": "1a5f26e1-1e11-45f8-9669-1561ad93dd6a",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_24.mp3"
+    },
+    {
+      "id": "c508a40a-2fe5-481e-a81a-6fed3f4c304a",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_25.mp3"
+    },
+    {
+      "id": "31cb74b3-cfe6-460a-9803-fd4ee54dea17",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_26.mp3"
+    },
+    {
+      "id": "ef5c8c8a-d9c4-482e-850c-995b6f9abfb8",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_27.mp3"
+    },
+    {
+      "id": "5053bbad-a15e-4d40-91d6-537846723dc9",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_28.mp3"
+    },
+    {
+      "id": "d6585830-13e7-4a93-9be2-105e1df66e92",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_29.mp3"
+    },
+    {
+      "id": "4c30efab-0f65-407d-9df6-f445c2a8bd1c",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_3.mp3"
+    },
+    {
+      "id": "e51896b3-3f4f-487e-a751-a1552cca6705",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_30.mp3"
+    },
+    {
+      "id": "783a6b47-8242-423b-87bf-c15493b1b1ea",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_31.mp3"
+    },
+    {
+      "id": "6a55ce89-b9df-49fd-acfc-b79e4112a297",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_4.mp3"
+    },
+    {
+      "id": "460a14cf-0c22-4d75-9e32-f94ec0dc96ff",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_5.mp3"
+    },
+    {
+      "id": "5c409618-e5d5-4df4-9dfe-23438c15ed0f",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_6.mp3"
+    },
+    {
+      "id": "67b35871-9d58-4541-9ae4-57649b932908",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_7.mp3"
+    },
+    {
+      "id": "32713602-1132-411a-8bd6-bfa46f35b6df",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_8.mp3"
+    },
+    {
+      "id": "490aa3e8-7418-4898-ac64-5a402248827a",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Kejadian (Genesis)/Kejadian 1/kejadian 1_9.mp3"
+    },
+    {
+      "id": "a1b22260-27da-428d-8f73-98fb49d5e478",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_1.mp3"
+    },
+    {
+      "id": "766fc764-e946-43b1-9f9c-a4ad4d56d010",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_10.mp3"
+    },
+    {
+      "id": "8ce4bae8-8e4a-406f-9027-3b16a5e512be",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_11.mp3"
+    },
+    {
+      "id": "6d97702c-35b4-4a57-8af2-b0cefdc5ca3d",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_12.mp3"
+    },
+    {
+      "id": "2e46050b-12bf-47a7-9c25-5d9693b61035",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_13.mp3"
+    },
+    {
+      "id": "d9a99af2-e002-4265-88d8-fcc4ff397a02",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_14.mp3"
+    },
+    {
+      "id": "d0840ea0-fb14-4333-9e94-507e49460b6e",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_15.mp3"
+    },
+    {
+      "id": "69e90ff0-17b3-42ef-b28e-8ece766ef09b",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_16.mp3"
+    },
+    {
+      "id": "37112cbc-0dea-41be-95ab-94d4ba619efd",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_17.mp3"
+    },
+    {
+      "id": "06496293-dff1-443a-a288-825967dbbe12",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_2.mp3"
+    },
+    {
+      "id": "6937dcb0-46db-44d5-b6d6-5c8f04e4fa3b",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_3.mp3"
+    },
+    {
+      "id": "0017ca04-b84c-47d3-adbd-2f1c05c11615",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_4-5.mp3"
+    },
+    {
+      "id": "a1d4122c-9c35-48d3-bfc8-6e132fc91d3c",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_6.mp3"
+    },
+    {
+      "id": "651189d4-854e-4714-aae2-3d4c094a0094",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_7.mp3"
+    },
+    {
+      "id": "f3420443-113a-46ee-a8df-10bd0f05818e",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_8.mp3"
+    },
+    {
+      "id": "25d1c24a-569d-48f5-889e-13fa6578ad25",
+      "file": "sample_data/PapuanMalay/Perjanjian Lama (Old Testament)/Yunus (Jonah)/Yunus 1/Yunus 1_9.mp3"
+    }
+  ]
+}

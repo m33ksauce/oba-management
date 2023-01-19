@@ -2,6 +2,7 @@ import {Command, Flags} from '@oclif/core'
 import * as fs from "fs";
 import { Metadata, AudioFile, Category } from '../../interfaces';
 import { v4 as uuidv4 } from 'uuid';
+const crypto = require('crypto');
 const path = require('path');
 
 export default class ParseMedia extends Command {
@@ -74,8 +75,9 @@ hello friend from oclif! (./src/commands/hello/index.ts)
   }
 
   private parseFile(curPath: string): AudioFile {
+    let bits = fs.readFileSync(curPath);
     return {
-        "id": uuidv4(),
+        "id": crypto.createHash('md5').update(bits).digest('hex'),
         "file": curPath,
     }
   }
