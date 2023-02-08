@@ -17,7 +17,8 @@ services:
       - AWS_SECRET_ACCESS_KEY=devkeysecret
       - AWS_S3_ENDPOINT=https://localhost.localstack.cloud:4566
       - AWS_DYNAMO_ENDPOINT=https://localhost.localstack.cloud:4566
-      - AWS_DYNAMO_TABLE_NAME=app.oralbible.api.releases
+      - AWS_DYNAMO_RELEASE_TABLE_NAME=app.oralbible.api.releases
+      - AWS_DYNAMO_AUDIO_TABLE_NAME=app.oralbible.api.audio
       - AWS_S3_BUCKET_NAME=app.oralbible.api
     restart: always
   localstack:

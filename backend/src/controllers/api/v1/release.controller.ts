@@ -10,13 +10,13 @@ const store = new S3Store();
 const logger = new LoggerService();
 const releaseSvc = new ReleaseService(store, logger);
 
-releaseController.get("/", (req: express.Request, res: express.Response) => {
-    const translation = res.locals.translation;
+// releaseController.get("/", (req: express.Request, res: express.Response) => {
+//     const translation = res.locals.translation;
     
-    releaseSvc.findAll(translation)
-        .then(data => res.json(data))
-        .catch(() => res.sendStatus(500))
-});
+//     releaseSvc.findAll(translation)
+//         .then(data => res.json(data))
+//         .catch(() => res.sendStatus(500))
+// });
 
 releaseController.get("/:id", (req: express.Request, res: express.Response) => {
     const translation = res.locals.translation;

@@ -31,8 +31,10 @@
     "import": "^0.0.6",
     "mime": "^3.0.0",
     "mime-types": "^2.1.35",
+    "natural-orderby": "^3.0.2",
     "node-blob": "^0.0.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "@oclif/test": "^2",

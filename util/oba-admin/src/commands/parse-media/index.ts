@@ -2,6 +2,7 @@ import {Command, Flags} from '@oclif/core'
 import * as fs from "fs";
 import { Metadata, AudioFile, Category } from '../../interfaces';
 import { v4 as uuidv4 } from 'uuid';
+import { orderBy } from 'natural-orderby';
 const crypto = require('crypto');
 const path = require('path');
 
@@ -36,7 +37,8 @@ hello friend from oclif! (./src/commands/hello/index.ts)
         Audio: [],
     }
 
-    fs.readdirSync(path.resolve(args.mediaDir), {withFileTypes: true}).forEach(entry => {
+    orderBy(fs.readdirSync(path.resolve(args.mediaDir), {withFileTypes: true}))
+      .forEach(entry => {
         if (entry.isDirectory()) {
             let topLevelCat = this.parseDir(path.join(args.mediaDir), entry.name);
             this.metadata.Categories.push(topLevelCat)
@@ -53,14 +55,14 @@ hello friend from oclif! (./src/commands/hello/index.ts)
         "children": []
     }
 
-    fs
-        .readdirSync(path.resolve(`${curPath}/${name}`), {withFileTypes: true})
+    orderBy(fs
+        .readdirSync(path.resolve(`${curPath}/${name}`), {withFileTypes: true}), (f => f.name))
         .forEach(entry => {
             if (entry.isFile()) {
                 let file = this.parseFile(`${curPath}/${name}/${entry.name}`)
                 newCategory.children.push({
                     "type": 2,
-                    "name": path.parse(entry.name).name,
+                    "name": path.parse(entry.name).name.replace("_", ":").trim(),
                     "audioTargetId": file.id,
                 })
                 this.metadata.Audio.push(file);

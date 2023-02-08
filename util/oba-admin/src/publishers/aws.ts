@@ -5,6 +5,7 @@ import * as AWS from 'aws-sdk';
 import { DynamoDBClient, PutItemCommand, PutItemCommandInput} from "@aws-sdk/client-dynamodb";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { Metadata, Publisher } from "../interfaces";
+import { gzipSync } from "zlib";
 const https = require('http');
 
 export class AwsPublisher implements Publisher {
@@ -45,27 +46,52 @@ export class AwsPublisher implements Publisher {
     }
 
     public PublishMetadata(translation: string, md: Metadata) {
-        const params: PutItemCommandInput = {
+        // Strip audio
+        let strippedMd = this.stripAudioFromMd(md);
+        const releaseCommand: PutItemCommand = new PutItemCommand({
             TableName: "app.oralbible.api.releases",
             Item: {
                 VERSION: {S: `${translation}/${md.Version}`},
-                METADATA: {S: JSON.stringify(md)}
+                METADATA: {S: this.compressString(JSON.stringify(strippedMd))}
             }
-        }
+        })
 
-        const command = new PutItemCommand(params);
-        this.dynamoDb.send(command);
+        const audioCommand: PutItemCommand = new PutItemCommand({
+            TableName: "app.oralbible.api.audio",
+            Item: {
+                VERSION: {S: `${translation}/${md.Version}`},
+                AUDIO: {S: this.compressString(JSON.stringify(md.Audio))}
+            }
+        })
 
-        const paramsLatest: PutItemCommandInput = {
+        this.dynamoDb.send(releaseCommand);
+        this.dynamoDb.send(audioCommand)
+
+        const releaseCommandLatest = new PutItemCommand({
             TableName: "app.oralbible.api.releases",
             Item: {
                 VERSION: {S: `${translation}/latest`},
-                METADATA: {S: JSON.stringify(md)}
+                METADATA: {S: this.compressString(JSON.stringify(strippedMd))}
             }
-        }
+        });
 
-        const commandLatest = new PutItemCommand(paramsLatest);
-        this.dynamoDb.send(commandLatest);
+        const audioCommandLatest: PutItemCommand = new PutItemCommand({
+            TableName: "app.oralbible.api.audio",
+            Item: {
+                VERSION: {S: `${translation}/latest`},
+                AUDIO: {S: this.compressString(JSON.stringify(md.Audio))}
+            }
+        })
+
+        this.dynamoDb.send(releaseCommandLatest);
+        this.dynamoDb.send(audioCommandLatest);        
+    }
+
+    private stripAudioFromMd(md: Metadata): any {
+        return {
+            "Version": md.Version,
+            "Categories": md.Categories
+        }
     }
 
     public async PublishMedia(translation: string, id: string, mime: string, file: Buffer) {
@@ -84,5 +110,9 @@ export class AwsPublisher implements Publisher {
                 .then(() => resolve())
                 .catch((err) => reject(err));
         })
+    }
+
+    private compressString(raw: string): string {
+        return gzipSync(raw).toString('base64')
     }
 }

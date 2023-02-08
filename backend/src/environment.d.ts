@@ -9,7 +9,8 @@ declare global {
       AWS_SECRET_ACCESS_KEY: string;
       AWS_S3_ENDPOINT: string;
       AWS_DYNAMO_ENDPOINT: string;
-      AWS_DYNAMO_TABLE_NAME: string;
+      AWS_DYNAMO_RELEASE_TABLE_NAME: string;
+      AWS_DYNAMO_AUDIO_TABLE_NAME: string;
       AWS_S3_BUCKET_NAME: string;
       ENV: 'test' | 'dev' | 'prod';
     }
