@@ -5,5 +5,40 @@
 </ion-header>
 
 <ion-content>
-  {{categories | json}}
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let category of categories.Categories">
+      <ion-item slot="header" color="light">
+        <ion-label>{{category.name}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ng-container *ngTemplateOutlet="accordionMain; context: {group: category}"></ng-container>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
+
+<ng-template #accordionMain let-group="group">
+  <ion-accordion-group>
+    <ng-container *ngTemplateOutlet="accordionSubMain; context: {group: group}"></ng-container>
+  </ion-accordion-group>
+</ng-template>
+
+<ng-template #accordionSubMain let-group="group">
+    <ng-container *ngFor="let child of group.children">
+      <ng-container *ngIf="(child.children && child.children.length > 0); else endingItem">
+        <ion-accordion>
+          <ion-item slot="header" color="light">
+            <ion-label>{{child.name}}</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+              <ng-container *ngTemplateOutlet="accordionMain; context: {group: child}"></ng-container>
+          </div>
+        </ion-accordion>
+      </ng-container>
+      <ng-template #endingItem>
+        <ion-item color="light">
+          <ion-label>{{child.name}}</ion-label>
+        </ion-item>
+      </ng-template>
+    </ng-container>
+</ng-template>
