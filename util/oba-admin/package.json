@@ -31,7 +31,10 @@
     "import": "^0.0.6",
     "mime": "^3.0.0",
     "mime-types": "^2.1.35",
-    "node-blob": "^0.0.2"
+    "natural-orderby": "^3.0.2",
+    "node-blob": "^0.0.2",
+    "uuid": "^9.0.0",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "@oclif/test": "^2",
@@ -39,6 +42,7 @@
     "@types/mime-types": "^2.1.1",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
+    "@types/uuid": "^9.0.0",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",

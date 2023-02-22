@@ -52,4 +52,11 @@ export const SharedFlags = {
         dependsOn: ['useAws'],
         default: 'us-east-1'
       }),
+  translation:
+    Flags.string(
+      {
+        description: 'Translation project name',
+        required: true,
+      }
+    )
 }

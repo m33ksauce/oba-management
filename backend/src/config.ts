@@ -16,7 +16,8 @@ export interface AWSConfig {
 }
 
 export interface DynamoDbConfig {
-    tableName: string;
+    audioTableName: string;
+    releaseTableName: string;
     endpoint: string;
 }
 
@@ -35,7 +36,8 @@ export function GetAppConfig(): AppConfig {
             region: process.env.AWS_REGION,
             rejectUnauthorized: (process.env.ENV == 'prod'),
             dynamo: {
-                tableName: process.env.AWS_DYNAMO_TABLE_NAME,
+                audioTableName: process.env.AWS_DYNAMO_AUDIO_TABLE_NAME,
+                releaseTableName: process.env.AWS_DYNAMO_RELEASE_TABLE_NAME,
                 endpoint: process.env.AWS_DYNAMO_ENDPOINT,
             },
             s3: {
