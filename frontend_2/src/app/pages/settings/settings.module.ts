@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { Routes, RouterModule } from '@angular/router';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 import { SettingsPage } from './settings.page';
 
 const routes: Routes = [
@@ -19,6 +19,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   declarations: [SettingsPage]
