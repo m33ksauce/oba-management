@@ -1,44 +1,56 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="page-header-padding">
     <ion-title>Home {{currentTranslation}}</ion-title>
+    <ion-buttons slot="end">
+      <app-active-user [translation]="currentTranslation"></app-active-user>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-accordion-group>
-    <ion-accordion *ngFor="let category of categories.Categories">
-      <ion-item slot="header" color="light">
-        <ion-label>{{category.name}}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ng-container *ngTemplateOutlet="accordionMain; context: {group: category}"></ng-container>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group>
+<ion-content class="page-padding">
+  <div *ngIf="loading" class="loader">
+    <ion-spinner></ion-spinner>
+  </div>
+  <ng-container *ngIf="!loading">
+    <ion-button class="upload-btn" mode="ios" (click)="openFileUpload()">
+      <ion-icon name="add"></ion-icon>
+      <ion-label>Upload</ion-label>
+    </ion-button>
+    <ion-accordion-group expand="inset">
+      <ion-accordion *ngFor="let category of categories.Categories">
+        <ion-item slot="header" color="light">
+          <ion-label>{{category.name}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ng-container *ngTemplateOutlet="accordionMain; context: {group: category}"></ng-container>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ng-container>
 </ion-content>
 
 <ng-template #accordionMain let-group="group">
-  <ion-accordion-group>
+  <ion-accordion-group expand="inset">
     <ng-container *ngTemplateOutlet="accordionSubMain; context: {group: group}"></ng-container>
   </ion-accordion-group>
 </ng-template>
 
 <ng-template #accordionSubMain let-group="group">
-    <ng-container *ngFor="let child of group.children">
-      <ng-container *ngIf="(child.children && child.children.length > 0); else endingItem">
-        <ion-accordion>
-          <ion-item slot="header" color="light">
-            <ion-label>{{child.name}}</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-              <ng-container *ngTemplateOutlet="accordionMain; context: {group: child}"></ng-container>
-          </div>
-        </ion-accordion>
-      </ng-container>
-      <ng-template #endingItem>
-        <ion-item color="light">
+  <ng-container *ngFor="let child of group.children">
+    <ng-container *ngIf="(child.children && child.children.length > 0); else endingItem">
+      <ion-accordion>
+        <ion-item slot="header" color="light">
           <ion-label>{{child.name}}</ion-label>
         </ion-item>
-      </ng-template>
+        <div class="ion-padding" slot="content">
+          <ng-container *ngTemplateOutlet="accordionMain; context: {group: child}"></ng-container>
+        </div>
+      </ion-accordion>
     </ng-container>
+    <ng-template #endingItem>
+      <ion-item color="light">
+        <ion-label>{{child.name}}</ion-label>
+      </ion-item>
+    </ng-template>
+  </ng-container>
 </ng-template>

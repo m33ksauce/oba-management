@@ -1,0 +1,17 @@
+<ng-container *ngIf="activeUser">
+  <ion-button id="settings-dropdown-trigger">
+    {{ activeUser }}
+  </ion-button>
+  <ion-popover trigger="settings-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
+    <ng-template>
+      <ion-list lines="none">
+        <ion-item button (click)="navigateToUrl('settings')">
+          <ion-label>Settings</ion-label>
+        </ion-item>
+        <ion-item button (click)="navigateToUrl('login')">
+          <ion-label>Log out</ion-label>
+        </ion-item>
+      </ion-list>
+    </ng-template>
+  </ion-popover>
+</ng-container>

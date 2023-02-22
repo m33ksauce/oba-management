@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { CatalogService } from 'src/app/services/catalog.service';
+import { ModalController } from '@ionic/angular';
+import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +11,19 @@ import { CatalogService } from 'src/app/services/catalog.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
   private _unsubscribeAll: Subject<any>;
 
   currentTranslation: any;
 
   categories: any;
 
-  constructor(private route: ActivatedRoute, private catalogService: CatalogService) {
+  loading = true;
+
+  constructor(
+    private route: ActivatedRoute,
+    private catalogService: CatalogService,
+    private modalCtrl: ModalController,
+  ) {
     this._unsubscribeAll = new Subject();
   }
 
@@ -36,13 +43,26 @@ export class HomePage implements OnInit {
   }
 
   getCategories() {
+    this.loading = true;
     this.catalogService.getAllCategories(this.currentTranslation).subscribe({
-      next: (categories) => {
+      next: categories => {
         this.categories = categories;
+        this.loading = false;
       },
-      error: (err) => {
+      error: err => {
+        this.loading = false;
+      },
+    });
+  }
 
-      }
-   });
+  async openFileUpload() {
+    const modal = await this.modalCtrl.create({
+      component: FileUploadComponent,
+      cssClass: 'dnd-modal',
+    });
+    modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    // Set up web worker here to handle data containing files
   }
 }
