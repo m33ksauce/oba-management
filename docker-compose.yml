@@ -10,7 +10,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - ENV="dev"
+      - ENV=dev
       - PORT=8080
       - AWS_REGION=us-east-1
       - AWS_ACCESS_KEY_ID=devkeyid

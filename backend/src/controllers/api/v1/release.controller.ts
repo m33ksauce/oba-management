@@ -1,4 +1,5 @@
 import * as express from "express";
+import { GetAppConfig } from "../../../config";
 import { LoggerService } from "../../../services/logger.service";
 import ReleaseService from "../../../services/release.service";
 import S3Store from "../../../store/s3.store";
@@ -9,6 +10,7 @@ const releaseController = express.Router();
 const store = new S3Store();
 const logger = new LoggerService();
 const releaseSvc = new ReleaseService(store, logger);
+const config = GetAppConfig();
 
 // releaseController.get("/", (req: express.Request, res: express.Response) => {
 //     const translation = res.locals.translation;
@@ -30,29 +32,29 @@ releaseController.get("/:id", (req: express.Request, res: express.Response) => {
 });
 
 releaseController.post("/", (req: express.Request, res: express.Response) => {
-    return res.sendStatus(401);
-    // const translation = res.locals.translation;
-    // const dto = req.body;
-    // releaseSvc.insert(translation, dto);
-    // releaseSvc.update(translation, "latest", dto);
-    // res.json({Status: "success"});
+    if (config.env != "dev") return res.sendStatus(401);
+    const translation = res.locals.translation;
+    const dto = req.body;
+    releaseSvc.insert(translation, dto);
+    releaseSvc.update(translation, "latest", dto);
+    return res.json({Status: "success"});
 });
 
 releaseController.put("/:id", async (req: express.Request, res: express.Response) => {
-    return res.sendStatus(401);
-    // const translation = res.locals.translation;
-    // const version = req.params.id;
-    // const dto = req.body;
-    // await releaseSvc.update(translation, version, dto);
-    // res.json({Status: "success"});
+    if (config.env != "dev") return res.sendStatus(401);
+    const translation = res.locals.translation;
+    const version = req.params.id;
+    const dto = req.body;
+    await releaseSvc.update(translation, version, dto);
+    return res.json({Status: "success"});
 });
 
 releaseController.delete("/:id", async (req: express.Request, res: express.Response) => {
-    return res.sendStatus(401);
-    // const translation = res.locals.translation;
-    // const version = req.params.id;
-    // releaseSvc.delete(translation, version);
-    // res.status(200);
+    if (config.env != "dev") return res.sendStatus(401);
+    const translation = res.locals.translation;
+    const version = req.params.id;
+    releaseSvc.delete(translation, version);
+    return res.status(200);
 })
 
 export default releaseController;

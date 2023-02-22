@@ -10,4 +10,4 @@ source ../util/oba-admin/scripts/dev.env.sh
 pushd ../util/oba-admin
 ./bin/run publish-metadata --useAws --translation yetfa ./sample_data/md.json --includeAudio
 ./bin/run publish-metadata --useAws --translation papuan_malay \
-    ./sample_data/metadata/papuan_malay-metadata-0.0.7.json --includeAudio
+    ./sample_data/metadata/papuan_malay-metadata-0.0.10-rollback.json --includeAudio
