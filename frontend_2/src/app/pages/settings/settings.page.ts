@@ -8,12 +8,13 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-
   private _unsubscribeAll: Subject<any>;
 
   currentTranslation: any;
 
-  constructor(private route: ActivatedRoute) { 
+  formSubmitting = false;
+
+  constructor(private route: ActivatedRoute) {
     this._unsubscribeAll = new Subject();
   }
 
@@ -28,5 +29,4 @@ export class SettingsPage implements OnInit {
     this._unsubscribeAll.next(true);
     this._unsubscribeAll.complete();
   }
-
 }

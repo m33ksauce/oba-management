@@ -50,6 +50,14 @@
     <ng-template #endingItem>
       <ion-item color="light">
         <ion-label>{{child.name}}</ion-label>
+        <div slot="end">
+          <ion-button mode="ios" slot="end" fill="clear">
+            <ion-icon color="success" slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button mode="ios" slot="end" fill="clear">
+            <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+        </div>
       </ion-item>
     </ng-template>
   </ng-container>
