@@ -4,6 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { CatalogService } from 'src/app/services/catalog.service';
 import { IonInput, ModalController } from '@ionic/angular';
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
+import { Catelog } from 'src/app/models/catelog.interface';
 
 @Component({
   selector: 'app-home',
@@ -48,8 +49,11 @@ export class HomePage implements OnInit {
     this.loading = true;
     this.catalogService.getAllCategories(this.currentTranslation).subscribe({
       next: categories => {
-        this.categories = categories;
+        this.categories = categories as Catelog;
         this.loading = false;
+        if (!this.categories) {
+          this.openFileUpload();
+        }
       },
       error: err => {
         this.loading = false;
@@ -66,6 +70,7 @@ export class HomePage implements OnInit {
 
     const { data } = await modal.onWillDismiss();
     // Set up web worker here to handle data containing files
+    // Refresh list once finished
   }
 
   startEdit(event: Event, item: any, input: IonInput) {
@@ -73,6 +78,12 @@ export class HomePage implements OnInit {
     this.currentItemName = item.name;
     item.isEditing = true;
     input.setFocus();
+  }
+
+  cancelEdit(event: Event, item: any) {
+    event.stopPropagation();
+    item.name = this.currentItemName;
+    delete item.isEditing;
   }
 
   saveEdit(event: Event, item: any) {
