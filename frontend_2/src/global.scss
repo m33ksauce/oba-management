@@ -26,9 +26,12 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 .page-padding {
+  --padding-start: 16px;
+  --padding-end: 16px;
+
   @media (min-width: 992px) {
-    --padding-start: 20%;
-    --padding-end: 20%;
+    --padding-start: calc(20% + 16px);
+    --padding-end: calc(20% + 16px);
   }
 }
 

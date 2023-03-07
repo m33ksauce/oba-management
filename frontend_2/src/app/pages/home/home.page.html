@@ -16,8 +16,8 @@
       <ion-icon name="add"></ion-icon>
       <ion-label>Upload</ion-label>
     </ion-button>
-    <ion-accordion-group>
-      <ion-accordion *ngFor="let category of categories.Categories" toggleIconSlot="start">
+    <ion-accordion-group *ngIf="categories">
+      <ion-accordion *ngFor="let category of categories.categories" toggleIconSlot="start">
         <ion-item
           lines="none"
           slot="header"
@@ -31,6 +31,7 @@
         </div>
       </ion-accordion>
     </ion-accordion-group>
+    <h2 *ngIf="!categories">No data currently available, click the upload button to begin</h2>
   </ng-container>
 </ion-content>
 
@@ -67,7 +68,7 @@
     class="input-border"
     [hidden]="!item.isEditing"
     type="text"
-    (ionBlur)="saveEdit($event, item)"
+    (ionBlur)="cancelEdit($event, item)"
     [(ngModel)]="item.name"
   ></ion-input>
   <div slot="end">
