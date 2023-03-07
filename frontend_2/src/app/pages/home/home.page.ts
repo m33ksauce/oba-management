@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { CatalogService } from 'src/app/services/catalog.service';
-import { ModalController } from '@ionic/angular';
+import { IonInput, ModalController } from '@ionic/angular';
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
 
 @Component({
@@ -18,6 +18,8 @@ export class HomePage implements OnInit {
   categories: any;
 
   loading = true;
+
+  currentItemName: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -64,5 +66,20 @@ export class HomePage implements OnInit {
 
     const { data } = await modal.onWillDismiss();
     // Set up web worker here to handle data containing files
+  }
+
+  startEdit(event: Event, item: any, input: IonInput) {
+    event.stopPropagation();
+    this.currentItemName = item.name;
+    item.isEditing = true;
+    input.setFocus();
+  }
+
+  saveEdit(event: Event, item: any) {
+    event.stopPropagation();
+    delete item.isEditing;
+    if (this.currentItemName != item.name) {
+      // Save item
+    }
   }
 }

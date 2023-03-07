@@ -43,3 +43,9 @@ ion-modal.dnd-modal {
     --border-radius: 10px;
   }
 }
+
+.hide-icon {
+  .ion-accordion-toggle-icon {
+    display: none;
+  }
+}
