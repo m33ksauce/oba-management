@@ -5,8 +5,8 @@ export interface CategoryChild extends Category {
 }
 
 export interface AudioChild {
-  id: String;
-  name: String;
-  path: String;
-  target: String;
+  id: string;
+  name: string;
+  path: string;
+  target: string;
 }
