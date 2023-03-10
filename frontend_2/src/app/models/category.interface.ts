@@ -1,5 +1,5 @@
 export interface Category {
-  id: String;
-  name: String;
-  parent_id?: String;
+  id: string;
+  name: string;
+  parent_id?: string;
 }

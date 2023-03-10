@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { CatalogService } from 'src/app/services/catalog.service';
-import { IonInput, ModalController } from '@ionic/angular';
+import { IonInput, ModalController, LoadingController, ToastController } from '@ionic/angular';
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
 import { Catelog } from 'src/app/models/catelog.interface';
 
@@ -26,6 +26,8 @@ export class HomePage implements OnInit {
     private route: ActivatedRoute,
     private catalogService: CatalogService,
     private modalCtrl: ModalController,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
   ) {
     this._unsubscribeAll = new Subject();
   }
@@ -49,6 +51,13 @@ export class HomePage implements OnInit {
     this.loading = true;
     this.catalogService.getAllCategories(this.currentTranslation).subscribe({
       next: categories => {
+        // if (!response || response?.status == 204) {
+        //   this.openFileUpload();
+        // } else {
+        //   this.categories = response.body as Catelog;
+        // }
+        // this.loading = false;
+
         this.categories = categories as Catelog;
         this.loading = false;
         if (!this.categories) {
@@ -57,8 +66,17 @@ export class HomePage implements OnInit {
       },
       error: err => {
         this.loading = false;
+        this.showErrorToast();
       },
     });
+  }
+
+  async showErrorToast(message?: string) {
+    const toast = await this.toastCtrl.create({
+      message: message ? message : 'An error has occurred.',
+      duration: 2500,
+    });
+    toast.present();
   }
 
   async openFileUpload() {
@@ -86,11 +104,26 @@ export class HomePage implements OnInit {
     delete item.isEditing;
   }
 
-  saveEdit(event: Event, item: any) {
+  async saveEdit(event: Event, item: any) {
     event.stopPropagation();
     delete item.isEditing;
     if (this.currentItemName != item.name) {
       // Save item
+      const loading = await this.loadingCtrl.create({
+        message: 'Saving...',
+      });
+      loading.present();
+      loading.dismiss();
     }
+  }
+
+  async deleteItem(event: Event, item: any) {
+    event.stopPropagation();
+    // Delete item
+    const loading = await this.loadingCtrl.create({
+      message: 'Deleting...',
+    });
+    loading.present();
+    loading.dismiss();
   }
 }

@@ -78,7 +78,7 @@
     <ion-button *ngIf="item.isEditing" mode="ios" slot="end" fill="clear" (click)="saveEdit($event, item)">
       <ion-icon color="primary" slot="icon-only" name="save-outline"></ion-icon>
     </ion-button>
-    <ion-button mode="ios" slot="end" fill="clear">
+    <ion-button mode="ios" slot="end" fill="clear" (click)="deleteItem($event, item)">
       <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
     </ion-button>
   </div>
