@@ -4,6 +4,7 @@ dotenv.config();
 export interface AppConfig {
     env: string;
     aws: AWSConfig;
+    sql: SqlConfig;
 }
 
 export interface AWSConfig {
@@ -27,6 +28,15 @@ export interface S3Config {
     endpoint: string;
 }
 
+export interface SqlConfig {
+    user: string;
+    password: string;
+    database: string;
+    host: string;
+    port: number;
+    ssl: boolean;
+}
+
 export function GetAppConfig(): AppConfig {
     return {
         env: process.env.ENV,
@@ -45,6 +55,14 @@ export function GetAppConfig(): AppConfig {
                 defaultBucket: process.env.AWS_S3_BUCKET_NAME,
                 endpoint: process.env.AWS_S3_ENDPOINT,
             }
+        },
+        sql: {
+            user: process.env.SQL_USER,
+            password: process.env.SQL_PASSWORD,
+            database: process.env.SQL_DB_NAME,
+            host: process.env.SQL_HOST,
+            port: process.env.SQL_PORT ? parseInt(process.env.SQL_PORT, 10): 5432,
+            ssl: process.env.SQL_SSL === "true",
         }
     }
 }

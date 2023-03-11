@@ -1,5 +1,6 @@
 import * as express from "express";
 import AudioController from "./audio.controller";
+import CatalogController from "./catalog.controller";
 import CategoryController from "./category.controller";
 import ReleaseController from "./release.controller";
 
@@ -23,6 +24,7 @@ ApiV1Router.use("/audio", (req, res, next) => {
     next();
 });
 ApiV1Router.use("/audio", AudioController);
-ApiV1Router.use("/category", CategoryController)
+ApiV1Router.use("/category", CategoryController);
+ApiV1Router.use("/catalog", CatalogController);
 
 export default TranslationRouter;

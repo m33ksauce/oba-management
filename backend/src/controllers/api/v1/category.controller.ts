@@ -1,21 +1,16 @@
 import * as express from "express";
 import { GetAppConfig } from "../../../config";
+import { CreateCategoryDTO } from "../../../dto/dto";
 import CategoryService from "../../../services/category.service";
 import { LoggerService } from "../../../services/logger.service";
+import { SqlStore } from "../../../store/sql.store";
 
 const CategoryController = express.Router();
 
 const logger = new LoggerService();
-const categoryService = new CategoryService(logger);
+const sqlStore = new SqlStore();
+const categoryService = new CategoryService(logger, sqlStore);
 const config = GetAppConfig();
-
-CategoryController
-    .get("/", async (req: express.Request, res: express.Response) => {
-        const translation = res.locals.translation;
-
-        let categories = await categoryService.getAll(translation);
-        res.send(categories);
-})
 
 CategoryController
     .get("/:id", (req: express.Request, res: express.Response) => {
@@ -24,24 +19,38 @@ CategoryController
     });
 
 CategoryController
-    .post("/", (req: express.Request, res: express.Response) => {
+    .post("/", async (req: express.Request, res: express.Response) => {
         if (config.env != "dev") return res.sendStatus(401);
-        // const translation = res.locals.translation;
-        return res.json({Status: "success"});
+        const translation = res.locals.translation;
+        const dto: CreateCategoryDTO = req.body;
+        try {
+            await categoryService.insert(translation, dto);
+            return res.json({status: "success"});
+        } catch (e) {
+            res.statusCode = 500;
+            return res.json({status: "failure", msg: "failed to insert"});
+        }
     });
 
 CategoryController
     .put("/:id", async (req: express.Request, res: express.Response) => {
         if (config.env != "dev") return res.sendStatus(401);
         // const translation = res.locals.translation;
-        return res.json({Status: "success"});
+        return res.json({status: "success"});
     });
 
 CategoryController
     .delete("/:id", async (req: express.Request, res: express.Response) => {
         if (config.env != "dev") return res.sendStatus(401);
-        // const translation = res.locals.translation;
-        return res.status(200);
+        const translation = res.locals.translation;
+        if (req.params.id == undefined) return res.status(404);
+        try {
+            await categoryService.delete(translation, req.params.id);
+            return res.json({status: "success"});
+        } catch (e) {
+            res.statusCode = 500;
+            return res.json({status: "failure"})
+        }
     })
 
 export default CategoryController;
