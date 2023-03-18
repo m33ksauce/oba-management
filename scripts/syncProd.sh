@@ -8,3 +8,5 @@ pushd ../util/oba-admin
 ./bin/run publish-metadata --useAws --translation yetfa ./sample_data/md.json --includeAudio
 ./bin/run publish-metadata --useAws --translation papuan_malay \
     ./sample_data/metadata/papuan_malay-metadata-0.0.10-rollback.json --includeAudio
+./bin/run publish-metadata --useAws --translation abawiri \
+    ./sample_data/metadata/abawiri-metadata-0.0.1.json --includeAudio
