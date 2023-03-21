@@ -2,7 +2,7 @@ import { CreateCategoryDTO, ReadCategoryDTO, UpdateCategoryDTO } from "../dto/dt
 import { CategoryModel } from "../models/models";
 import { SqlStore } from "../store/sql.store";
 import ILogger from "./ilogger.interface";
-import { v4 as uuidV4 } from 'uuid';
+import { v4 as uuidV4, NIL as uuidNIL } from 'uuid';
 import { ReadCategoryDTOMappers } from "../mappers/category.mappers";
 
 export class CategoryService {
@@ -15,15 +15,17 @@ export class CategoryService {
     }
 
     // Create
-    //
+
     public async insert(translation: string, categoryDTO: CreateCategoryDTO): Promise<ReadCategoryDTO> {
         let client = this.sqlStore.GetClient();
 
         const newId = uuidV4();
-        const parent_id = categoryDTO.parent_id;
+        const parent_id = categoryDTO.parent_id != "" 
+            ? categoryDTO.parent_id 
+            : uuidNIL;
 
         const insertQuery = `INSERT INTO oba_admin.categories(id, parent_id, name, translation_id) 
-                                VALUES($1, ${parent_id != "" ? "$2" : "NULL"}, $3,
+                                VALUES($1, $2, $3,
                                     (SELECT id from oba_admin.translations where translation=$4))`;
         const params = [newId, parent_id, categoryDTO.name, translation];
 
@@ -50,15 +52,15 @@ export class CategoryService {
                 SELECT id from oba_admin.translations where translation=$2
             )`;
         const params = [id, translation];
-
         try {
             await client.connect();
             let results = await client.query(readQuery, params);
             if (results.rowCount <= 0) {
                 throw new Error("Not found");
             }
-            return ReadCategoryDTOMappers.FromDB(results.rows.pop());
+            return ReadCategoryDTOMappers.FromDB(results.rows.shift());
         } catch (e: any) {
+            this.logger.Error("exception", e.message);
             if (e.message == "Not found") {
                 throw 404;
             }
