@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule),
     // canActivate: [AuthGuard]
   },
+  {
+    path: 'signup',
+    loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpPageModule),
+  },
 ];
 
 @NgModule({
