@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <ion-card class="login-form-container">
+      <ng-container *ngIf="!signupReceived">
+        <div class="login-title">Sign Up</div>
+        <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" formControlName="nameControl"></ion-input>
+            <ion-note slot="error"
+              ><ng-container *ngIf="nameControl.touched && nameControl.invalid">Required</ng-container></ion-note
+            >
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Translation</ion-label>
+            <ion-input type="text" formControlName="translationControl"></ion-input>
+            <ion-note slot="error"
+              ><ng-container *ngIf="translationControl.touched && translationControl.invalid"
+                >Required</ng-container
+              ></ion-note
+            >
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" formControlName="userNameControl"></ion-input>
+            <ion-note slot="error">
+              <ng-container *ngIf="userNameControl.touched && userNameControl.invalid">
+                <ng-container *ngIf="userNameControl.errors?.['required']"> Required </ng-container>
+                <ng-container *ngIf="userNameControl.errors?.['email']"> Enter a valid email </ng-container>
+              </ng-container>
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="passwordControl"></ion-input>
+            <ion-note slot="error"
+              ><ng-container *ngIf="passwordControl.touched && passwordControl.invalid"
+                >Required</ng-container
+              ></ion-note
+            >
+          </ion-item>
+          <div class="login-btn-container">
+            <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">Sign Up</ion-button>
+            <ion-spinner *ngIf="formSubmitting" name="dots"></ion-spinner>
+          </div>
+        </form>
+      </ng-container>
+      <h2 *ngIf="signupReceived">We have received your request. Please allow up to 72 hours for a response.</h2>
+    </ion-card>
+  </div>
+</ion-content>

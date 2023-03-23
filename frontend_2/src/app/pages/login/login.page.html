@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <div class="login-container">
-    <div class="login-form-container">
-      <div class="login-title">Oral Bible Web Admin</div>
+    <ion-card class="login-form-container">
+      <div class="login-title">Log In</div>
       <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <ion-item>
           <ion-label position="floating">Email</ion-label>
@@ -26,7 +26,11 @@
           <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">Log In</ion-button>
           <ion-spinner *ngIf="formSubmitting" name="dots"></ion-spinner>
         </div>
+        <div class="signup-container">
+          Don't have an account?
+          <ion-button type="button" mode="ios" fill="clear" (click)="navigateToSignUp()">Sign Up</ion-button>
+        </div>
       </form>
-    </div>
+    </ion-card>
   </div>
 </ion-content>
