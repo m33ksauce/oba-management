@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
-
-  private BASE_URL = '/api';
+  private BASE_URL = environment.api.url;
 
   private tokenStorage = '$oba$_currentToken';
   private userStorage = '$oba$_currentUser';
@@ -51,6 +51,11 @@ export class AuthenticationService {
     //     return token;
     //   }),
     // );
+    sessionStorage.setItem(this.userStorage, email);
+    this.setCurrentUser(email);
+    sessionStorage.setItem(this.tokenStorage, 'th1s1sn0t0ken');
+    this.setCurrentToken('th1s1snt0t0ken');
+    return of({ translation: 'yetfa', token: 'th1s1sn0t0ken' });
   }
 
   logout() {
