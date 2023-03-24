@@ -13,7 +13,7 @@ export class ActiveUserComponent {
   activeUser = '';
 
   constructor(private authService: AuthenticationService, private router: Router) {
-    this.activeUser = 'Test User'; // this.authService.currentUser;
+    this.activeUser = this.authService.currentUser;
   }
 
   navigateToUrl(route: string) {

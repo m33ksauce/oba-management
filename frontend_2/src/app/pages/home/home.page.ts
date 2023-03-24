@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
 
   currentTranslation: any;
 
-  categories: any;
+  catelog: Catelog;
 
   loading = true;
 
@@ -50,17 +50,15 @@ export class HomePage implements OnInit {
   getCategories() {
     this.loading = true;
     this.catalogService.getAllCategories(this.currentTranslation).subscribe({
-      next: categories => {
-        // if (!response || response?.status == 204) {
-        //   this.openFileUpload();
-        // } else {
-        //   this.categories = response.body as Catelog;
-        // }
-        // this.loading = false;
-
-        this.categories = categories as Catelog;
+      next: response => {
+        if (!response || response?.status == 204) {
+          this.openFileUpload();
+        } else {
+          this.catelog = response.body as Catelog;
+        }
         this.loading = false;
-        if (!this.categories) {
+
+        if (!this.catelog) {
           this.openFileUpload();
         }
       },

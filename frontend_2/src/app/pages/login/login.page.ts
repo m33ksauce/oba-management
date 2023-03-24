@@ -29,14 +29,22 @@ export class LoginPage {
   }
 
   onSubmit() {
-    // if (this.form.invalid) {
-    //   this.form.markAllAsTouched();
-    //   return;
-    // }
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
 
-    // this.formSubmitting = true;
-
-    this.router.navigate(['/home/translation']);
+    this.formSubmitting = true;
+    this.authService.login(this.userNameControl.value, this.passwordControl.value).subscribe({
+      next: response => {
+        this.formSubmitting = false;
+        this.router.navigate([`/home/${response.translation}`]);
+      },
+      error: error => {
+        this.error = error.message;
+        this.formSubmitting = false;
+      },
+    });
   }
 
   navigateToSignUp() {
