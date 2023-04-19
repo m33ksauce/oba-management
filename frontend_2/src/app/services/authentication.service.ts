@@ -54,7 +54,7 @@ export class AuthenticationService {
     sessionStorage.setItem(this.userStorage, email);
     this.setCurrentUser(email);
     sessionStorage.setItem(this.tokenStorage, 'th1s1sn0t0ken');
-    this.setCurrentToken('th1s1snt0t0ken');
+    this.setCurrentToken('th1s1sn0t0ken');
     return of({ translation: 'yetfa', token: 'th1s1sn0t0ken' });
   }
 
