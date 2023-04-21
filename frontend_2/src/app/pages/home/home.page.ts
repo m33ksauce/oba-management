@@ -5,6 +5,7 @@ import { CatalogService } from 'src/app/services/catalog.service';
 import { IonInput, ModalController, LoadingController, ToastController } from '@ionic/angular';
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
 import { Catelog } from 'src/app/models/catelog.interface';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -22,14 +23,18 @@ export class HomePage implements OnInit {
 
   currentItemName: any;
 
+  activeUser: any;
+
   constructor(
     private route: ActivatedRoute,
     private catalogService: CatalogService,
     private modalCtrl: ModalController,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
+    private authService: AuthenticationService,
   ) {
     this._unsubscribeAll = new Subject();
+    this.activeUser = this.authService.currentUser;
   }
 
   ngOnInit() {
@@ -57,10 +62,6 @@ export class HomePage implements OnInit {
           this.catelog = response.body as Catelog;
         }
         this.loading = false;
-
-        if (!this.catelog) {
-          this.openFileUpload();
-        }
       },
       error: err => {
         this.loading = false;
@@ -111,7 +112,15 @@ export class HomePage implements OnInit {
         message: 'Saving...',
       });
       loading.present();
-      loading.dismiss();
+      this.catalogService.updateCategory(this.currentTranslation, item).subscribe({
+        next: response => {
+          loading.dismiss();
+        },
+        error: err => {
+          loading.dismiss();
+          this.showErrorToast();
+        },
+      });
     }
   }
 

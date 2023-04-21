@@ -2,7 +2,12 @@
   <ion-toolbar class="page-header-padding">
     <ion-title>Home {{currentTranslation}}</ion-title>
     <ion-buttons slot="end">
-      <app-active-user [translation]="currentTranslation"></app-active-user>
+      <ion-button id="user-dropdown-trigger"> {{ activeUser }} </ion-button>
+      <ion-popover trigger="user-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
+        <ng-template>
+          <app-current-user-dropdown [translation]="currentTranslation"></app-current-user-dropdown>
+        </ng-template>
+      </ion-popover>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -63,15 +68,11 @@
 
 <ng-template #innerItem let-item="item">
   <ion-label *ngIf="!item.isEditing">{{item.name}}</ion-label>
-  <ion-input
-    #itemInput
-    class="input-border"
-    [hidden]="!item.isEditing"
-    type="text"
-    (ionBlur)="cancelEdit($event, item)"
-    [(ngModel)]="item.name"
-  ></ion-input>
+  <ion-input #itemInput class="input-border" [hidden]="!item.isEditing" type="text" [(ngModel)]="item.name"></ion-input>
   <div slot="end">
+    <ion-button *ngIf="item.isEditing" mode="ios" slot="end" fill="clear" (click)="cancelEdit($event, item)">
+      <ion-icon color="medium" slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
     <ion-button *ngIf="!item.isEditing" mode="ios" slot="end" fill="clear" (click)="startEdit($event, item, itemInput)">
       <ion-icon color="success" slot="icon-only" name="create-outline"></ion-icon>
     </ion-button>

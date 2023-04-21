@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Catelog } from '../models/catelog.interface';
+import { Category } from '../models/category.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -93,5 +94,7 @@ export class CatalogService {
 
   deleteCategory() {}
 
-  updateCategory() {}
+  updateCategory(translation, category) {
+    return this.http.put<Category>(`${this.BASE_URL}/${translation}/category`, category);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-settings',
@@ -14,8 +15,11 @@ export class SettingsPage implements OnInit {
 
   formSubmitting = false;
 
-  constructor(private route: ActivatedRoute) {
+  activeUser: any;
+
+  constructor(private route: ActivatedRoute, private authService: AuthenticationService) {
     this._unsubscribeAll = new Subject();
+    this.activeUser = this.authService.currentUser;
   }
 
   ngOnInit() {

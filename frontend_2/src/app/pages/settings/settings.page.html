@@ -5,7 +5,12 @@
     </ion-buttons>
     <ion-title>Settings</ion-title>
     <ion-buttons slot="end">
-      <app-active-user [translation]="currentTranslation"></app-active-user>
+      <ion-button id="settings-dropdown-trigger"> {{ activeUser }} </ion-button>
+      <ion-popover trigger="settings-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
+        <ng-template>
+          <app-current-user-dropdown [translation]="currentTranslation"></app-current-user-dropdown>
+        </ng-template>
+      </ion-popover>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

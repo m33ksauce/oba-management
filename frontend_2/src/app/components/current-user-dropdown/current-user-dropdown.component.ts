@@ -3,18 +3,14 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-active-user',
-  templateUrl: './active-user.component.html',
-  styleUrls: ['./active-user.component.scss'],
+  selector: 'app-current-user-dropdown',
+  templateUrl: './current-user-dropdown.component.html',
+  styleUrls: ['./current-user-dropdown.component.scss'],
 })
-export class ActiveUserComponent {
+export class CurrentUserDropdownComponent {
   @Input() translation: string = '';
 
-  activeUser = '';
-
-  constructor(private authService: AuthenticationService, private router: Router) {
-    this.activeUser = this.authService.currentUser;
-  }
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
   navigateToUrl(route: string) {
     switch (route) {
