@@ -34,6 +34,7 @@ CREATE TABLE oba_admin.categories (
 CREATE TABLE oba_admin.audio (
     id UUID NOT NULL PRIMARY KEY,
     bucket_path text,
+    name TEXT NOT NULL,
     category_id UUID NOT NULL,
     CONSTRAINT fk_category
         FOREIGN KEY(category_id)

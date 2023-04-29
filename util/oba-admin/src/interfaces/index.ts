@@ -1,6 +1,6 @@
 export interface Metadata {
     Version: string,
-    Categories: unknown[],
+    Categories: Category[],
     Audio: AudioFile[]
 }
 
@@ -18,4 +18,5 @@ export interface AudioFile {
 export interface Publisher {
     PublishMetadata(translation: string, md: Metadata): void,
     PublishMedia(translation: string, id: string, mime: string, file: Buffer): Promise<void>,
+    PublishCategories(translation: string, md: Metadata): void,
 }

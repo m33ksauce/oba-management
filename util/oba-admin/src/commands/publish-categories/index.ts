@@ -7,7 +7,7 @@ import { Metadata, Publisher } from '../../interfaces';
 import { SharedFlags } from '../../shared/shared-flags';
 
 export default class PublishMetadata extends Command {
-  static description = 'Send metadata to prod'
+  static description = 'Post categories to prod'
 
   static examples = [
     `$ oex hello friend --from oclif
@@ -22,7 +22,7 @@ hello friend from oclif! (./src/commands/hello/index.ts)
 }
 
   static args = [
-    {name: 'file', description: 'Metadata file to upload', required: true}
+    {name: 'file', description: 'Metadata file to process', required: true}
   ]
 
   async run(): Promise<void> {
@@ -45,18 +45,18 @@ hello friend from oclif! (./src/commands/hello/index.ts)
     }
     else throw Error("No valid publisher")
 
-    if (flags.includeAudio) {
-      md.Audio.forEach(audio => {
-        const [file, mimeType] = this.prepFile(audio.file);
-        publisher.PublishMedia(flags.translation, audio.id, mimeType, file)
-        .then(() => console.log(`Published ${audio.file} with content-type: ${mimeType}`))
-        .catch((err) => console.log(`Failed to publish ${audio.file}: ${err}`));
-      })
-    }
+    // if (flags.includeAudio) {
+    //   md.Audio.forEach(audio => {
+    //     const [file, mimeType] = this.prepFile(audio.file);
+    //     publisher.PublishMedia(flags.translation, audio.id, mimeType, file)
+    //     .then(() => console.log(`Published ${audio.file} with content-type: ${mimeType}`))
+    //     .catch((err) => console.log(`Failed to publish ${audio.file}: ${err}`));
+    //   })
+    // }
 
     this.log(`Include files? ${flags.includeAudio || false}`)
     
-    publisher.PublishMetadata(flags.translation, md);
+    publisher.PublishCategories(flags.translation, md);
   }
 
   private prepFile(path: string): [Buffer, string] {

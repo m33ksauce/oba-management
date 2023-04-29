@@ -1,5 +1,4 @@
 import { CreateCategoryDTO, ReadCategoryDTO, UpdateCategoryDTO } from "../dto/dto";
-import { CategoryModel } from "../models/models";
 import { SqlStore } from "../store/sql.store";
 import ILogger from "./ilogger.interface";
 import { v4 as uuidV4, NIL as uuidNIL } from 'uuid';
@@ -32,7 +31,7 @@ export class CategoryService {
         try {
             await client.connect();
             await client.query(insertQuery, params);
-            return this.get(translation, newId);
+            return this.findOne(translation, newId);
         } catch (e: any) {
             this.logger.Error("exception", e.message);
             this.logger.Info(insertQuery)
@@ -44,7 +43,43 @@ export class CategoryService {
 
     // Read
 
-    public async get(translation: string, id: string): Promise<ReadCategoryDTO> {
+    public async find(translation: string): Promise<ReadCategoryDTO[]> {
+        let client = this.sqlStore.GetClient();
+
+        const readQuery = `
+            select cat.id, cat.parent_id, cat.name, '' as target
+                from oba_admin.categories as cat
+                WHERE translation_id=(
+                    SELECT id from oba_admin.translations where translation=$1
+                )
+            union
+            select aud.id, aud.category_id as parent_id, aud.name, aud.bucket_path as target
+                from oba_admin.audio as aud
+                where aud.category_id in (
+                    select id from oba_admin.categories
+                    WHERE translation_id=(
+                        SELECT id from oba_admin.translations where translation=$1
+                    ));`
+            
+        try {
+            await client.connect();
+            let results = await client.query(readQuery, [translation])
+            if (results.rowCount <= 0) {
+                throw new Error("Not found");
+            }
+            return results.rows.map(ReadCategoryDTOMappers.FromDB);
+        } catch (e: any) {
+            this.logger.Error("exception", e.message);
+            if (e.message == "Not found") {
+                throw 404;
+            }
+            throw 500;
+        } finally {
+            client.end();
+        }
+    }
+
+    public async findOne(translation: string, id: string): Promise<ReadCategoryDTO> {
         let client = this.sqlStore.GetClient();
 
         const readQuery = `SELECT * from oba_admin.categories 
@@ -72,8 +107,50 @@ export class CategoryService {
 
     // Update
 
-    public update(translation: string, updateDto: UpdateCategoryDTO): Promise<CategoryModel> {
-        return Promise.reject();
+    public async update(translation: string, id: string, updateDto: UpdateCategoryDTO): Promise<ReadCategoryDTO> {
+        let client = this.sqlStore.GetClient();
+
+        const updateStub = `UPDATE oba_admin.categories SET `
+
+        let i = 0;
+
+        if (updateDto.parent_id == "") updateDto.parent_id = uuidNIL;
+        if (updateDto.parent_id == undefined) updateDto.parent_id = "";
+
+        if (updateDto.name == undefined) updateDto.parent_id = "";
+
+
+        const nameUpdate = (updateDto.name == "") ? "" : `name = $${++i}`;
+        const parentUpdate = (updateDto.parent_id == "") ? "" : `parent_id = $${++i}`
+
+        let sets = "";
+
+        if (nameUpdate != "") sets += nameUpdate;
+        if (sets != "" && parentUpdate != "") sets += ", ";
+        if (parentUpdate != "") sets += parentUpdate;
+
+        const whereStub = ` WHERE id=$${++i}`;
+
+        const query = updateStub + sets + whereStub;
+
+        console.log(query);
+        
+        let params = [];
+        if (nameUpdate != "") params.push(updateDto.name);
+        if (parentUpdate != "") params.push(updateDto.parent_id);
+        params.push(id);
+
+        try {
+            await client.connect();
+            await client.query(query, params);
+            return this.findOne(translation, id);
+        } catch (e: any) {
+            this.logger.Error("exception", e.message);
+            this.logger.Info(query);
+            throw 500;
+        } finally {
+            client.end();
+        }
     }
 
     // Delete

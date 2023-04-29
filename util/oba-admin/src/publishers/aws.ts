@@ -4,16 +4,22 @@ import { lookup } from "mime-types";
 import * as AWS from 'aws-sdk';
 import { DynamoDBClient, PutItemCommand, PutItemCommandInput} from "@aws-sdk/client-dynamodb";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-import { Metadata, Publisher } from "../interfaces";
+import { Category, Metadata, Publisher } from "../interfaces";
 import { gzipSync } from "zlib";
-const https = require('http');
+import { NIL as uuidNIL } from 'uuid';
+import axios from "axios";
+
+const https = require("http");
+
 
 export class AwsPublisher implements Publisher {
     private dynamoDb: DynamoDBClient;
     private s3: S3Client;
+    private httpEndpoint: string;
 
     constructor(s3Endpoint: string,
         dynamoEndpoint: string,
+        httpEndpoint: string,
         keyId: string, 
         key: string,
         region: string = "us-east-1") 
@@ -43,6 +49,8 @@ export class AwsPublisher implements Publisher {
             endpoint: s3Endpoint,
             ...sharedConfig
         });
+
+        this.httpEndpoint = httpEndpoint
     }
 
     public PublishMetadata(translation: string, md: Metadata) {
@@ -52,7 +60,7 @@ export class AwsPublisher implements Publisher {
             TableName: "app.oralbible.api.releases",
             Item: {
                 VERSION: {S: `${translation}/${md.Version}`},
-                METADATA: {S: this.compressString(JSON.stringify(strippedMd))}
+                METADATA: {S: compressString(JSON.stringify(strippedMd))}
             }
         })
 
@@ -60,7 +68,7 @@ export class AwsPublisher implements Publisher {
             TableName: "app.oralbible.api.audio",
             Item: {
                 VERSION: {S: `${translation}/${md.Version}`},
-                AUDIO: {S: this.compressString(JSON.stringify(md.Audio))}
+                AUDIO: {S: compressString(JSON.stringify(md.Audio))}
             }
         })
 
@@ -71,7 +79,7 @@ export class AwsPublisher implements Publisher {
             TableName: "app.oralbible.api.releases",
             Item: {
                 VERSION: {S: `${translation}/latest`},
-                METADATA: {S: this.compressString(JSON.stringify(strippedMd))}
+                METADATA: {S: compressString(JSON.stringify(strippedMd))}
             }
         });
 
@@ -79,12 +87,36 @@ export class AwsPublisher implements Publisher {
             TableName: "app.oralbible.api.audio",
             Item: {
                 VERSION: {S: `${translation}/latest`},
-                AUDIO: {S: this.compressString(JSON.stringify(md.Audio))}
+                AUDIO: {S: compressString(JSON.stringify(md.Audio))}
             }
         })
 
         this.dynamoDb.send(releaseCommandLatest);
         this.dynamoDb.send(audioCommandLatest);        
+    }
+
+    public PublishCategories(translation: string, md: Metadata) {
+        md.Categories.forEach(cat => {
+            this.publishCats(translation, cat);
+        })
+    }
+
+    private publishCats(translation: string, cat: Category, parent_id: string = "") {
+        if (parent_id === "") parent_id = uuidNIL;
+        this.postNewCategory(translation, cat.name, parent_id).then(newId => {
+            cat.children.forEach(child => {
+                if (isCategory(child)) return this.publishCats(translation, child, newId);
+            })
+        })
+    }
+
+    private postNewCategory(translation: string, name: string, parent_id: string): Promise<string> {
+        return axios.post(`${this.httpEndpoint}/api/v1/${translation}/category`, {
+            parent_id: parent_id,
+            name: name
+        }, { headers: { "Authorization": "Bearer th1s1sn0t0ken"}}).then((resp) => {
+            if (resp.status == 200) return resp.data.result.id;
+        })
     }
 
     private stripAudioFromMd(md: Metadata): any {
@@ -111,8 +143,12 @@ export class AwsPublisher implements Publisher {
                 .catch((err) => reject(err));
         })
     }
+}
 
-    private compressString(raw: string): string {
-        return gzipSync(raw).toString('base64')
-    }
+function isCategory(cat: any) {
+        return cat.hasOwnProperty("children"); 
+}
+
+function compressString(raw: string): string {
+    return gzipSync(raw).toString('base64')
 }

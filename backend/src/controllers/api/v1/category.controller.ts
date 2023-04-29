@@ -1,6 +1,5 @@
 import * as express from "express";
-import { GetAppConfig } from "../../../config";
-import { CreateCategoryDTO } from "../../../dto/dto";
+import { CreateCategoryDTO, UpdateCategoryDTO } from "../../../dto/dto";
 import CategoryService from "../../../services/category.service";
 import { LoggerService } from "../../../services/logger.service";
 import { SqlStore } from "../../../store/sql.store";
@@ -11,7 +10,6 @@ const CategoryController = express.Router();
 const logger = new LoggerService();
 const sqlStore = new SqlStore();
 const categoryService = new CategoryService(logger, sqlStore);
-const config = GetAppConfig();
 
 CategoryController
     .get("/:id", async (req: express.Request, res: express.Response) => {
@@ -19,7 +17,7 @@ CategoryController
         if (req.params.id == undefined) return res.status(404).send();
         const id = req.params.id;
         try {
-            let result = await categoryService.get(translation, id);
+            let result = await categoryService.findOne(translation, id);
             return res.json(result);
         } catch (e) {
             res.statusCode = 500;
@@ -29,7 +27,6 @@ CategoryController
 
 CategoryController
     .post("/", async (req: express.Request, res: express.Response) => {
-        if (config.env != "dev") return res.sendStatus(401);
         const translation = res.locals.translation;
         const dto: CreateCategoryDTO = req.body;
         try {
@@ -43,14 +40,21 @@ CategoryController
 
 CategoryController
     .put("/:id", async (req: express.Request, res: express.Response) => {
-        if (config.env != "dev") return res.sendStatus(401);
-        // const translation = res.locals.translation;
-        return res.json({status: "success"});
+        const translation = res.locals.translation;
+        if (req.params.id == undefined) return res.status(404).send();
+        const id = req.params.id;
+        const dto: UpdateCategoryDTO = req.body;
+        try {
+            let result = await categoryService.update(translation, id, dto);
+            return res.json({status: "success", result: result});
+        } catch (e) {
+            res.statusCode = 500;
+            return res.json({status: "failure", msg: "failed to update"});
+        }
     });
 
 CategoryController
     .delete("/:id", async (req: express.Request, res: express.Response) => {
-        if (config.env != "dev") return res.sendStatus(401);
         const translation = res.locals.translation;
         if (req.params.id == undefined) return res.status(404).send();
         if (req.params.id == uuidNIL) return res.status(406).send();

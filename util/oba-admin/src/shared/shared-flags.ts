@@ -29,6 +29,14 @@ export const SharedFlags = {
         env: 'awsDynamoEndpoint',
         default: 'http://localhost.localstack.cloud:4566'
       }),
+  httpEndpoint:
+      Flags.string(
+        {
+          description: 'HTTP Endpoint to use for the API',
+          env: 'httpEndpoint',
+          default: 'localhost',
+        }
+      ),
   awsKeyId:
     Flags.string(
       {

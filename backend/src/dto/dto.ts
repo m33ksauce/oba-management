@@ -13,19 +13,20 @@ export interface ReadCategoryDTO {
     id: string,
     parent_id: string,
     name: string,
+    target?: string,
 }
 
-interface CatalogCategoryDTO {
+export interface CatalogCategoryDTO {
     id: string,
     parent_id: string,
     name: string,
-    children: CatalogCategoryDTO[]|CatalogAudioDTO[],
+    children: (CatalogCategoryDTO|CatalogAudioDTO)[],
 }
 
-interface CatalogAudioDTO {
+export interface CatalogAudioDTO {
     id: string,
+    parent_id: string,
     name: string,
-    path: string,
     target: string,
 }
 
@@ -33,4 +34,18 @@ export interface CatalogDTO {
     id: string,
     name: string,
     categories: CatalogCategoryDTO[],
+}
+
+export interface UpdateAudioResultDTO {
+    id: string,
+    name: string,
+    parent_id: string,
+}
+
+export interface CreateAudioResultDTO {
+    id: string,
+}
+
+export interface ReadAudioResultDTO {
+
 }
