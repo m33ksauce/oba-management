@@ -14,7 +14,7 @@ export class CatalogService {
   constructor(private http: HttpClient) {}
 
   getAllCategories(translation: string) {
-    return this.http.get<Catelog>(`${this.BASE_URL}/${translation}/catalog`, { observe: 'response' });
+    return this.http.get(`${this.BASE_URL}/${translation}/catalog`, { observe: 'response' });
 
     // return of({
     //   categories: [

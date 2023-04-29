@@ -6,6 +6,7 @@ import { IonInput, ModalController, LoadingController, ToastController } from '@
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
 import { Catelog } from 'src/app/models/catelog.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CategoryChild } from 'src/app/models/child.interface';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomePage implements OnInit {
 
   currentTranslation: any;
 
-  catelog: Catelog;
+  categories: CategoryChild[];
 
   loading = true;
 
@@ -55,11 +56,11 @@ export class HomePage implements OnInit {
   getCategories() {
     this.loading = true;
     this.catalogService.getAllCategories(this.currentTranslation).subscribe({
-      next: response => {
+      next: (response: any) => {
         if (!response || response?.status == 204) {
           this.openFileUpload();
         } else {
-          this.catelog = response.body as Catelog;
+          this.categories = response.body.result;
         }
         this.loading = false;
       },
