@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { FileService } from 'src/app/services/file.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -9,36 +10,18 @@ import { ModalController } from '@ionic/angular';
 export class FileUploadComponent {
   files: any[] = [];
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController, private fileService: FileService) {}
 
   onFileDropped(event: any) {
-    this.prepareFilesList(event);
+    this.files = event;
   }
 
-  selectFiles(event: any) {
-    if (event.target?.files) {
-      this.prepareFilesList(event.target.files);
-    }
+  async selectFiles(event: any) {
+    this.files = await this.fileService.getDroppedOrSelectedFiles(event);
   }
 
   deleteFile(index: number) {
     this.files.splice(index, 1);
-  }
-
-  prepareFilesList(files: Array<any>) {
-    for (const item of files) {
-      this.files.push(item);
-    }
-  }
-
-  formatBytes(bytes: number) {
-    if (bytes === 0) {
-      return '0 Bytes';
-    }
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
   close() {

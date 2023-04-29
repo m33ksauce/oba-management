@@ -22,7 +22,8 @@
     <ion-item *ngFor="let file of files; let i = index">
       <ion-label>
         <h2>{{ file.name }}</h2>
-        <p>{{ formatBytes(file.size) }}</p>
+        <p>{{ file.size }}</p>
+        <p>{{ file.fullPath }}</p>
       </ion-label>
       <ion-button mode="ios" slot="end" fill="clear" (click)="deleteFile(i)">
         <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
