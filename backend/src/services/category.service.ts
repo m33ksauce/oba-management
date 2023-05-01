@@ -16,7 +16,7 @@ export class CategoryService {
     // Create
 
     public async insert(translation: string, categoryDTO: CreateCategoryDTO): Promise<ReadCategoryDTO> {
-        let client = this.sqlStore.GetClient();
+        let client = await this.sqlStore.GetPool().connect();
 
         const newId = uuidV4();
         const parent_id = categoryDTO.parent_id != "" 
@@ -29,7 +29,6 @@ export class CategoryService {
         const params = [newId, parent_id, categoryDTO.name, translation];
 
         try {
-            await client.connect();
             await client.query(insertQuery, params);
             return this.findOne(translation, newId);
         } catch (e: any) {
@@ -37,14 +36,14 @@ export class CategoryService {
             this.logger.Info(insertQuery)
             throw 500;
         } finally {
-            client.end();
+            client.release();
         }
     }
 
     // Read
 
     public async find(translation: string): Promise<ReadCategoryDTO[]> {
-        let client = this.sqlStore.GetClient();
+        let client = await this.sqlStore.GetPool().connect();
 
         const readQuery = `
             select cat.id, cat.parent_id, cat.name, '' as target
@@ -62,7 +61,6 @@ export class CategoryService {
                     ));`
             
         try {
-            await client.connect();
             let results = await client.query(readQuery, [translation])
             if (results.rowCount <= 0) {
                 throw new Error("Not found");
@@ -75,20 +73,18 @@ export class CategoryService {
             }
             throw 500;
         } finally {
-            client.end();
+            client.release();
         }
     }
 
     public async findOne(translation: string, id: string): Promise<ReadCategoryDTO> {
-        let client = this.sqlStore.GetClient();
-
+        let client = await this.sqlStore.GetPool().connect();
         const readQuery = `SELECT * from oba_admin.categories 
             WHERE id=$1 and translation_id=(
                 SELECT id from oba_admin.translations where translation=$2
             )`;
         const params = [id, translation];
         try {
-            await client.connect();
             let results = await client.query(readQuery, params);
             if (results.rowCount <= 0) {
                 throw new Error("Not found");
@@ -101,14 +97,14 @@ export class CategoryService {
             }
             throw 500;
         } finally {
-            client.end();
+            client.release();
         }
     } 
 
     // Update
 
     public async update(translation: string, id: string, updateDto: UpdateCategoryDTO): Promise<ReadCategoryDTO> {
-        let client = this.sqlStore.GetClient();
+        let client = await this.sqlStore.GetPool().connect();
 
         const updateStub = `UPDATE oba_admin.categories SET `
 
@@ -141,7 +137,6 @@ export class CategoryService {
         params.push(id);
 
         try {
-            await client.connect();
             await client.query(query, params);
             return this.findOne(translation, id);
         } catch (e: any) {
@@ -149,14 +144,14 @@ export class CategoryService {
             this.logger.Info(query);
             throw 500;
         } finally {
-            client.end();
+            client.release();
         }
     }
 
     // Delete
 
     public async delete(translation: string, id: string): Promise<void> {
-        let client = this.sqlStore.GetClient();
+        let client = await this.sqlStore.GetPool().connect();
 
         const deleteRootQuery = `DELETE FROM oba_admin.categories WHERE id=$1`;
         const deleteChildQuery = `DELETE FROM oba_admin.categories WHERE parent_id=$1`;
@@ -164,14 +159,13 @@ export class CategoryService {
         const params = [id];
 
         try {
-            await client.connect();
             await client.query(deleteChildQuery, params);
             await client.query(deleteRootQuery, params);
         } catch (e) {
             console.error(e);
             throw 500;   
         } finally {
-            client.end();
+            client.release();
         }
     }
 }

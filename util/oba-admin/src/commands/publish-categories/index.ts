@@ -1,8 +1,6 @@
 import {Command, Flags} from '@oclif/core'
 import * as fs from "fs";
-import * as pathLib from "path";
 import { AwsPublisher } from '../../publishers/aws';
-import { lookup } from 'mime-types';
 import { Metadata, Publisher } from '../../interfaces';
 import { SharedFlags } from '../../shared/shared-flags';
 
@@ -40,29 +38,16 @@ hello friend from oclif! (./src/commands/hello/index.ts)
         flags.httpEndpoint,
         flags.awsKeyId,
         flags.awsSecretKey,
-        flags.awsRegion
+        flags.awsRegion,
+        flags.includeAudio,
       );
     }
     else throw Error("No valid publisher")
-
-    // if (flags.includeAudio) {
-    //   md.Audio.forEach(audio => {
-    //     const [file, mimeType] = this.prepFile(audio.file);
-    //     publisher.PublishMedia(flags.translation, audio.id, mimeType, file)
-    //     .then(() => console.log(`Published ${audio.file} with content-type: ${mimeType}`))
-    //     .catch((err) => console.log(`Failed to publish ${audio.file}: ${err}`));
-    //   })
-    // }
 
     this.log(`Include files? ${flags.includeAudio || false}`)
     
     publisher.PublishCategories(flags.translation, md);
   }
 
-  private prepFile(path: string): [Buffer, string] {
-    return [
-        fs.readFileSync(pathLib.resolve(path)),
-        lookup(path) || "audio/mpeg3"
-    ]
-  }
+  
 }

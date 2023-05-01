@@ -77,7 +77,7 @@ class AudioService {
       Body: buff,
     });
 
-    let client = this.sqlStore.GetClient();
+    let client = await this.sqlStore.GetPool().connect();
     const insertQuery = `INSERT INTO oba_admin.audio(id, bucket_path, name, category_id)
                         VALUES ($1, $2, $3, $4::UUID);`
 
@@ -86,7 +86,6 @@ class AudioService {
     console.log(params);
 
     try {
-      await client.connect();
       await this.s3client.send(putObjectCommand);
       let result = await client.query(insertQuery, params);
       console.log(result.rows);
@@ -98,6 +97,7 @@ class AudioService {
       console.log(e);
       throw 500;
     } finally {
+      client.release();
     }
   }
 
@@ -105,7 +105,7 @@ class AudioService {
     fileId: string,
     name: string,
     parentId: string): Promise<UpdateAudioResultDTO> {
-      let client = this.sqlStore.GetClient();
+      let client = await this.sqlStore.GetPool().connect();
 
       const updateStub = `UPDATE oba_admin.audio SET `
 
@@ -133,7 +133,6 @@ class AudioService {
       const selectQuery = "SELECT * FROM oba_admin.audio WHERE id=$1;";
 
       try {
-        await client.connect();
         await client.query(query, params);
         let result = await client.query(selectQuery, [fileId]);
         return UpdateAudioResultDTOMappers.FromDB(result.rows.shift());
@@ -141,6 +140,7 @@ class AudioService {
         console.log(e);
         throw 500;
       } finally {
+        client.release();
       }
     }
 }
