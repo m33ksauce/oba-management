@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Catelog } from '../models/catelog.interface';
 import { Category } from '../models/category.interface';
 
 @Injectable({
@@ -92,9 +90,11 @@ export class CatalogService {
     // });
   }
 
-  deleteCategory() {}
+  deleteCategory(translation, category) {
+    return this.http.delete<Category>(`${this.BASE_URL}/${translation}/category/${category.id}`, category);
+  }
 
   updateCategory(translation, category) {
-    return this.http.put<Category>(`${this.BASE_URL}/${translation}/category`, category);
+    return this.http.put<Category>(`${this.BASE_URL}/${translation}/category/${category.id}`, category);
   }
 }

@@ -4,7 +4,6 @@ import { Subject, takeUntil } from 'rxjs';
 import { CatalogService } from 'src/app/services/catalog.service';
 import { IonInput, ModalController, LoadingController, ToastController } from '@ionic/angular';
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
-import { Catelog } from 'src/app/models/catelog.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CategoryChild } from 'src/app/models/child.interface';
 
@@ -127,11 +126,18 @@ export class HomePage implements OnInit {
 
   async deleteItem(event: Event, item: any) {
     event.stopPropagation();
-    // Delete item
     const loading = await this.loadingCtrl.create({
       message: 'Deleting...',
     });
     loading.present();
-    loading.dismiss();
+    this.catalogService.deleteCategory(this.currentTranslation, item).subscribe({
+      next: response => {
+        loading.dismiss();
+      },
+      error: err => {
+        loading.dismiss();
+        this.showErrorToast();
+      },
+    });
   }
 }
