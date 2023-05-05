@@ -79,8 +79,17 @@
     <ion-button *ngIf="item.isEditing" mode="ios" slot="end" fill="clear" (click)="saveEdit($event, item)">
       <ion-icon color="primary" slot="icon-only" name="save-outline"></ion-icon>
     </ion-button>
-    <ion-button mode="ios" slot="end" fill="clear" (click)="deleteItem($event, item)">
+    <ion-button *ngIf="!item.isEditing" mode="ios" slot="end" fill="clear" (click)="deleteItem($event, item)">
       <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf="!item.isEditing && item.children && item.children.length > 0"
+      mode="ios"
+      slot="end"
+      fill="clear"
+      (click)="uploadItem($event, item)"
+    >
+      <ion-icon color="primary" name="cloud-upload-outline"></ion-icon>
     </ion-button>
   </div>
 </ng-template>

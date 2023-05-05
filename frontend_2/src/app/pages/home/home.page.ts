@@ -21,8 +21,6 @@ export class HomePage implements OnInit {
 
   loading = true;
 
-  currentItemName: any;
-
   activeUser: any;
 
   constructor(
@@ -78,7 +76,7 @@ export class HomePage implements OnInit {
     toast.present();
   }
 
-  async openFileUpload() {
+  async openFileUpload(item?) {
     const modal = await this.modalCtrl.create({
       component: FileUploadComponent,
       cssClass: 'dnd-modal',
@@ -92,21 +90,27 @@ export class HomePage implements OnInit {
 
   startEdit(event: Event, item: any, input: IonInput) {
     event.stopPropagation();
-    this.currentItemName = item.name;
+    item.prevName = item.name;
     item.isEditing = true;
     input.setFocus();
   }
 
   cancelEdit(event: Event, item: any) {
     event.stopPropagation();
-    item.name = this.currentItemName;
+    item.name = item.prevName;
     delete item.isEditing;
+  }
+
+  uploadItem(event: Event, item: any) {
+    event.stopPropagation();
+    this.openFileUpload(item);
   }
 
   async saveEdit(event: Event, item: any) {
     event.stopPropagation();
     delete item.isEditing;
-    if (this.currentItemName != item.name) {
+    if (item.prevName != item.name) {
+      delete item.prevName;
       // Save item
       const loading = await this.loadingCtrl.create({
         message: 'Saving...',
