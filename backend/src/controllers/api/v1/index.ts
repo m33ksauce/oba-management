@@ -4,6 +4,7 @@ import AudioController from "./audio.controller";
 import CatalogController from "./catalog.controller";
 import CategoryController from "./category.controller";
 import ReleaseController from "./release.controller";
+import CognitoAuthGuard from "../../../guards/cognitoauth.guard";
 
 const TranslationRouter = express.Router();
 const ApiV1Router = express.Router();
@@ -26,6 +27,6 @@ ApiV1Router.use("/audio", (req, res, next) => {
 });
 ApiV1Router.use("/audio", AudioController);
 ApiV1Router.use("/category", DummyAuthGuard, CategoryController);
-ApiV1Router.use("/catalog", DummyAuthGuard, CatalogController);
+ApiV1Router.use("/catalog", CognitoAuthGuard, CatalogController);
 
 export default TranslationRouter;

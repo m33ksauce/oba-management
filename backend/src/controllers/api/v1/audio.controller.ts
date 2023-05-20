@@ -1,7 +1,7 @@
 import * as express from "express";
 import AudioService from "../../../services/audio.service";
 import { LoggerService } from "../../../services/logger.service";
-import S3Store from "../../../store/s3.store";
+import AWSStore from "../../../store/s3.store";
 import multer from "multer";
 import { NIL as uuidNIL } from 'uuid';
 import { SqlStore } from "../../../store/sql.store";
@@ -9,7 +9,7 @@ const crypto = require('crypto');
 
 const AudioController = express.Router();
 
-const store = new S3Store();
+const store = new AWSStore();
 const logger = new LoggerService();
 const sqlStore = new SqlStore();
 const audioSvc = new AudioService(store, logger, sqlStore);

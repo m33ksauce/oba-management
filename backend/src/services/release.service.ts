@@ -1,6 +1,6 @@
 import { ReleaseModel } from "../models/models";
 import { AttributeValue, DeleteItemCommand, DynamoDBClient, GetItemCommand, PutItemCommand, PutItemCommandInput, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
-import S3Store from "../store/s3.store";
+import AWSStore from "../store/s3.store";
 import { GetAppConfig } from "../config";
 import ILogger from "./ilogger.interface";
 import zlib from "zlib";
@@ -11,7 +11,7 @@ class ReleaseService {
     private releaseTable: string;
     private audioTable: string;
 
-    constructor(s3Store: S3Store, logger: ILogger) {
+    constructor(s3Store: AWSStore, logger: ILogger) {
         this.logger = logger.WithFields({ "service": "ReleaseService" });
         this.db = s3Store.getDynamoDbConnection();
         this.releaseTable = GetAppConfig().aws.dynamo.releaseTableName;

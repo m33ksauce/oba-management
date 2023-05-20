@@ -1,4 +1,4 @@
-import S3Store from "../store/s3.store";
+import AWSStore from "../store/s3.store";
 import {
   S3Client,
   GetObjectCommand,
@@ -19,7 +19,7 @@ class AudioService {
   private bucket: string;
   private sqlStore: SqlStore;
 
-  constructor(store: S3Store, logger: LoggerService, sqlStore: SqlStore) {
+  constructor(store: AWSStore, logger: LoggerService, sqlStore: SqlStore) {
     this.logger = logger.WithFields({ service: "AudioService" });
     this.s3client = store.getS3Connection();
     this.bucket = GetAppConfig().aws.s3.defaultBucket;
