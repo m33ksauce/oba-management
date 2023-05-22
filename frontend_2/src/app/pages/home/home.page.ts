@@ -6,6 +6,7 @@ import { IonInput, ModalController, LoadingController, ToastController } from '@
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CategoryChild } from 'src/app/models/child.interface';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,8 @@ export class HomePage implements OnInit {
 
   activeUser: any;
 
+  categoryIdMap = new Map();
+
   constructor(
     private route: ActivatedRoute,
     private catalogService: CatalogService,
@@ -30,6 +33,7 @@ export class HomePage implements OnInit {
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private authService: AuthenticationService,
+    private sharedService: SharedService,
   ) {
     this._unsubscribeAll = new Subject();
     this.activeUser = this.authService.currentUser;
@@ -58,6 +62,14 @@ export class HomePage implements OnInit {
           this.openFileUpload();
         } else {
           this.categories = response.body.result;
+          for (let category of this.categories) {
+            category.relativePath = category.name;
+            this.categoryIdMap.set(category.relativePath, category.id);
+            if (category.hasOwnProperty('children')) {
+              this.fillCategoryMap(category);
+            }
+          }
+          this.sharedService.setCategoryIdMap(this.categoryIdMap);
         }
         this.loading = false;
       },
@@ -66,6 +78,16 @@ export class HomePage implements OnInit {
         this.showErrorToast();
       },
     });
+  }
+
+  fillCategoryMap(category: CategoryChild) {
+    for (let child of category.children) {
+      child.relativePath = category.relativePath + '/' + child.name;
+      this.categoryIdMap.set(child.relativePath, child.id);
+      if (child.hasOwnProperty('children')) {
+        this.fillCategoryMap(child);
+      }
+    }
   }
 
   async showErrorToast(message?: string) {
