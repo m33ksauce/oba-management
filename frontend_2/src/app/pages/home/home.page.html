@@ -83,7 +83,7 @@
       <ion-icon color="danger" slot="icon-only" name="trash-outline"></ion-icon>
     </ion-button>
     <ion-button
-      *ngIf="!item.isEditing && item.children && item.children.length > 0"
+      *ngIf="!item.isEditing && item.hasOwnProperty('children')"
       mode="ios"
       slot="end"
       fill="clear"

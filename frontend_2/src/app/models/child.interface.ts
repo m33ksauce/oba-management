@@ -9,4 +9,5 @@ export interface AudioChild {
   name: string;
   path: string;
   target: string;
+  relativePath?: string;
 }
