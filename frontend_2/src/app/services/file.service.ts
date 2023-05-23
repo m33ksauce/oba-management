@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 const DEFAULT_FILES_TO_IGNORE = [
   '.DS_Store', // OSX indexing file
@@ -61,15 +63,17 @@ function traverseDirectory(entry) {
   providedIn: 'root',
 })
 export class FileService {
-  constructor() {}
+  private BASE_URL = environment.api.url;
+
+  constructor(private http: HttpClient) {}
 
   shouldIgnoreFile(file) {
     return DEFAULT_FILES_TO_IGNORE.indexOf(file.name) >= 0;
   }
 
-  copyString(aString) {
-    return ` ${aString}`.slice(1);
-  }
+  // copyString(aString) {
+  //   return ` ${aString}`.slice(1);
+  // }
 
   // package the file in an object that includes the fullPath from the file entry
   // that would otherwise be lost
@@ -83,14 +87,15 @@ export class FileService {
     }
     return {
       fileObject: file, // provide access to the raw File object (required for uploading)
-      fullPath: entry ? this.copyString(entry.fullPath) : file.name,
-      lastModified: file.lastModified,
-      lastModifiedDate: file.lastModifiedDate,
+      relativePath: entry ? this.getRelativePath(entry.fullPath, file.name) : '/',
       name: file.name,
       size: file.size,
       type: file.type ? file.type : fileTypeOverride,
-      webkitRelativePath: file.webkitRelativePath,
     };
+  }
+
+  getRelativePath(fullPath, fileName) {
+    return fullPath.slice(0, fullPath.lastIndexOf(fileName));
   }
 
   getFile(entry) {
@@ -173,5 +178,13 @@ export class FileService {
       files.push(this.packageFile(fileList[i]));
     }
     return Promise.resolve(files);
+  }
+
+  uploadAudioFile(translation, file, parentId) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+    formData.append('name', file.name);
+    formData.append('parent_id', parentId);
+    return this.http.post(`${this.BASE_URL}/${translation}/audio/single`, formData, { observe: 'response' });
   }
 }

@@ -7,6 +7,7 @@ import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CategoryChild } from 'src/app/models/child.interface';
 import { SharedService } from 'src/app/services/shared.service';
+import { FileService } from 'src/app/services/file.service';
 
 @Component({
   selector: 'app-home',
@@ -34,6 +35,7 @@ export class HomePage implements OnInit {
     private toastCtrl: ToastController,
     private authService: AuthenticationService,
     private sharedService: SharedService,
+    private fileService: FileService,
   ) {
     this._unsubscribeAll = new Subject();
     this.activeUser = this.authService.currentUser;
@@ -108,6 +110,14 @@ export class HomePage implements OnInit {
     const { data } = await modal.onWillDismiss();
     // Set up web worker here to handle data containing files
     // Refresh list once finished
+    if (data && data.Files && data.Files.length > 0) {
+      for (let file of data.Files) {
+        let parentId = this.sharedService.currentCategoryIdMap.get(file.relativePath);
+        if (!parentId) {
+        }
+        this.fileService.uploadAudioFile(this.currentTranslation, file);
+      }
+    }
   }
 
   startEdit(event: Event, item: any, input: IonInput) {
