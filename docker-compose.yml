@@ -23,7 +23,7 @@ services:
       - SQL_USER=obaadmin
       - SQL_PASSWORD=
       - SQL_DB_NAME=obadmin
-      - SQL_HOST=obaadmin.cgtqrt6wmoen.us-east-1.rds.amazonaws.com
+      - SQL_HOST=
       - SQL_PORT=5432
       - SQL_SSL=true
     restart: always
