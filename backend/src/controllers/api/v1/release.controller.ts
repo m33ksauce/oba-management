@@ -2,12 +2,12 @@ import * as express from "express";
 import { GetAppConfig } from "../../../config";
 import { LoggerService } from "../../../services/logger.service";
 import ReleaseService from "../../../services/release.service";
-import S3Store from "../../../store/s3.store";
+import AWSStore from "../../../store/s3.store";
 
 
-const releaseController = express.Router();
+const ReleaseController = express.Router();
 
-const store = new S3Store();
+const store = new AWSStore();
 const logger = new LoggerService();
 const releaseSvc = new ReleaseService(store, logger);
 const config = GetAppConfig();
@@ -20,7 +20,7 @@ const config = GetAppConfig();
 //         .catch(() => res.sendStatus(500))
 // });
 
-releaseController.get("/:id", (req: express.Request, res: express.Response) => {
+ReleaseController.get("/:id", (req: express.Request, res: express.Response) => {
     const translation = res.locals.translation;
     const version = req.params.id;
 
@@ -31,7 +31,7 @@ releaseController.get("/:id", (req: express.Request, res: express.Response) => {
     .catch(() => res.sendStatus(500));
 });
 
-releaseController.post("/", (req: express.Request, res: express.Response) => {
+ReleaseController.post("/", (req: express.Request, res: express.Response) => {
     if (config.env != "dev") return res.sendStatus(401);
     const translation = res.locals.translation;
     const dto = req.body;
@@ -40,7 +40,7 @@ releaseController.post("/", (req: express.Request, res: express.Response) => {
     return res.json({Status: "success"});
 });
 
-releaseController.put("/:id", async (req: express.Request, res: express.Response) => {
+ReleaseController.put("/:id", async (req: express.Request, res: express.Response) => {
     if (config.env != "dev") return res.sendStatus(401);
     const translation = res.locals.translation;
     const version = req.params.id;
@@ -49,7 +49,7 @@ releaseController.put("/:id", async (req: express.Request, res: express.Response
     return res.json({Status: "success"});
 });
 
-releaseController.delete("/:id", async (req: express.Request, res: express.Response) => {
+ReleaseController.delete("/:id", async (req: express.Request, res: express.Response) => {
     if (config.env != "dev") return res.sendStatus(401);
     const translation = res.locals.translation;
     const version = req.params.id;
@@ -57,4 +57,4 @@ releaseController.delete("/:id", async (req: express.Request, res: express.Respo
     return res.status(200);
 })
 
-export default releaseController;
+export default ReleaseController;

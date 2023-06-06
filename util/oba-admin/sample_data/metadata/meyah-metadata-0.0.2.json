@@ -1,0 +1,553 @@
+{
+  "Version": "0.0.2",
+  "Categories": [
+    {
+      "type": 1,
+      "name": "Efesij Mar Gij Tuhan Allah Efen Oga Jeska",
+      "children": [
+        {
+          "type": 2,
+          "name": "01:Allah Otunggom Mar Nomnaga",
+          "audioTargetId": "ea11bd10cd56b2f22f3c179f57f1ad15"
+        },
+        {
+          "type": 2,
+          "name": "02:Allah Otunggom Orna",
+          "audioTargetId": "1414c95b842820a19fd6306e5cf49539"
+        },
+        {
+          "type": 2,
+          "name": "03:Allah Otunggom Ojaga",
+          "audioTargetId": "f662a479f606cd66bf61dcb2f32cd39c"
+        },
+        {
+          "type": 2,
+          "name": "04:Mar Ongga Oska Sismeni",
+          "audioTargetId": "6d7fb937489a7a7d7178922e811fee92"
+        },
+        {
+          "type": 2,
+          "name": "05:Risma Mar Okum",
+          "audioTargetId": "371ecf2de19c0db88bf971aa125f1327"
+        },
+        {
+          "type": 2,
+          "name": "06:Tuhan Agen gu Abraham",
+          "audioTargetId": "25f2eeefaccb1aec5a9cb0edd7ddd574"
+        },
+        {
+          "type": 2,
+          "name": "07:Abraham gonu Lot",
+          "audioTargetId": "0c51e6a85fc5b435f8120ecde27fd4cd"
+        },
+        {
+          "type": 2,
+          "name": "08:Sara gonu Hagar",
+          "audioTargetId": "04dcb2ec299ebdde263c989bbffea57e"
+        },
+        {
+          "type": 2,
+          "name": "09:Eimofoj Ongga Isak Mosu Eker Rot",
+          "audioTargetId": "36f59bdad2afe7edaedcd9354993e613"
+        },
+        {
+          "type": 2,
+          "name": "10:Rusnok Rugomu Riresa Abraham",
+          "audioTargetId": "6660485dca2e04311b344d6fa4d33f48"
+        },
+        {
+          "type": 2,
+          "name": "11:Allah Ereni Abraham",
+          "audioTargetId": "a6eaec4da64f7dc69e2c52f3f3637346"
+        },
+        {
+          "type": 2,
+          "name": "12:Tuhan Esejah Mar Ongga Eferwei",
+          "audioTargetId": "231e800f3af4b4c7293cf287048bca35"
+        },
+        {
+          "type": 2,
+          "name": "13:Yusuf Esih Mar",
+          "audioTargetId": "dec5aa1942d937a24c62faf530712b1c"
+        },
+        {
+          "type": 2,
+          "name": "14:Yusuf Efen Mokorer Ruhu Ofa",
+          "audioTargetId": "e98effa3904e93cef33701b681848d21"
+        },
+        {
+          "type": 2,
+          "name": "15:Potifar Mohona Ereni Yusuf",
+          "audioTargetId": "50f8876677cbde837f9b3ed4e325589f"
+        },
+        {
+          "type": 2,
+          "name": "16:Yusuf Gij Mod Oskusk",
+          "audioTargetId": "b17276e7569346d9f2d8a4036f46ec7c"
+        },
+        {
+          "type": 2,
+          "name": "17:Raja Mesir Esih Mar",
+          "audioTargetId": "9c6dd2644e936e511051eed6b4400626"
+        },
+        {
+          "type": 2,
+          "name": "18:Yusuf Jera Efen Mokorer",
+          "audioTargetId": "5efcda7fc074b78762f485c6323b7f42"
+        },
+        {
+          "type": 2,
+          "name": "19:Rusnok Israel Rija Jah Mesir",
+          "audioTargetId": "f12a2146915176b72f75ab024d2ded06"
+        },
+        {
+          "type": 2,
+          "name": "20:Rusnok Israel Rirek Mendesbes",
+          "audioTargetId": "aa9201bd3741ab72efcc4996d15c9cfe"
+        },
+        {
+          "type": 2,
+          "name": "21:Tuhan Osua Efen Rusnok Jeska Monuh Mesir",
+          "audioTargetId": "4460163db14d4018fa3b0bc9fb4561ba"
+        },
+        {
+          "type": 2,
+          "name": "22:Meimojumu Ebriyi",
+          "audioTargetId": "3d37c27d1c77ce49f3846bb9ed9609f5"
+        },
+        {
+          "type": 2,
+          "name": "23:Hukum Setka",
+          "audioTargetId": "eb64e5bb7eb389edda401808bc2d30e5"
+        },
+        {
+          "type": 2,
+          "name": "24:Meseya Jeska Mas",
+          "audioTargetId": "5108f37c6f70bbbeefea8ed5cca00d0f"
+        },
+        {
+          "type": 2,
+          "name": "25:Modwok Ongga Ebsi Komowa",
+          "audioTargetId": "c45c943f51caf2b6f56b2bf506af6b6f"
+        },
+        {
+          "type": 2,
+          "name": "26:Rusnok Ongga Rinomina",
+          "audioTargetId": "6563726a0cc623985c2665c8eac2b97d"
+        },
+        {
+          "type": 2,
+          "name": "27:Monuh Ongga Tuhan Angen Jah",
+          "audioTargetId": "5accdc969224ad4877bb888ccf115912"
+        },
+        {
+          "type": 2,
+          "name": "28:Tuhan Ofra Daud",
+          "audioTargetId": "0bbf62af94404dbff95b78ca7f17a2c7"
+        },
+        {
+          "type": 2,
+          "name": "29:Tuhan Agen Mar Gu Daud",
+          "audioTargetId": "03dcbdc0b7073ca24849b535f9ae1188"
+        },
+        {
+          "type": 2,
+          "name": "30:Raja Salomo",
+          "audioTargetId": "ecb5473c5162af31da99d3c47b656329"
+        },
+        {
+          "type": 2,
+          "name": "31:Mendes Ongga Orka Eisa",
+          "audioTargetId": "15c1fcd73d265bf8c346b8db6844abbc"
+        },
+        {
+          "type": 2,
+          "name": "32:Mendes Ongga Ok Mar Okum",
+          "audioTargetId": "389d92d0697154e43672907d546c77e3"
+        },
+        {
+          "type": 2,
+          "name": "33:Maria Eker Rot Yesus",
+          "audioTargetId": "c46b434c16eb02b28120e665642c7ecd"
+        },
+        {
+          "type": 2,
+          "name": "34:Simeon gij Mod Allah",
+          "audioTargetId": "86ac1768df6fe5cec6fa9c36913dbc39"
+        },
+        {
+          "type": 2,
+          "name": "35:Kapernaum",
+          "audioTargetId": "8a943d8dd25d2bb114dbbc9a656abb25"
+        },
+        {
+          "type": 2,
+          "name": "36:Osnok Ongga Efeskriwaha",
+          "audioTargetId": "bc5440c389e46f281245ff6a460664b7"
+        },
+        {
+          "type": 2,
+          "name": "37:Eja Mesina Jeska Nain",
+          "audioTargetId": "f92a9c46d56ba49174a8023ceb8028c3"
+        },
+        {
+          "type": 2,
+          "name": "38:Jala Eteb",
+          "audioTargetId": "7c097c8e8843585574e82420ded45f14"
+        },
+        {
+          "type": 2,
+          "name": "39:Moof Jera Meren Ofoog",
+          "audioTargetId": "8fa0d804616dc4111a09b8d38ebfae11"
+        },
+        {
+          "type": 2,
+          "name": "40:Lazarus",
+          "audioTargetId": "357b74b69bf3773d6f72bf14cfc23d13"
+        },
+        {
+          "type": 2,
+          "name": "41:Osnok Ongga Eitej Ofou",
+          "audioTargetId": "2c6581b0156b308d4fe85d8d68ef0366"
+        },
+        {
+          "type": 2,
+          "name": "42:Mod Allah",
+          "audioTargetId": "d5ad3aaa6a9575f0e6e949b82f36f651"
+        },
+        {
+          "type": 2,
+          "name": "43:Ebirfager Israel Rudou Oroka Yesus",
+          "audioTargetId": "db4912b88ea3850e2a4021f946da2856"
+        },
+        {
+          "type": 2,
+          "name": "44:Rutob Yesus Tumu Mega Salib",
+          "audioTargetId": "425dd8c635d7e6b674fe229d88ae40c3"
+        },
+        {
+          "type": 2,
+          "name": "45:Edebecki Jeska Agos",
+          "audioTargetId": "753910cac201fc62c73863e0deb4afaf"
+        },
+        {
+          "type": 2,
+          "name": "46:Yesus Osok Jah Mebaga",
+          "audioTargetId": "094b5a2fb17fa6337bd7ad844116b58b"
+        },
+        {
+          "type": 2,
+          "name": "47:Efena Ebsi Allah",
+          "audioTargetId": "1982e5522d961972be621b0f8c4cdb39"
+        },
+        {
+          "type": 2,
+          "name": "48:Eremedima",
+          "audioTargetId": "ca8e43b5ea0310a0ba85884596b6ed20"
+        },
+        {
+          "type": 2,
+          "name": "49:Petrus jera Yohanes gij Mod Allah",
+          "audioTargetId": "5909e62c4852c1de2cab17966490616d"
+        },
+        {
+          "type": 2,
+          "name": "50:Rurka Petrus gonu Yohanes gu Ebirfager Israel",
+          "audioTargetId": "0b4aac15cc7c3f83fb9702ec5d9f95fa"
+        },
+        {
+          "type": 2,
+          "name": "51:Rusnok Rufok Cinjerfeka Ongga Rufij Rusnok",
+          "audioTargetId": "f76c16af46c963a61f225eddff465e0c"
+        },
+        {
+          "type": 2,
+          "name": "52:Rua Ongga Israel Ragob Stefanus",
+          "audioTargetId": "b9a6f4f13f621616ed12bdc6700a6ab4"
+        },
+        {
+          "type": 2,
+          "name": "53:Filipus jera Ebirfager Eteb",
+          "audioTargetId": "8c330f8156b7a80ee19d2977ef6a5482"
+        },
+        {
+          "type": 2,
+          "name": "54:Saulus Odou Ororu Yesus",
+          "audioTargetId": "64f19cc77e86e0b312f706b55d0e493e"
+        },
+        {
+          "type": 2,
+          "name": "55:Antiokhia",
+          "audioTargetId": "7ded0fe554a2bd6705289b5fb2f30e88"
+        },
+        {
+          "type": 2,
+          "name": "56:Makedonia",
+          "audioTargetId": "f6e7459e0d8ec55bc482923e3985d31a"
+        },
+        {
+          "type": 2,
+          "name": "57:Filipi",
+          "audioTargetId": "7d9ca4228ea2caff21c7c97deb72dd69"
+        },
+        {
+          "type": 2,
+          "name": "58:Berea",
+          "audioTargetId": "82084365a68772e1530852929895da55"
+        },
+        {
+          "type": 2,
+          "name": "59:Kursi Ebsi Eteb",
+          "audioTargetId": "0d3be39498aeb62674d9cdaea65171b7"
+        },
+        {
+          "type": 2,
+          "name": "60:Meba jera Mebi Efenyah",
+          "audioTargetId": "c7465f3973f5fcff2bc49160f1411cec"
+        }
+      ]
+    }
+  ],
+  "Audio": [
+    {
+      "id": "ea11bd10cd56b2f22f3c179f57f1ad15",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/01_Allah Otunggom Mar Nomnaga.mp3"
+    },
+    {
+      "id": "1414c95b842820a19fd6306e5cf49539",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/02_Allah Otunggom Orna.mp3"
+    },
+    {
+      "id": "f662a479f606cd66bf61dcb2f32cd39c",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/03_Allah Otunggom Ojaga.mp3"
+    },
+    {
+      "id": "6d7fb937489a7a7d7178922e811fee92",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/04_Mar Ongga Oska Sismeni.mp3"
+    },
+    {
+      "id": "371ecf2de19c0db88bf971aa125f1327",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/05_Risma Mar Okum.mp3"
+    },
+    {
+      "id": "25f2eeefaccb1aec5a9cb0edd7ddd574",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/06_Tuhan Agen gu Abraham.mp3"
+    },
+    {
+      "id": "0c51e6a85fc5b435f8120ecde27fd4cd",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/07_Abraham gonu Lot.mp3"
+    },
+    {
+      "id": "04dcb2ec299ebdde263c989bbffea57e",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/08_Sara gonu Hagar.mp3"
+    },
+    {
+      "id": "36f59bdad2afe7edaedcd9354993e613",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/09_Eimofoj Ongga Isak Mosu Eker Rot.mp3"
+    },
+    {
+      "id": "6660485dca2e04311b344d6fa4d33f48",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/10_Rusnok Rugomu Riresa Abraham.mp3"
+    },
+    {
+      "id": "a6eaec4da64f7dc69e2c52f3f3637346",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/11_Allah Ereni Abraham.mp3"
+    },
+    {
+      "id": "231e800f3af4b4c7293cf287048bca35",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/12_Tuhan Esejah Mar Ongga Eferwei.mp3"
+    },
+    {
+      "id": "dec5aa1942d937a24c62faf530712b1c",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/13_Yusuf Esih Mar.mp3"
+    },
+    {
+      "id": "e98effa3904e93cef33701b681848d21",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/14_Yusuf Efen Mokorer Ruhu Ofa.mp3"
+    },
+    {
+      "id": "50f8876677cbde837f9b3ed4e325589f",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/15_Potifar Mohona Ereni Yusuf.mp3"
+    },
+    {
+      "id": "b17276e7569346d9f2d8a4036f46ec7c",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/16_Yusuf Gij Mod Oskusk.mp3"
+    },
+    {
+      "id": "9c6dd2644e936e511051eed6b4400626",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/17_Raja Mesir Esih Mar.mp3"
+    },
+    {
+      "id": "5efcda7fc074b78762f485c6323b7f42",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/18_Yusuf Jera Efen Mokorer.mp3"
+    },
+    {
+      "id": "f12a2146915176b72f75ab024d2ded06",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/19_Rusnok Israel Rija Jah Mesir.mp3"
+    },
+    {
+      "id": "aa9201bd3741ab72efcc4996d15c9cfe",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/20_Rusnok Israel Rirek Mendesbes.mp3"
+    },
+    {
+      "id": "4460163db14d4018fa3b0bc9fb4561ba",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/21_Tuhan Osua Efen Rusnok Jeska Monuh Mesir.mp3"
+    },
+    {
+      "id": "3d37c27d1c77ce49f3846bb9ed9609f5",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/22_Meimojumu Ebriyi.mp3"
+    },
+    {
+      "id": "eb64e5bb7eb389edda401808bc2d30e5",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/23_Hukum Setka.mp3"
+    },
+    {
+      "id": "5108f37c6f70bbbeefea8ed5cca00d0f",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/24_Meseya Jeska Mas.mp3"
+    },
+    {
+      "id": "c45c943f51caf2b6f56b2bf506af6b6f",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/25_Modwok Ongga Ebsi Komowa.mp3"
+    },
+    {
+      "id": "6563726a0cc623985c2665c8eac2b97d",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/26_Rusnok Ongga Rinomina.mp3"
+    },
+    {
+      "id": "5accdc969224ad4877bb888ccf115912",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/27_Monuh Ongga Tuhan Angen Jah.mp3"
+    },
+    {
+      "id": "0bbf62af94404dbff95b78ca7f17a2c7",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/28_Tuhan Ofra Daud.mp3"
+    },
+    {
+      "id": "03dcbdc0b7073ca24849b535f9ae1188",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/29_Tuhan Agen Mar Gu Daud.mp3"
+    },
+    {
+      "id": "ecb5473c5162af31da99d3c47b656329",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/30_Raja Salomo.mp3"
+    },
+    {
+      "id": "15c1fcd73d265bf8c346b8db6844abbc",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/31_Mendes Ongga Orka Eisa.mp3"
+    },
+    {
+      "id": "389d92d0697154e43672907d546c77e3",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/32_Mendes Ongga Ok Mar Okum.mp3"
+    },
+    {
+      "id": "c46b434c16eb02b28120e665642c7ecd",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/33_Maria Eker Rot Yesus.mp3"
+    },
+    {
+      "id": "86ac1768df6fe5cec6fa9c36913dbc39",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/34_Simeon gij Mod Allah.mp3"
+    },
+    {
+      "id": "8a943d8dd25d2bb114dbbc9a656abb25",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/35_Kapernaum.mp3"
+    },
+    {
+      "id": "bc5440c389e46f281245ff6a460664b7",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/36_Osnok Ongga Efeskriwaha.mp3"
+    },
+    {
+      "id": "f92a9c46d56ba49174a8023ceb8028c3",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/37_Eja Mesina Jeska Nain.mp3"
+    },
+    {
+      "id": "7c097c8e8843585574e82420ded45f14",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/38_Jala Eteb.mp3"
+    },
+    {
+      "id": "8fa0d804616dc4111a09b8d38ebfae11",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/39_Moof Jera Meren Ofoog.mp3"
+    },
+    {
+      "id": "357b74b69bf3773d6f72bf14cfc23d13",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/40_Lazarus.mp3"
+    },
+    {
+      "id": "2c6581b0156b308d4fe85d8d68ef0366",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/41_Osnok Ongga Eitej Ofou.mp3"
+    },
+    {
+      "id": "d5ad3aaa6a9575f0e6e949b82f36f651",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/42_Mod Allah.mp3"
+    },
+    {
+      "id": "db4912b88ea3850e2a4021f946da2856",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/43_Ebirfager Israel Rudou Oroka Yesus.mp3"
+    },
+    {
+      "id": "425dd8c635d7e6b674fe229d88ae40c3",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/44_Rutob Yesus Tumu Mega Salib.mp3"
+    },
+    {
+      "id": "753910cac201fc62c73863e0deb4afaf",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/45_Edebecki Jeska Agos.mp3"
+    },
+    {
+      "id": "094b5a2fb17fa6337bd7ad844116b58b",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/46_Yesus Osok Jah Mebaga.mp3"
+    },
+    {
+      "id": "1982e5522d961972be621b0f8c4cdb39",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/47_Efena Ebsi Allah.mp3"
+    },
+    {
+      "id": "ca8e43b5ea0310a0ba85884596b6ed20",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/48_Eremedima.mp3"
+    },
+    {
+      "id": "5909e62c4852c1de2cab17966490616d",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/49_Petrus jera Yohanes gij Mod Allah.mp3"
+    },
+    {
+      "id": "0b4aac15cc7c3f83fb9702ec5d9f95fa",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/50_Rurka Petrus gonu Yohanes gu Ebirfager Israel.mp3"
+    },
+    {
+      "id": "f76c16af46c963a61f225eddff465e0c",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/51_Rusnok Rufok Cinjerfeka Ongga Rufij Rusnok.mp3"
+    },
+    {
+      "id": "b9a6f4f13f621616ed12bdc6700a6ab4",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/52_Rua Ongga Israel Ragob Stefanus.mp3"
+    },
+    {
+      "id": "8c330f8156b7a80ee19d2977ef6a5482",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/53_Filipus jera Ebirfager Eteb.mp3"
+    },
+    {
+      "id": "64f19cc77e86e0b312f706b55d0e493e",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/54_Saulus Odou Ororu Yesus.mp3"
+    },
+    {
+      "id": "7ded0fe554a2bd6705289b5fb2f30e88",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/55_Antiokhia.mp3"
+    },
+    {
+      "id": "f6e7459e0d8ec55bc482923e3985d31a",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/56_Makedonia.mp3"
+    },
+    {
+      "id": "7d9ca4228ea2caff21c7c97deb72dd69",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/57_Filipi.mp3"
+    },
+    {
+      "id": "82084365a68772e1530852929895da55",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/58_Berea.mp3"
+    },
+    {
+      "id": "0d3be39498aeb62674d9cdaea65171b7",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/59_Kursi Ebsi Eteb.mp3"
+    },
+    {
+      "id": "c7465f3973f5fcff2bc49160f1411cec",
+      "file": "sample_data/BahasaMeyah/Efesij Mar Gij Tuhan Allah Efen Oga Jeska/60_Meba jera Mebi Efenyah.mp3"
+    }
+  ]
+}
