@@ -1,17 +1,23 @@
 import * as express from "express";
 import AudioService from "../../../services/audio.service";
 import { LoggerService } from "../../../services/logger.service";
-import S3Store from "../../../store/s3.store";
+import AWSStore from "../../../store/s3.store";
+import multer from "multer";
+import { NIL as uuidNIL } from 'uuid';
+import { SqlStore } from "../../../store/sql.store";
+const crypto = require('crypto');
 
 const AudioController = express.Router();
 
-const store = new S3Store();
+const store = new AWSStore();
 const logger = new LoggerService();
-const audioSvc = new AudioService(store, logger);
+const sqlStore = new SqlStore();
+const audioSvc = new AudioService(store, logger, sqlStore);
 
 AudioController.get("/:id", (req: express.Request, res: express.Response) => {
+    const translation = res.locals.translation;
     const fileId = req.params.id;
-    audioSvc.findOne(fileId).then((file) => {
+    audioSvc.findOne(translation, fileId).then((file) => {
         res.type("mp3");
         res.send(file);
     }).catch((err) => {
@@ -20,26 +26,49 @@ AudioController.get("/:id", (req: express.Request, res: express.Response) => {
     });
 });
 
-// AudioController
-//     .post("/single", fileWrapper, (req: express.Request, res: express.Response) => 
-//     {
-//         console.log(req.body)
-//         if (req.files != undefined) {
-//             //@ts-ignore
-//             var file: Express.Multer.File = req.files[0];
-//             //@ts-ignore
-//             var buffer: Buffer = Buffer.from(file.buffer[0] as ArrayBuffer)
+AudioController
+    .post("/single", multer({storage: multer.memoryStorage()}).single("file"),
+    (req: express.Request, res: express.Response) => 
+    {
+        const translation = res.locals.translation;
+        if (req.file != undefined) {
+            //@ts-ignore
+            var file: Express.Multer.File = req.file;
+            //@ts-ignore
+            var buffer: Buffer = Buffer.from(file.buffer as ArrayBuffer)
 
-//             var fileId = `${uuidv4()}`
+            var fileId = crypto.createHash('md5').update(buffer).digest('hex')
 
-//             audioSvc
-//                 .create(fileId, buffer)
-//                 .then(() => res.sendStatus(200))
-//                 .catch((reason) => res.status(500).send(reason));
-//         }
-//         else {
-//             res.sendStatus(400);
-//         }
-//     });
+            var parentId = req.body.parent_id != undefined
+                ? req.body.parent_id.toString()
+                : uuidNIL;
+
+            var fileName = req.body.name;
+
+            audioSvc
+                .create(translation, fileId, fileName, parentId, buffer)
+                .then((result) => res.send(result))
+                .catch((reason) => res.status(500).send(reason));
+        }
+        else {
+            res.sendStatus(400);
+        }
+    });
+
+AudioController
+    .put("/:id", multer({storage: multer.memoryStorage()}).single("file"),
+    (req: express.Request, res: express.Response) => {
+        const translation = res.locals.translation;
+
+        if (req.params.id == undefined) res.sendStatus(400);
+        
+        audioSvc
+            .update(translation,
+                req.params.id,
+                req.body.name,
+                req.body.parent_id)
+            .then(result => res.send(result))
+            .catch(reason => res.status(500).send(reason));
+    })
 
 export default AudioController;

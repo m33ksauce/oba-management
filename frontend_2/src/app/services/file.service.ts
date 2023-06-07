@@ -87,10 +87,20 @@ export class FileService {
       lastModified: file.lastModified,
       lastModifiedDate: file.lastModifiedDate,
       name: file.name,
-      size: file.size,
+      size: this.formatBytes(file.size),
       type: file.type ? file.type : fileTypeOverride,
       webkitRelativePath: file.webkitRelativePath,
     };
+  }
+
+  formatBytes(bytes: number) {
+    if (bytes === 0) {
+      return '0 Bytes';
+    }
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
   getFile(entry) {

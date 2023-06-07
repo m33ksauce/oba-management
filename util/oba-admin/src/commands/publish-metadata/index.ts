@@ -1,12 +1,9 @@
 import {Command, Flags} from '@oclif/core'
 import * as fs from "fs";
-import { MediaPublisher } from '../../publishers/media.publisher';
-import { flagUsages } from '@oclif/core/lib/parser';
-import { FirebasePublisher } from '../../publishers/firebase';
 import { AwsPublisher } from '../../publishers/aws';
-import { lookup } from 'mime-types';
 import { Metadata, Publisher } from '../../interfaces';
 import { SharedFlags } from '../../shared/shared-flags';
+import { prepFile } from '../../util/fileUtils';
 
 export default class PublishMetadata extends Command {
   static description = 'Send metadata to prod'
@@ -35,13 +32,11 @@ hello friend from oclif! (./src/commands/hello/index.ts)
 
     let publisher: Publisher;
 
-    if (flags.useFirebase) {
-      publisher = FirebasePublisher;
-    }
-    else if (flags.useAws) {
+    if (flags.useAws) {
       publisher = new AwsPublisher(
         flags.awsS3Endpoint,
         flags.awsDynamoEndpoint,
+        flags.httpEndpoint,
         flags.awsKeyId,
         flags.awsSecretKey,
         flags.awsRegion
@@ -51,21 +46,15 @@ hello friend from oclif! (./src/commands/hello/index.ts)
 
     if (flags.includeAudio) {
       md.Audio.forEach(audio => {
-        const [file, mimeType] = this.prepFile(audio.file);
-        publisher.PublishMedia(audio.id, mimeType, file)
-        .then(() => console.log(`Published ${audio.file} with content-type: ${mimeType}`));
+        const [file, mimeType] = prepFile(audio.file);
+        publisher.PublishMedia(flags.translation, audio.id, mimeType, file)
+        .then(() => console.log(`Published ${audio.file} with content-type: ${mimeType}`))
+        .catch((err) => console.log(`Failed to publish ${audio.file}: ${err}`));
       })
     }
 
-    publisher.PublishMetadata(md);
-
     this.log(`Include files? ${flags.includeAudio || false}`)
-  }
-
-  private prepFile(path: string): [Buffer, string] {
-    return [
-        fs.readFileSync(path),
-        lookup(path) || "audio/mpeg3"
-    ]
+    
+    publisher.PublishMetadata(flags.translation, md);
   }
 }

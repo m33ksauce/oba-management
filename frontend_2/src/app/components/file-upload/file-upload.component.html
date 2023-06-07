@@ -12,7 +12,7 @@
   <div class="dropzone" appDnd (fileDropped)="onFileDropped($event)">
     <input type="file" #fileDropRef hidden multiple (change)="selectFiles($event)" />
     <ion-icon name="cloud-upload-outline"></ion-icon>
-    <h3>Drag and drop files here</h3>
+    <h3>Drag and drop files or folders here</h3>
     <h3>or</h3>
     <ion-button mode="ios" (click)="fileDropRef.click()">
       <ion-label>Browse for files</ion-label>

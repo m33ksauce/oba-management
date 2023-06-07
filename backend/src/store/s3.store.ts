@@ -2,12 +2,14 @@ import { S3Client } from "@aws-sdk/client-s3";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"
 import * as AWS from 'aws-sdk';
 import { AppConfig, GetAppConfig } from '../config';
+import { CognitoUserPool } from "amazon-cognito-identity-js";
 const https = require('http');
 
 
-class S3Store {
+class AWSStore {
     private s3: S3Client;
     private dynamoDb: DynamoDBClient;
+    private cognitoPool: CognitoUserPool;
     private config: AppConfig;
 
     constructor() {
@@ -23,6 +25,11 @@ class S3Store {
         this.dynamoDb = new DynamoDBClient({
             region: this.config.aws.region,
             endpoint: this.config.aws.dynamo.endpoint,
+        });
+
+        this.cognitoPool = new CognitoUserPool({
+            UserPoolId: "us-east-1_rshqovkHM",
+            ClientId: "65cltc2tngh6jelj1vlmcird28",
         })
     }
 
@@ -43,6 +50,10 @@ class S3Store {
     getDynamoDbConnection(): DynamoDBClient {
         return this.dynamoDb;
     }
+
+    getCognitoPool(): CognitoUserPool {
+        return this.cognitoPool;
+    }
 }
 
-export default S3Store;
+export default AWSStore;

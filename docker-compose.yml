@@ -3,22 +3,29 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "4200:4200"
     restart: always
   backend:
     build: ./backend
     ports:
       - "8080:8080"
     environment:
-      - ENV="dev"
+      - ENV=dev
       - PORT=8080
       - AWS_REGION=us-east-1
       - AWS_ACCESS_KEY_ID=devkeyid
       - AWS_SECRET_ACCESS_KEY=devkeysecret
       - AWS_S3_ENDPOINT=https://localhost.localstack.cloud:4566
       - AWS_DYNAMO_ENDPOINT=https://localhost.localstack.cloud:4566
-      - AWS_DYNAMO_TABLE_NAME=app.oralbible.api.releases
+      - AWS_DYNAMO_RELEASE_TABLE_NAME=app.oralbible.api.releases
+      - AWS_DYNAMO_AUDIO_TABLE_NAME=app.oralbible.api.audio
       - AWS_S3_BUCKET_NAME=app.oralbible.api
+      - SQL_USER=obaadmin
+      - SQL_PASSWORD=
+      - SQL_DB_NAME=obadmin
+      - SQL_HOST=
+      - SQL_PORT=5432
+      - SQL_SSL=true
     restart: always
   localstack:
     image: localstack/localstack:latest
@@ -27,8 +34,14 @@ services:
       - AWS_DEFAULT_REGION=us-east-1
       - EDGE_PORT=4566
       - SERVICES=lambda,s3
+      - DATA_DIR=/tmp/localstack/data
+      - PORT_WEB_UI=9999
     ports: 
       - '4566-4583:4566-4583'
+      - "9999:9999"
     volumes: 
+      - "localstack_data:/tmp/localstack/data"
       - "${TEMPDIR:-/tmp/localstack}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
+volumes:
+  localstack_data:

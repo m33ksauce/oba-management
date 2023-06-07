@@ -1,0 +1,22 @@
+.upload-btn {
+  float: right;
+  margin: 16px 0;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.content-padding {
+  padding: 8px;
+}
+
+.input-border {
+  border: 1px solid darkgray;
+  border-radius: 8px;
+  background: white;
+}
