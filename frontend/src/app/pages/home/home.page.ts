@@ -112,10 +112,11 @@ export class HomePage implements OnInit {
     // Refresh list once finished
     if (data && data.Files && data.Files.length > 0) {
       for (let file of data.Files) {
-        let parentId = this.catalogService
-          .findOrCreateParent(this.currentTranslation,
-            this.sharedService.currentCategoryIdMap,
-            file.relativePath);
+        let parentId = this.catalogService.findOrCreateParent(
+          this.currentTranslation,
+          this.sharedService.currentCategoryIdMap,
+          file.relativePath,
+        );
 
         this.fileService.uploadAudioFile(this.currentTranslation, file, parentId);
       }

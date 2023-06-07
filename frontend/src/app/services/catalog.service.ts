@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Category } from '../models/category.interface';
-import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,7 @@ import { SharedService } from './shared.service';
 export class CatalogService {
   private BASE_URL = environment.api.url;
 
-  constructor(private http: HttpClient, private sharedService: SharedService) {}
+  constructor(private http: HttpClient) {}
 
   getAllCategories(translation: string) {
     return this.http.get(`${this.BASE_URL}/${translation}/catalog`, { observe: 'response' });
@@ -18,10 +17,10 @@ export class CatalogService {
 
   findOrCreateParent(translation: string, parentCats: Map<string, string>, path: string): string {
     let parentId = parentCats.get(path);
-    if (!parentId) {
-      let parentPath = path.split("/").slice(0,-1).join("/")
+    if (!parentId && path != '') {
+      let parentPath = path.split('/').slice(0, -1).join('/');
       let nextParent = this.findOrCreateParent(translation, parentCats, parentPath);
-      this.createCategory(translation, nextParent, path.split("/").slice(-1).pop())
+      this.createCategory(translation, nextParent, path.split('/').slice(-1).pop());
     }
 
     return parentId;
