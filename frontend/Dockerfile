@@ -15,5 +15,7 @@ RUN npm install --silent
 # add app
 COPY . ./
 
+EXPOSE 4200
+
 # start app
 CMD ["npm", "start"]
