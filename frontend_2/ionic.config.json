@@ -1,7 +1,0 @@
-{
-  "name": "OBA-Frontend",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
