@@ -24,3 +24,16 @@ export class CategoryModel {
         this.categories = this.categories.filter(ch => ch.id == id);
     }
 }
+
+export interface TranslationSettingsModel {
+    ProjectName: string;
+    AppName: string;
+    LanguageName: string;
+    Location: string;
+}
+
+export interface TranslationModel {
+    id: string;
+    name: string;
+    settings: TranslationSettingsModel;
+}

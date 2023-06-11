@@ -7,7 +7,9 @@ CREATE SCHEMA oba_admin;
 -- translations table
 CREATE TABLE oba_admin.translations (
     id SERIAL PRIMARY KEY,
-    translation varchar(25)
+    translation varchar(25) NOT NULL,
+    settings_object json NOT NULL,
+    UNIQUE(translation)
 );
 
 -- translations_settings table
