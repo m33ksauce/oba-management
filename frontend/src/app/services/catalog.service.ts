@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Category } from '../models/category.interface';
+import { Category, CategoryResponse } from '../models/category.interface';
 import { firstValueFrom, tap } from 'rxjs';
 import { SharedService } from './shared.service';
 
@@ -18,7 +18,7 @@ export class CatalogService {
   }
 
   async findOrCreateParent(translation: string, path: string): Promise<string> {
-    if (path == '/') return '00000000-0000-0000-0000-000000000000';
+    if (path == '') return '00000000-0000-0000-0000-000000000000';
     let parentId = this.sharedService.currentCategoryIdMap.get(path);
     if (!parentId && path != '') {
       let parentPath = path.split('/').slice(0, -1).join('/');
@@ -26,8 +26,8 @@ export class CatalogService {
       let categoryResponse = await firstValueFrom(
         this.createCategory(translation, nextParent, path.split('/').slice(-1).pop(), path),
       );
-      if (categoryResponse?.id) {
-        return categoryResponse.id;
+      if (categoryResponse?.result.id) {
+        return categoryResponse.result.id;
       }
     }
 
@@ -36,14 +36,14 @@ export class CatalogService {
 
   createCategory(translation, parentId, name, path) {
     return this.http
-      .post<Category>(`${this.BASE_URL}/${translation}/category`, {
+      .post<CategoryResponse>(`${this.BASE_URL}/${translation}/category`, {
         parent_id: parentId,
         name: name,
       })
       .pipe(
         tap(response => {
-          if (response.id) {
-            this.sharedService.currentCategoryIdMap.set(path, response.id);
+          if (response.result.id) {
+            this.sharedService.currentCategoryIdMap.set(path, response.result.id);
             // this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
           }
         }),
