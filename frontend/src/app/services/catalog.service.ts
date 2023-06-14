@@ -16,6 +16,7 @@ export class CatalogService {
   }
 
   findOrCreateParent(translation: string, parentCats: Map<string, string>, path: string): string {
+    if (path == "/") return "00000000-0000-0000-0000-000000000000";
     let parentId = parentCats.get(path);
     if (!parentId && path != '') {
       let parentPath = path.split('/').slice(0, -1).join('/');
