@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SharedService {
-  private categoryIdMapSource = new BehaviorSubject<Map<string, string>>(undefined);
+  private categoryIdMapSource = new BehaviorSubject<Map<string, string>>(new Map());
   // categoryIdMap = this.categoryIdMapSource.asObservable();
 
   setCategoryIdMap(data: any) {

@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
 
   activeUser: any;
 
-  categoryIdMap = new Map();
+  // categoryIdMap = new Map();
 
   constructor(
     private route: ActivatedRoute,
@@ -66,12 +66,12 @@ export class HomePage implements OnInit {
           this.categories = response.body.result;
           for (let category of this.categories) {
             category.relativePath = category.name;
-            this.categoryIdMap.set(category.relativePath, category.id);
+            this.sharedService.currentCategoryIdMap.set(category.relativePath, category.id);
             if (category.hasOwnProperty('children')) {
               this.fillCategoryMap(category);
             }
           }
-          this.sharedService.setCategoryIdMap(this.categoryIdMap);
+          // this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
         }
         this.loading = false;
       },
@@ -85,7 +85,7 @@ export class HomePage implements OnInit {
   fillCategoryMap(category: CategoryChild) {
     for (let child of category.children) {
       child.relativePath = category.relativePath + '/' + child.name;
-      this.categoryIdMap.set(child.relativePath, child.id);
+      this.sharedService.currentCategoryIdMap.set(child.relativePath, child.id);
       if (child.hasOwnProperty('children')) {
         this.fillCategoryMap(child);
       }
@@ -112,11 +112,7 @@ export class HomePage implements OnInit {
     // Refresh list once finished
     if (data && data.Files && data.Files.length > 0) {
       for (let file of data.Files) {
-        let parentId = this.catalogService.findOrCreateParent(
-          this.currentTranslation,
-          this.sharedService.currentCategoryIdMap,
-          file.relativePath,
-        );
+        let parentId = this.catalogService.findOrCreateParent(this.currentTranslation, file.relativePath);
 
         this.fileService.uploadAudioFile(this.currentTranslation, file, parentId);
       }
