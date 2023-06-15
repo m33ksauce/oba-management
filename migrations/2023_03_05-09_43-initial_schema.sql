@@ -12,15 +12,6 @@ CREATE TABLE oba_admin.translations (
     UNIQUE(translation)
 );
 
--- translations_settings table
-CREATE TABLE oba_admin.translation_settings (
-    translation_id INTEGER PRIMARY KEY,
-    settings_object json NOT NULL
-    CONSTRAINT fk_translation
-        FOREIGN KEY(translation_id)
-            REFERENCES oba_admin.translations(id)
-);
-
 -- categories table
 CREATE TABLE oba_admin.categories (
     id UUID NOT NULL PRIMARY KEY,

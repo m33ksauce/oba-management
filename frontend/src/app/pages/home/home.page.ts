@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, lastValueFrom, takeUntil } from 'rxjs';
 import { CatalogService } from 'src/app/services/catalog.service';
 import { IonInput, ModalController, LoadingController, ToastController } from '@ionic/angular';
 import { FileUploadComponent } from 'src/app/components/file-upload/file-upload.component';
@@ -71,7 +71,7 @@ export class HomePage implements OnInit {
               this.fillCategoryMap(category);
             }
           }
-          // this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
+          this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
         }
         this.loading = false;
       },
@@ -112,9 +112,11 @@ export class HomePage implements OnInit {
     // Refresh list once finished
     if (data && data.Files && data.Files.length > 0) {
       for (let file of data.Files) {
-        let parentId = this.catalogService.findOrCreateParent(this.currentTranslation, file.relativePath);
+        // Trim leading and trailing slashes
+        let trimmedPath = file.relativePath.replace(/^\//, "").replace(/\/$/, "")
+        let parentId = await this.catalogService.findOrCreateParent(this.currentTranslation, trimmedPath);
 
-        this.fileService.uploadAudioFile(this.currentTranslation, file, parentId);
+        await lastValueFrom(this.fileService.uploadAudioFile(this.currentTranslation, file, parentId));
       }
     }
   }

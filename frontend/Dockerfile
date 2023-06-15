@@ -18,4 +18,4 @@ COPY . ./
 EXPOSE 4200
 
 # start app
-CMD ["npm", "start"]
+CMD ["npm", "run", "start-docker"]

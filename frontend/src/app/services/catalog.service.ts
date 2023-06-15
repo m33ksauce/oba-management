@@ -44,7 +44,7 @@ export class CatalogService {
         tap(response => {
           if (response.result.id) {
             this.sharedService.currentCategoryIdMap.set(path, response.result.id);
-            // this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
+            this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
           }
         }),
       );

@@ -192,7 +192,7 @@ export class FileService {
 
   uploadAudioFile(translation, file, parentId) {
     const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
+    formData.append('file', file.fileObject, file.name);
     formData.append('name', file.name);
     formData.append('parent_id', parentId);
     return this.http.post(`${this.BASE_URL}/${translation}/audio/single`, formData, { observe: 'response' });
