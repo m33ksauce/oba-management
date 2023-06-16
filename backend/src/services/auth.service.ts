@@ -3,14 +3,19 @@ import { AuthenticationDetails, CognitoUser, CognitoUserPool } from "amazon-cogn
 import AWSStore from "../store/s3.store";
 import { CognitoUserAttribute } from "amazon-cognito-identity-js";
 import { CognitoJwtVerifier } from "aws-jwt-verify";
+import { decode as jwtdecode } from 'jsonwebtoken';
+import { JwtPayload } from "aws-jwt-verify/jwt-model";
+import { UserService } from "./user.service";
 
 
 
 export class AuthService {
-    public userPool: CognitoUserPool;
+    private userPool: CognitoUserPool;
+    private userService: UserService;
 
-    constructor(aws: AWSStore) {
+    constructor(aws: AWSStore, userSvc: UserService) {
         this.userPool = aws.getCognitoPool();
+        this.userService = userSvc;
     }
 
     public signUp(user: CreateUserDTO): Promise<void> {
@@ -35,7 +40,14 @@ export class AuthService {
                     rej(err)
                     return
                 }
-                console.log(result);
+                this.userService.create(user).then((success) => {
+                    if (!success) {
+                        rej();
+                    }
+                    
+                    return res();
+
+                })
                 res()
         })
         })
@@ -92,11 +104,21 @@ export class AuthService {
                 clientId: this.userPool.getClientId(),
             });
 
-            verifier.verify(token).then((result) => {
-                console.log(result);
+            verifier.verify(token).then(() => {
                 resolve(true);
             }).catch(reject);
         });
+    }
+
+    public getEmailFromToken(token: string): string {
+        const decodedToken = jwtdecode(token);
+
+        if (decodedToken == undefined) return "";
+
+        const payload: JwtPayload = decodedToken as JwtPayload;
+        console.log(payload);
+
+        return payload.email as string;
     }
 
 }

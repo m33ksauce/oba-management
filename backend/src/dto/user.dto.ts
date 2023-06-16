@@ -7,6 +7,14 @@ export interface CreateUserDTO {
     phone: string,
 }
 
+export interface ReadUserDTO {
+    email: string,
+    timezone: string,
+    locale: string,
+    default_translation: string,
+    available_translations: string[],
+}
+
 export interface AuthUserDTO {
     email: string,
     password: string,

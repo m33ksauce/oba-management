@@ -1,9 +1,15 @@
 import * as express from "express";
 import { AuthService } from "../services/auth.service";
 import AWSStore from "../store/s3.store";
+import { SqlStore } from "../store/sql.store";
+import { UserService } from "../services/user.service";
+import { LoggerService } from "../services/logger.service";
 
+const logger = new LoggerService();
 const store = new AWSStore();
-const authSvc = new AuthService(store);
+const sqlStore = new SqlStore();
+const userSvc = new UserService(logger, sqlStore);
+const authSvc = new AuthService(store, userSvc);
 
 const getToken = (req: express.Request): string => {
     if (req.headers.authorization != undefined) {
@@ -15,16 +21,25 @@ const getToken = (req: express.Request): string => {
 
 const CognitoGuards = {
     loggedInGuard: async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-        const token = getToken(req);
-    
-        if (token === "") {
-            res.sendStatus(401);
-            return;
+        try {
+            const token = getToken(req);
+        
+            if (token === "") {
+                res.sendStatus(401);
+                return;
+            }
+        
+            if (await authSvc.verifyToken(token)) {
+                res.locals.email = authSvc.getEmailFromToken(token);
+                console.log(res.locals.email);
+                return next();
+            }
+        
+            return res.sendStatus(401);
+        } catch (e) {
+            res.status(401);
+            return res.send();
         }
-    
-        if (await authSvc.verifyToken(token)) return next();
-    
-        return res.sendStatus(401);
     },
     canUseTranslationGuard: async (req: express.Request, res: express.Response, next: express.NextFunction) => {
         const token = getToken(req);
