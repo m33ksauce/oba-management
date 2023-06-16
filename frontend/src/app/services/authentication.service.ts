@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { SignUp } from '../models/signup.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -63,5 +64,9 @@ export class AuthenticationService {
     sessionStorage.removeItem(this.userStorage);
     this.currentUserSubject.next(null);
     this.currentTokenSubject.next(null);
+  }
+
+  signup(form: SignUp) {
+    return this.http.post(`${this.BASE_URL}/auth/register`, form);
   }
 }

@@ -42,6 +42,7 @@ export class LoginPage {
       },
       error: error => {
         this.error = error.message;
+        console.error(this.error);
         this.formSubmitting = false;
       },
     });
