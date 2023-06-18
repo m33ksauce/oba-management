@@ -12,6 +12,8 @@ declare global {
       AWS_DYNAMO_RELEASE_TABLE_NAME: string;
       AWS_DYNAMO_AUDIO_TABLE_NAME: string;
       AWS_S3_BUCKET_NAME: string;
+      AWS_COGNITO_USER_POOL: string;
+      AWS_COGNITO_CLIENT_ID: string;
       ENV: 'test' | 'dev' | 'prod';
       SQL_USER: string;
       SQL_PASSWORD: string;

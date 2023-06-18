@@ -28,8 +28,8 @@ class AWSStore {
         });
 
         this.cognitoPool = new CognitoUserPool({
-            UserPoolId: "us-east-1_rshqovkHM",
-            ClientId: "65cltc2tngh6jelj1vlmcird28",
+            UserPoolId: this.config.aws.cognito.userPoolId,
+            ClientId: this.config.aws.cognito.clientId,
         })
     }
 

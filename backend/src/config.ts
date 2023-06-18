@@ -14,6 +14,7 @@ export interface AWSConfig {
     rejectUnauthorized: boolean;
     s3: S3Config;
     dynamo: DynamoDbConfig;
+    cognito: CognitoConfig;
 }
 
 export interface DynamoDbConfig {
@@ -37,6 +38,11 @@ export interface SqlConfig {
     ssl: boolean;
 }
 
+export interface CognitoConfig {
+    userPoolId: string;
+    clientId: string;
+}
+
 export function GetAppConfig(): AppConfig {
     return {
         env: process.env.ENV,
@@ -54,6 +60,10 @@ export function GetAppConfig(): AppConfig {
                 apiVersion: "2006-03-01",
                 defaultBucket: process.env.AWS_S3_BUCKET_NAME,
                 endpoint: process.env.AWS_S3_ENDPOINT,
+            },
+            cognito: {
+                userPoolId: process.env.AWS_COGNITO_USER_POOL,
+                clientId: process.env.AWS_COGNITO_CLIENT_ID,
             }
         },
         sql: {
