@@ -42,19 +42,26 @@ const CognitoGuards = {
         }
     },
     canUseTranslationGuard: async (req: express.Request, res: express.Response, next: express.NextFunction) => {
-        const token = getToken(req);
+        try {
+            const token = getToken(req);
     
-        if (token === "") {
-            res.sendStatus(401);
-            return;
-        }
-    
-        if (!(await authSvc.verifyToken(token))) {
-            res.sendStatus(401);
-            return;
-        }
-    
+            if (token === "") return res.sendStatus(401);
+            if (!(await authSvc.verifyToken(token))) return res.sendStatus(401);
+            if (res.locals.translation == undefined) return res.sendStatus(401);
         
+            res.locals.email = authSvc.getEmailFromToken(token);
+            
+            const translation = res.locals.translation;
+
+            const userTranslations = (await userSvc.find(res.locals.email)).available_translations;
+
+            if (!userTranslations.includes(translation)) return res.sendStatus(401);
+
+            return next();
+        } catch (e: any) {
+            logger.Error("Failed to auth", e.message);
+            return res.sendStatus(401);
+        }
     }
 }
 

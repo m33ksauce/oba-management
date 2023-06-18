@@ -98,15 +98,19 @@ export class AuthService {
 
     public verifyToken(token: string): Promise<boolean> {
         return new Promise((resolve, reject) => {
-            const verifier = CognitoJwtVerifier.create({
-                userPoolId: this.userPool.getUserPoolId(),
-                tokenUse: "id",
-                clientId: this.userPool.getClientId(),
-            });
+            try {
+                const verifier = CognitoJwtVerifier.create({
+                    userPoolId: this.userPool.getUserPoolId(),
+                    tokenUse: "id",
+                    clientId: this.userPool.getClientId(),
+                });
 
-            verifier.verify(token).then(() => {
-                resolve(true);
-            }).catch(reject);
+                verifier.verify(token).then(() => {
+                    resolve(true);
+                }).catch(reject);
+            } catch (e) {
+                reject(e)
+            }
         });
     }
 

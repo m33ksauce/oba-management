@@ -38,12 +38,12 @@ export class SignUpPage {
     this.phoneControl = new FormControl('', Validators.required);
 
     this.form = new FormGroup({
-      emailControl: this.emailControl,
-      passwordControl: this.passwordControl,
-      nameControl: this.nameControl,
-      zoneControl: this.zoneControl,
-      localeControl: this.localeControl,
-      phoneControl: this.phoneControl,
+      email: this.emailControl,
+      password: this.passwordControl,
+      name: this.nameControl,
+      zone: this.zoneControl,
+      locale: this.localeControl,
+      phone: this.phoneControl,
     });
   }
 

@@ -1,5 +1,4 @@
 import * as express from "express";
-import DummyAuthGuard from "../../../guards/dummyauth.guard";
 import AudioController from "./audio.controller";
 import CatalogController from "./catalog.controller";
 import CategoryController from "./category.controller";
@@ -32,8 +31,12 @@ ApiV1Router.use("/audio", (req, res, next) => {
     next();
 });
 ApiV1Router.use("/audio", AudioController);
-ApiV1Router.use("/category", DummyAuthGuard, CategoryController);
-ApiV1Router.use("/catalog", CognitoGuards.loggedInGuard, CatalogController);
-ApiV1Router.use("/translation", CognitoGuards.loggedInGuard, TranslationController);
+ApiV1Router.use("/category", CognitoGuards.canUseTranslationGuard, CategoryController);
+ApiV1Router.use("/catalog", CognitoGuards.canUseTranslationGuard, CatalogController);
+ApiV1Router.use("/translation", CognitoGuards.canUseTranslationGuard, TranslationController);
+
+ApiV1Router.get("/authtest", CognitoGuards.canUseTranslationGuard, (req, res) => {
+    res.send("Works!")
+})
 
 export default TranslationRouter;
