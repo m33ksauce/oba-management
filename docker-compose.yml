@@ -20,6 +20,8 @@ services:
       - AWS_DYNAMO_RELEASE_TABLE_NAME=app.oralbible.api.releases
       - AWS_DYNAMO_AUDIO_TABLE_NAME=app.oralbible.api.audio
       - AWS_S3_BUCKET_NAME=app.oralbible.api
+      - AWS_COGNITO_USER_POOL=
+      - AWS_COGNITO_CLIENT_ID=
       - SQL_USER=obaadmin
       - SQL_PASSWORD=
       - SQL_DB_NAME=obadmin
