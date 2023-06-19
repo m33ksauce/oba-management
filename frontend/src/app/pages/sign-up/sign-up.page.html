@@ -30,20 +30,26 @@
               ></ion-note
             >
           </ion-item>
-          <ion-item>
+          <!-- <ion-item>
             <ion-label position="floating">Locale</ion-label>
-            <ion-input type="text" formControlName="localeControl"></ion-input>
-            <ion-note slot="error"
-              ><ng-container *ngIf="localeControl.touched && localeControl.invalid">Required</ng-container></ion-note
-            >
-          </ion-item>
-          <ion-item>
+            <ion-select interface="popover" formControlName="localeControl">
+              <ng-container *ngFor="let locale of localeList">
+                <ion-select-option *ngIf="locale.location" [value]="locale.tag"
+                  >{{locale.name}} - {{locale.location}}</ion-select-option
+                >
+              </ng-container>
+            </ion-select>
+            <ion-note slot="error">
+              <ng-container *ngIf="localeControl.touched && localeControl.invalid">Required</ng-container>
+            </ion-note>
+          </ion-item> -->
+          <!-- <ion-item>
             <ion-label position="floating">Zone</ion-label>
             <ion-input type="text" formControlName="zoneControl"></ion-input>
             <ion-note slot="error"
               ><ng-container *ngIf="zoneControl.touched && zoneControl.invalid">Required</ng-container></ion-note
             >
-          </ion-item>
+          </ion-item> -->
           <ion-item>
             <ion-label position="floating">Phone</ion-label>
             <ion-input type="text" formControlName="phoneControl"></ion-input>

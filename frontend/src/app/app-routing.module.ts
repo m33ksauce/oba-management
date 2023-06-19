@@ -14,17 +14,25 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
-  },
-  {
     path: 'settings/:translation',
     loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule),
     // canActivate: [AuthGuard]
   },
   {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
+  },
+  {
     path: 'signup',
     loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpPageModule),
+  },
+  {
+    path: 'confirmation',
+    loadChildren: () => import('./pages/confirmation/confirmation.module').then(m => m.ConfirmationPageModule),
+  },
+  {
+    path: 'translation',
+    loadChildren: () => import('./pages/translation/translation.module').then(m => m.TranslationPageModule),
   },
 ];
 

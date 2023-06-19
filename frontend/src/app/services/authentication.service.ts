@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, of } from 'rxjs';
+import { BehaviorSubject, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SignUp } from '../models/signup.interface';
 
@@ -42,21 +42,19 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string) {
-    // TODO: update below with real logic once we have a login endpoint
-    // return this.http.post(`${this.BASE_URL}/login`, { email, password }).pipe(
-    //   map(token => {
-    //     sessionStorage.setItem(this.userStorage, email);
-    //     this.setCurrentUser(email);
-    //     sessionStorage.setItem(this.tokenStorage, token.toString());
-    //     this.setCurrentToken(token.toString());
-    //     return token;
-    //   }),
-    // );
-    sessionStorage.setItem(this.userStorage, email);
-    this.setCurrentUser(email);
-    sessionStorage.setItem(this.tokenStorage, 'th1s1sn0t0ken');
-    this.setCurrentToken('th1s1sn0t0ken');
-    return of({ translation: 'yetfa', token: 'th1s1sn0t0ken' });
+    return this.http.post(`${this.BASE_URL}/auth/authenticate`, { email: email, password: password }).pipe(
+      tap((result: any) => {
+        sessionStorage.setItem(this.userStorage, email);
+        this.setCurrentUser(email);
+        sessionStorage.setItem(this.tokenStorage, result.token.toString());
+        this.setCurrentToken(result.token.toString());
+      }),
+    );
+    // sessionStorage.setItem(this.userStorage, email);
+    // this.setCurrentUser(email);
+    // sessionStorage.setItem(this.tokenStorage, 'th1s1sn0t0ken');
+    // this.setCurrentToken('th1s1sn0t0ken');
+    // return of({ translation: 'yetfa', token: 'th1s1sn0t0ken' });
   }
 
   logout() {
@@ -68,5 +66,12 @@ export class AuthenticationService {
 
   signup(form: SignUp) {
     return this.http.post(`${this.BASE_URL}/auth/register`, form);
+  }
+
+  confirmUser(email, code) {
+    return this.http.post(`${this.BASE_URL}/auth/confirmUser`, {
+      email: email,
+      code: code,
+    });
   }
 }

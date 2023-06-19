@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignUp } from 'src/app/models/signup.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import * as locale from 'locale-codes';
 
 @Component({
   selector: 'app-sign-up',
@@ -29,6 +30,8 @@ export class SignUpPage {
 
   signupReceived = false;
 
+  localeList: any[];
+
   constructor(private authService: AuthenticationService) {
     this.emailControl = new FormControl('', [Validators.required, Validators.email]);
     this.passwordControl = new FormControl('', Validators.required);
@@ -45,6 +48,10 @@ export class SignUpPage {
       locale: this.localeControl,
       phone: this.phoneControl,
     });
+
+    this.localeList = locale.all;
+    this.zoneControl.setValue(Intl.DateTimeFormat().resolvedOptions().timeZone);
+    this.localeControl.setValue(navigator.language);
   }
 
   onSubmit() {
