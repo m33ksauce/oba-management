@@ -20,6 +20,6 @@ export class SettingsService {
   }
 
   createSettings(settings: Settings) {
-    return this.http.post(`${this.BASE_URL}/${settings.LanguageName}/createNew`, settings);
+    return this.http.post(`${this.BASE_URL}/${settings.languageName}/createNew`, settings);
   }
 }

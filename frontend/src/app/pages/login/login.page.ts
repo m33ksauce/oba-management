@@ -41,8 +41,6 @@ export class LoginPage {
         this.router.navigate([`/home/${response.translation}`]);
       },
       error: error => {
-        this.error = error.message;
-        console.error(this.error);
         this.formSubmitting = false;
       },
     });

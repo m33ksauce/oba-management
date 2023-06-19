@@ -1,36 +1,33 @@
 <ion-content [fullscreen]="true">
-  <div class="login-container">
-    <ion-card class="login-form-container">
-      <ng-container *ngIf="!signupReceived">
-        <div class="login-title">Sign Up</div>
-        <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-          <ion-item>
-            <ion-label position="floating">Name</ion-label>
-            <ion-input type="text" formControlName="nameControl"></ion-input>
-            <ion-note slot="error"
-              ><ng-container *ngIf="nameControl.touched && nameControl.invalid">Required</ng-container></ion-note
-            >
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="text" formControlName="emailControl"></ion-input>
-            <ion-note slot="error">
-              <ng-container *ngIf="emailControl.touched && emailControl.invalid">
-                <ng-container *ngIf="emailControl.errors?.['required']"> Required </ng-container>
-                <ng-container *ngIf="emailControl.errors?.['email']"> Enter a valid email </ng-container>
-              </ng-container>
-            </ion-note>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Password</ion-label>
-            <ion-input type="password" formControlName="passwordControl"></ion-input>
-            <ion-note slot="error"
-              ><ng-container *ngIf="passwordControl.touched && passwordControl.invalid"
-                >Required</ng-container
-              ></ion-note
-            >
-          </ion-item>
-          <!-- <ion-item>
+  <div class="main-container">
+    <ion-card class="main-form-container">
+      <div class="main-title">Sign Up</div>
+      <form class="main-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" formControlName="nameControl"></ion-input>
+          <ion-note slot="error"
+            ><ng-container *ngIf="nameControl.touched && nameControl.invalid">Required</ng-container></ion-note
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="text" formControlName="emailControl"></ion-input>
+          <ion-note slot="error">
+            <ng-container *ngIf="emailControl.touched && emailControl.invalid">
+              <ng-container *ngIf="emailControl.errors?.['required']"> Required </ng-container>
+              <ng-container *ngIf="emailControl.errors?.['email']"> Enter a valid email </ng-container>
+            </ng-container>
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="passwordControl"></ion-input>
+          <ion-note slot="error"
+            ><ng-container *ngIf="passwordControl.touched && passwordControl.invalid">Required</ng-container></ion-note
+          >
+        </ion-item>
+        <!-- <ion-item>
             <ion-label position="floating">Locale</ion-label>
             <ion-select interface="popover" formControlName="localeControl">
               <ng-container *ngFor="let locale of localeList">
@@ -43,27 +40,25 @@
               <ng-container *ngIf="localeControl.touched && localeControl.invalid">Required</ng-container>
             </ion-note>
           </ion-item> -->
-          <!-- <ion-item>
+        <!-- <ion-item>
             <ion-label position="floating">Zone</ion-label>
             <ion-input type="text" formControlName="zoneControl"></ion-input>
             <ion-note slot="error"
               ><ng-container *ngIf="zoneControl.touched && zoneControl.invalid">Required</ng-container></ion-note
             >
           </ion-item> -->
-          <ion-item>
-            <ion-label position="floating">Phone</ion-label>
-            <ion-input type="text" formControlName="phoneControl"></ion-input>
-            <ion-note slot="error"
-              ><ng-container *ngIf="phoneControl.touched && phoneControl.invalid">Required</ng-container></ion-note
-            >
-          </ion-item>
-          <div class="login-btn-container">
-            <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">Sign Up</ion-button>
-            <ion-spinner *ngIf="formSubmitting" name="dots"></ion-spinner>
-          </div>
-        </form>
-      </ng-container>
-      <h2 *ngIf="signupReceived">We have received your request. Please allow up to 72 hours for a response.</h2>
+        <ion-item>
+          <ion-label position="floating">Phone</ion-label>
+          <ion-input type="text" formControlName="phoneControl"></ion-input>
+          <ion-note slot="error"
+            ><ng-container *ngIf="phoneControl.touched && phoneControl.invalid">Required</ng-container></ion-note
+          >
+        </ion-item>
+        <div class="main-btn-container">
+          <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">Sign Up</ion-button>
+          <ion-spinner *ngIf="formSubmitting" name="dots"></ion-spinner>
+        </div>
+      </form>
     </ion-card>
   </div>
 </ion-content>

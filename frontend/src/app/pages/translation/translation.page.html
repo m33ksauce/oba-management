@@ -1,19 +1,47 @@
 <ion-content [fullscreen]="true">
-  <div class="login-container">
-    <ion-card class="login-form-container">
-      <div class="login-title">Create Translation</div>
-      <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="main-container">
+    <ion-card class="main-form-container">
+      <div class="main-title">Create Translation</div>
+      <form class="main-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <ion-item>
-          <ion-label position="floating">Translation</ion-label>
-          <ion-input type="text" formControlName="translationControl"></ion-input>
-          <ion-note slot="error">
-            <ng-container *ngIf="translationControl.touched && translationControl.invalid">
-              <ng-container *ngIf="translationControl.errors?.['required']"> Required </ng-container>
+          <ion-label position="floating">Project Name</ion-label>
+          <ion-input type="text" formControlName="projectControl"></ion-input>
+          <ion-note slot="error"
+            ><ng-container *ngIf="projectControl.touched && projectControl.invalid">Required</ng-container></ion-note
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">App Name</ion-label>
+          <ion-input type="text" formControlName="appControl"></ion-input>
+          <ion-note slot="error"
+            ><ng-container *ngIf="appControl.touched && appControl.invalid">Required</ng-container></ion-note
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Language Name</ion-label>
+          <ion-input type="text" formControlName="languageControl"></ion-input>
+          <ion-note slot="error"
+            ><ng-container *ngIf="languageControl.touched && languageControl.invalid">Required</ng-container></ion-note
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Location</ion-label>
+          <ion-select interface="popover" formControlName="locationControl">
+            <ng-container *ngFor="let locale of localeList">
+              <ion-select-option *ngIf="locale.location" [value]="locale.tag"
+                >{{locale.name}} - {{locale.location}}</ion-select-option
+              >
             </ng-container>
+          </ion-select>
+          <ion-note slot="error">
+            <ng-container *ngIf="locationControl.touched && locationControl.invalid">Required</ng-container>
           </ion-note>
         </ion-item>
-        <div class="login-btn-container">
-          <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">Create</ion-button>
+        <div class="main-btn-container">
+          <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">
+            <ng-container *ngIf="!isSettings">Create</ng-container>
+            <ng-container *ngIf="isSettings">Update</ng-container>
+          </ion-button>
           <ion-spinner *ngIf="formSubmitting" name="dots"></ion-spinner>
         </div>
       </form>

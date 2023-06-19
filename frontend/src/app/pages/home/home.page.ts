@@ -64,6 +64,10 @@ export class HomePage implements OnInit {
           this.openFileUpload();
         } else {
           this.categories = response.body.result;
+
+          // Reset map
+          this.sharedService.setCategoryIdMap(new Map());
+
           for (let category of this.categories) {
             category.relativePath = category.name;
             this.sharedService.currentCategoryIdMap.set(category.relativePath, category.id);
@@ -111,12 +115,16 @@ export class HomePage implements OnInit {
     // Set up web worker here to handle data containing files
     // Refresh list once finished
     if (data && data.Files && data.Files.length > 0) {
-      for (let file of data.Files) {
-        // Trim leading and trailing slashes
-        let trimmedPath = file.relativePath.replace(/^\//, "").replace(/\/$/, "")
-        let parentId = await this.catalogService.findOrCreateParent(this.currentTranslation, trimmedPath);
+      if (item) {
+        // Upload files under parent item
+      } else {
+        for (let file of data.Files) {
+          // Trim leading and trailing slashes
+          let trimmedPath = file.relativePath.replace(/^\//, '').replace(/\/$/, '');
+          let parentId = await this.catalogService.findOrCreateParent(this.currentTranslation, trimmedPath);
 
-        await lastValueFrom(this.fileService.uploadAudioFile(this.currentTranslation, file, parentId));
+          await lastValueFrom(this.fileService.uploadAudioFile(this.currentTranslation, file, parentId));
+        }
       }
     }
   }
