@@ -19,11 +19,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const corsConfig = ENV_CODE == "prod"
-    ? {origin: "https://*.oralbible.app/"}
+    ? {origin: "https://projects.oralbible.app"}
     : {origin: true}
 
 
 app.use(cors(corsConfig));
+app.options('*', cors(corsConfig));
 
 // Morgan Logger
 app.use(morgan(RequestLogger.JSONFormatter));
