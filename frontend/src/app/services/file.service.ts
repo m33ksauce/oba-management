@@ -63,7 +63,7 @@ function traverseDirectory(entry) {
   providedIn: 'root',
 })
 export class FileService {
-  private BASE_URL = environment.api.url;
+  private BASE_URL = environment.api.url + environment.api.apiEndpoint;
 
   constructor(private http: HttpClient) {}
 

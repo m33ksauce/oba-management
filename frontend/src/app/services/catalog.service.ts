@@ -9,7 +9,7 @@ import { SharedService } from './shared.service';
   providedIn: 'root',
 })
 export class CatalogService {
-  private BASE_URL = environment.api.url;
+  private BASE_URL = environment.api.url + environment.api.apiEndpoint;
 
   constructor(private http: HttpClient, private sharedService: SharedService) {}
 

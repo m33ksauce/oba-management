@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class SettingsService {
-  private BASE_URL = environment.api.url;
+  private BASE_URL = environment.api.url + environment.api.apiEndpoint;
 
   constructor(private http: HttpClient) {}
 

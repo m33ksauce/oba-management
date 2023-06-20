@@ -8,7 +8,7 @@ import { SignUp } from '../models/signup.interface';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private BASE_URL = environment.api.url;
+  private BASE_URL = environment.api.url + environment.api.authEndpoint;
 
   private tokenStorage = '$oba$_currentToken';
   private userStorage = '$oba$_currentUser';
@@ -42,19 +42,14 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string) {
-    return this.http.post(`${this.BASE_URL}/auth/authenticate`, { email: email, password: password }).pipe(
+    return this.http.post(`${this.BASE_URL}/authenticate`, { email: email, password: password }).pipe(
       tap((result: any) => {
         sessionStorage.setItem(this.userStorage, email);
         this.setCurrentUser(email);
-        sessionStorage.setItem(this.tokenStorage, result.token.toString());
-        this.setCurrentToken(result.token.toString());
+        sessionStorage.setItem(this.tokenStorage, result.result.token.toString());
+        this.setCurrentToken(result.result.token.toString());
       }),
     );
-    // sessionStorage.setItem(this.userStorage, email);
-    // this.setCurrentUser(email);
-    // sessionStorage.setItem(this.tokenStorage, 'th1s1sn0t0ken');
-    // this.setCurrentToken('th1s1sn0t0ken');
-    // return of({ translation: 'yetfa', token: 'th1s1sn0t0ken' });
   }
 
   logout() {
@@ -65,11 +60,11 @@ export class AuthenticationService {
   }
 
   signup(form: SignUp) {
-    return this.http.post(`${this.BASE_URL}/auth/register`, form);
+    return this.http.post(`${this.BASE_URL}/register`, form);
   }
 
   confirmUser(email, code) {
-    return this.http.post(`${this.BASE_URL}/auth/confirmUser`, {
+    return this.http.post(`${this.BASE_URL}/confirmUser`, {
       email: email,
       code: code,
     });
