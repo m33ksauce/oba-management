@@ -12,11 +12,18 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 const logger = new LoggerService();
+const ENV_CODE = process.env.ENV;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors({origin: true}));
+
+const corsConfig = ENV_CODE == "prod"
+    ? {origin: "https://*.oralbible.app/"}
+    : {origin: true}
+
+
+app.use(cors(corsConfig));
 
 // Morgan Logger
 app.use(morgan(RequestLogger.JSONFormatter));

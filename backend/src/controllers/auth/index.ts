@@ -43,7 +43,12 @@ AuthRouter.post('/confirmUser', async (req: express.Request, res: express.Respon
 AuthRouter.post('/authenticate', async (req: express.Request, res: express.Response) => {
     const dto: AuthUserDTO = req.body;
     try {
-        const result = await authSvc.authenticateUser(dto);
+        const authResult = await authSvc.authenticateUser(dto);
+        const user = await userSvc.find(authResult.email);
+        const result = {
+            ...authResult,
+            user: user
+        }
         res.send({status: "success", "result": result});
     } catch (e) {
         res.status(500);
