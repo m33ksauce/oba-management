@@ -40,7 +40,7 @@ export class LoginPage {
         const default_translation = response.result.user.default_translation
         this.formSubmitting = false;
         if (default_translation == "") {
-          this.router.navigate(['/translation'])
+          return this.router.navigate(['/translation'])
         }
         return this.router.navigate([`/home/${default_translation}`]);
       },

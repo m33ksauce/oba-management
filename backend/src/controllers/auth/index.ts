@@ -18,8 +18,13 @@ const authSvc = new AuthService(store, userSvc);
 
 AuthRouter.post('/register', async (req: express.Request, res: express.Response) => {
     const dto: CreateUserDTO = req.body;
-    await authSvc.signUp(dto);
-    res.sendStatus(200);
+    try {
+        await authSvc.signUp(dto);
+        res.sendStatus(200);
+    } catch (e: any) {
+        logger.Error("exception", e.message);
+        res.sendStatus(400);
+    }
 });
 
 AuthRouter.post('/confirmUser', async (req: express.Request, res: express.Response) => {
