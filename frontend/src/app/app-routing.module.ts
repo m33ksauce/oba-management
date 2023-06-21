@@ -27,7 +27,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpPageModule),
   },
   {
-    path: 'confirmation/:code',
+    path: 'confirmation',
     loadChildren: () => import('./pages/confirmation/confirmation.module').then(m => m.ConfirmationPageModule),
   },
   {
