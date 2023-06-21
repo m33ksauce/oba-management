@@ -37,8 +37,12 @@ export class LoginPage {
     this.formSubmitting = true;
     this.authService.login(this.userNameControl.value, this.passwordControl.value).subscribe({
       next: response => {
+        const default_translation = response.result.user.default_translation
         this.formSubmitting = false;
-        this.router.navigate([`/home/${response.result.user.default_translation}`]);
+        if (default_translation == "") {
+          this.router.navigate(['/translation'])
+        }
+        return this.router.navigate([`/home/${default_translation}`]);
       },
       error: error => {
         this.formSubmitting = false;

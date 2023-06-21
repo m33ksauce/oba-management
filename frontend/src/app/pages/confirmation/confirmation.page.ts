@@ -22,9 +22,7 @@ export class ConfirmationPage implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.email = this.route.snapshot.queryParamMap.get('email');
-  }
+  ngOnInit() {  }
 
   onSubmit() {
     if (this.form.invalid) {
@@ -35,7 +33,7 @@ export class ConfirmationPage implements OnInit {
     this.formSubmitting = true;
     const code = this.confirmationControl.value;
     this.authService
-      .confirmUser(this.email, code).subscribe({
+      .confirmUser(code).subscribe({
       next: (response: any) => {
         this.formSubmitting = false;
         this.router.navigate([`/login`]);

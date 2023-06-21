@@ -60,10 +60,16 @@ export class AuthenticationService {
   }
 
   signup(form: SignUp) {
-    return this.http.post(`${this.BASE_URL}/register`, form);
+    return this.http.post(`${this.BASE_URL}/register`, form).pipe(
+      tap(() => {
+        sessionStorage.setItem(this.userStorage, form.email);
+        this.setCurrentUser(form.email);
+      }),
+    );
   }
 
-  confirmUser(email, code) {
+  confirmUser(code) {
+    const email = this.currentUser;
     return this.http.post(`${this.BASE_URL}/confirmUser`, {
       email: email,
       code: code,
