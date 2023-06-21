@@ -16,10 +16,10 @@ export class SettingsService {
   }
 
   updateSettings(settings: Settings) {
-    return this.http.put(`${this.BASE_URL}/translation/settings`, settings);
+    return this.http.put(`${this.BASE_URL}/translation/settings`, {Settings: settings});
   }
 
   createSettings(settings: Settings) {
-    return this.http.post(`${this.BASE_URL}/${settings.languageName}/createNew`, settings);
+    return this.http.post(`${this.BASE_URL}/${settings.LanguageName}/createNew`, {Settings: settings});
   }
 }

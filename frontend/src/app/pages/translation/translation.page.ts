@@ -72,10 +72,10 @@ export class TranslationPage implements OnInit {
 
     this.formSubmitting = true;
     let payload: Settings = {
-      projectName: this.projectControl.value,
-      appName: this.appControl.value,
-      languageName: this.languageControl.value,
-      location: this.locationControl.value,
+      ProjectName: this.projectControl.value,
+      AppName: this.appControl.value,
+      LanguageName: this.languageControl.value,
+      Location: this.locationControl.value,
     };
     if (this.isSettings) {
       this.settingsService.updateSettings(payload).subscribe({

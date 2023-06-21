@@ -1,6 +1,6 @@
 export interface Settings {
-  projectName: string;
-  appName: string;
-  languageName: string;
-  location: string;
+  ProjectName: string;
+  AppName: string;
+  LanguageName: string;
+  Location: string;
 }

@@ -21,7 +21,10 @@ const translationMiddleware = (req: express.Request, res: express.Response, next
 TranslationRouter.use("/", translationMiddleware, ApiV1Router); // Temporarily trap old version
 
 // Specific use of translation when creating
-TranslationRouter.post("/:translation/createNew", translationMiddleware, CreateTranslationHandler);
+TranslationRouter.post("/:translation/createNew",
+    CognitoGuards.loggedInGuard,
+    translationMiddleware,
+    CreateTranslationHandler);
 
 TranslationRouter.use("/:translation", translationMiddleware, ApiV1Router);
 

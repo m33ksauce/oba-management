@@ -77,4 +77,33 @@ export class UserService {
             client.release();
         }
     }
+
+    public async grantTranslationAccess(translationId: string, email: string) {
+        let client = await this.sqlStore.GetPool().connect();
+
+        const defaultTranslationQuery = `
+            UPDATE oba_admin.users
+            SET default_translation = $1
+            WHERE email = $2
+            AND default_translation IS NULL;
+        `;
+            
+        const accessQuery = `
+            INSERT INTO oba_admin.translation_access(translation_id, user_email)
+            VALUES ($1, $2);
+        `;
+
+        const params = [translationId, email];
+
+        try {
+            await client.query(defaultTranslationQuery, params);
+            await client.query(accessQuery, params);
+            return true;
+        } catch (e: any) {
+            this.logger.Error("exception", e.message);
+            return false;
+        } finally {
+            client.release();
+        }
+    }
 }
