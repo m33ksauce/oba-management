@@ -92,10 +92,10 @@ export class TranslationPage implements OnInit {
         },
       });
     } else {
-      this.settingsService.createSettings(this.form.value as Settings).subscribe({
+      this.settingsService.createSettings(payload as Settings).subscribe({
         next: response => {
           this.formSubmitting = false;
-          this.router.navigate([`/home/${this.form.value.languageName}`]);
+          this.router.navigate([`/home/${payload.LanguageName}`]);
         },
         error: error => {
           this.formSubmitting = false;

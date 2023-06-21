@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api: {
-    url: 'https://content.oralbible.app',
+    url: 'http://localhost:8080',
     apiEndpoint: '/api/v1',
     authEndpoint: '/auth'
   },

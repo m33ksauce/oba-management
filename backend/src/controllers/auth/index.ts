@@ -20,10 +20,11 @@ AuthRouter.post('/register', async (req: express.Request, res: express.Response)
     const dto: CreateUserDTO = req.body;
     try {
         await authSvc.signUp(dto);
-        res.sendStatus(200);
+        res.status(200);
+        return res.send({status: "success", message: "user created"});
     } catch (e: any) {
         logger.Error("exception", e.message);
-        res.sendStatus(400);
+        return res.sendStatus(400);
     }
 });
 
@@ -38,7 +39,7 @@ AuthRouter.post('/confirmUser', async (req: express.Request, res: express.Respon
     try {
         await authSvc.confirmUser(email, code);
         res.status(200);
-        res.send({status: "success", message: "user created"});
+        res.send({status: "success", message: "user confirmed"});
     } catch (e) {
         res.status(500);
         res.send({status: "failure", reason: e})

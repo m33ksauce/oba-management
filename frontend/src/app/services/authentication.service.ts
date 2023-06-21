@@ -61,7 +61,7 @@ export class AuthenticationService {
 
   signup(form: SignUp) {
     return this.http.post(`${this.BASE_URL}/register`, form).pipe(
-      tap((result: any) => {
+      tap(() => {
         sessionStorage.setItem(this.userStorage, form.email);
         this.setCurrentUser(form.email);
       }),
