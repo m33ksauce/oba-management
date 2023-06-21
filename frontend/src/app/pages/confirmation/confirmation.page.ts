@@ -36,7 +36,7 @@ export class ConfirmationPage implements OnInit {
       .confirmUser(code).subscribe({
       next: (response: any) => {
         this.formSubmitting = false;
-        this.router.navigate(['/login']);
+        return this.router.navigate(['/login']);
       },
       error: error => {
       },

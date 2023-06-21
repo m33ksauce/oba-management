@@ -74,10 +74,10 @@ export class SignUpPage {
       phone: this.phoneControl.value,
     };
     this.authService.signup(payload).subscribe({
-      next: () => {
+      next: response => {
         this.formSubmitting = false;
-        this.router.navigate(['/confirmation']);
         this.signupReceived = true;
+        return this.router.navigate(['/confirmation']);
       },
       error: error => {
         console.log(error);
