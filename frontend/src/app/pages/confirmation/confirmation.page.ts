@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -8,20 +9,31 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./confirmation.page.scss'],
 })
 export class ConfirmationPage implements OnInit {
-  code = '';
+  email = '';
+  form: FormGroup;
+  confirmationControl: FormControl;
 
-  constructor(private route: ActivatedRoute, private authService: AuthenticationService) {}
+  constructor(private route: ActivatedRoute, private authService: AuthenticationService, private router: Router) {
+    this.confirmationControl = new FormControl('', Validators.required);
+
+    this.form = new FormGroup({
+      confirmationControl: this.confirmationControl,
+    });
+  }
 
   ngOnInit() {
-    this.code = this.route.snapshot.paramMap.get('code');
+    this.email = this.route.snapshot.queryParamMap.get('email');
   }
 
   confirmUser() {
-    // this.authService.confirmUser(email, this.code).subscribe({
-    //   next: (response: any) => {
-    //   },
-    //   error: error => {
-    //   },
-    // });
+    const code = this.confirmationControl.value;
+    this.authService
+      .confirmUser(this.email, code).subscribe({
+      next: (response: any) => {
+        this.router.navigate([`/confirmation`], { queryParams: {email: payload.email}});
+      },
+      error: error => {
+      },
+    });
   }
 }

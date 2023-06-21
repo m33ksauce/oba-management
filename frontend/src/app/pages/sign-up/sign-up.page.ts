@@ -76,7 +76,7 @@ export class SignUpPage {
     this.authService.signup(payload).subscribe({
       next: (response: any) => {
         this.formSubmitting = false;
-        this.router.navigate([`/confirmation/${response.code}`]);
+        this.router.navigate([`/confirmation`], { queryParams: {email: payload.email}});
         this.signupReceived = true;
       },
       error: error => {
