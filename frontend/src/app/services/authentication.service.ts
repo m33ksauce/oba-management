@@ -60,10 +60,11 @@ export class AuthenticationService {
   }
 
   signup(form: SignUp) {
+    const email = form.email;
     return this.http.post(`${this.BASE_URL}/register`, form).pipe(
       tap((result: any) => {
-        sessionStorage.setItem(this.userStorage, form.email);
-        this.setCurrentUser(form.email);
+        sessionStorage.setItem(this.userStorage, email);
+        this.setCurrentUser(email);
       }),
     );
   }
