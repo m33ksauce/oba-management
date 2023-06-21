@@ -12,6 +12,7 @@ export class ConfirmationPage implements OnInit {
   email = '';
   form: FormGroup;
   confirmationControl: FormControl;
+  formSubmitting = false;
 
   constructor(private route: ActivatedRoute, private authService: AuthenticationService, private router: Router) {
     this.confirmationControl = new FormControl('', Validators.required);
@@ -25,12 +26,19 @@ export class ConfirmationPage implements OnInit {
     this.email = this.route.snapshot.queryParamMap.get('email');
   }
 
-  confirmUser() {
+  onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.formSubmitting = true;
     const code = this.confirmationControl.value;
     this.authService
       .confirmUser(this.email, code).subscribe({
       next: (response: any) => {
-        this.router.navigate([`/confirmation`], { queryParams: {email: payload.email}});
+        this.formSubmitting = false;
+        this.router.navigate([`/login`]);
       },
       error: error => {
       },
