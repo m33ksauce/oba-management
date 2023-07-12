@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content>
   <div class="main-container">
     <ion-card class="main-form-container">
       <div class="main-title">Create Translation</div>
@@ -40,7 +40,7 @@
         <div class="main-btn-container">
           <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">
             <ng-container *ngIf="!isSettings">Create</ng-container>
-            <ng-container *ngIf="isSettings">Update</ng-container>
+            <ng-container *ngIf="isSettings">Save</ng-container>
           </ion-button>
           <ion-spinner *ngIf="formSubmitting" name="dots"></ion-spinner>
         </div>
