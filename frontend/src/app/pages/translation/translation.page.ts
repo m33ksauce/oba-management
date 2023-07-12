@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Settings } from 'src/app/models/settings.interface';
 import { SettingsService } from 'src/app/services/settings.service';
-import * as locale from 'locale-codes';
 import { ValidateLanguage } from 'src/app/shared/language.validator';
 import { ToastController } from '@ionic/angular';
 @Component({
@@ -28,22 +27,16 @@ export class TranslationPage implements OnInit {
 
   formSubmitting = false;
 
-  localeList: any[];
-
   constructor(private router: Router, private settingsService: SettingsService, private toastCtrl: ToastController) {
     this.projectControl = new FormControl('', Validators.required);
     this.appControl = new FormControl('', Validators.required);
     this.languageControl = new FormControl('', [Validators.required, ValidateLanguage]);
-    this.locationControl = new FormControl('', Validators.required);
 
     this.form = new FormGroup({
       projectControl: this.projectControl,
       appControl: this.appControl,
       languageControl: this.languageControl,
-      locationControl: this.locationControl,
     });
-
-    this.localeList = locale.all;
   }
 
   ngOnInit() {
@@ -54,7 +47,6 @@ export class TranslationPage implements OnInit {
             projectControl: response.Settings.ProjectName,
             appControl: response.Settings.AppName,
             languageControl: response.Settings.LanugageName,
-            locationControl: response.Settings.Location,
           });
         },
         error: error => {
@@ -75,7 +67,6 @@ export class TranslationPage implements OnInit {
       ProjectName: this.projectControl.value,
       AppName: this.appControl.value,
       LanguageName: this.languageControl.value,
-      Location: this.locationControl.value,
     };
     if (this.isSettings) {
       this.settingsService.updateSettings(payload).subscribe({
@@ -92,7 +83,7 @@ export class TranslationPage implements OnInit {
         },
       });
     } else {
-      this.settingsService.createSettings(payload as Settings).subscribe({
+      this.settingsService.createSettings(payload).subscribe({
         next: response => {
           this.formSubmitting = false;
           this.router.navigate([`/home/${payload.LanguageName}`]);

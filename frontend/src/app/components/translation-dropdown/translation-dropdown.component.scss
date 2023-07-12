@@ -1,0 +1,11 @@
+.lookupRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  background-color: lightgray;
+
+  ion-item {
+    flex: 1;
+  }
+}

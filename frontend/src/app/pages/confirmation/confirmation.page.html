@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <div class="main-container">
     <ion-card class="main-form-container">
-      <form class="main-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form class="main-form" [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
         <ion-item>
           <ion-label position="floating">Confirmation Code</ion-label>
           <ion-input type="text" formControlName="confirmationControl"></ion-input>

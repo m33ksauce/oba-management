@@ -1,0 +1,44 @@
+<ion-header mode="ios" class="ion-no-border">
+  <div class="lookupRow">
+    <ion-item lines="none">
+      <ion-icon name="search" slot="start" color="medium"></ion-icon>
+      <ion-input
+        id="search-input"
+        #searchBar
+        type="text"
+        [formControl]="searchControl"
+        (ionChange)="searching = true"
+      ></ion-input>
+    </ion-item>
+    <ion-button
+      id="clear-search-button"
+      mode="md"
+      color="medium"
+      *ngIf="searchControl.value"
+      fill="clear"
+      (click)="clearSearch()"
+    >
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+  </div>
+</ion-header>
+
+<ion-content id="lookupContent" class="ion-no-padding" forceOverscroll="false">
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner color="medium" name="crescent"></ion-spinner>
+  </div>
+  <ion-list class="ion-no-padding">
+    <ion-item
+      [id]="item + '-lookup-option'"
+      button="true"
+      *ngFor="let item of itemSection"
+      detail="false"
+      (click)="selectValue(item)"
+    >
+      <ion-label style="white-space: pre-wrap">{{ item }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll *ngIf="itemSection.length < filteredItems.length" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent"> </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

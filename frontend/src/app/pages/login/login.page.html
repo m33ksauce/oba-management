@@ -2,7 +2,7 @@
   <div class="main-container">
     <ion-card class="main-form-container">
       <div class="main-title">Log In</div>
-      <form class="main-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form class="main-form" [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
         <ion-item>
           <ion-label position="floating">Email</ion-label>
           <ion-icon slot="start" name="person-outline"></ion-icon>

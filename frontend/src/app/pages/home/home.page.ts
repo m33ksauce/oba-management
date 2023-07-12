@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
 
   activeUser: any;
 
-  // categoryIdMap = new Map();
+  translationList: any = ['test', 'try', 'to', 'see', 'something'];
 
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +39,14 @@ export class HomePage implements OnInit {
   ) {
     this._unsubscribeAll = new Subject();
     this.activeUser = this.authService.currentUser;
+
+    this.sharedService.changeTranslationData.pipe(takeUntil(this._unsubscribeAll)).subscribe({
+      next: (newTranslation: any) => {
+        if (newTranslation) {
+          alert('New Translation: ' + newTranslation);
+        }
+      },
+    });
   }
 
   ngOnInit() {
@@ -81,7 +89,7 @@ export class HomePage implements OnInit {
       },
       error: err => {
         this.loading = false;
-        this.showErrorToast();
+        this.showToast();
       },
     });
   }
@@ -96,7 +104,7 @@ export class HomePage implements OnInit {
     }
   }
 
-  async showErrorToast(message?: string) {
+  async showToast(message?: string) {
     const toast = await this.toastCtrl.create({
       message: message ? message : 'An error has occurred.',
       duration: 2500,
@@ -112,8 +120,8 @@ export class HomePage implements OnInit {
     modal.present();
 
     const { data } = await modal.onWillDismiss();
+
     // Set up web worker here to handle data containing files
-    // Refresh list once finished
     if (data && data.Files && data.Files.length > 0) {
       if (item) {
         // Upload files under parent item
@@ -126,6 +134,9 @@ export class HomePage implements OnInit {
           await lastValueFrom(this.fileService.uploadAudioFile(this.currentTranslation, file, parentId));
         }
       }
+
+      // Refresh list once finished
+      this.getCategories();
     }
   }
 
@@ -160,10 +171,11 @@ export class HomePage implements OnInit {
       this.catalogService.updateCategory(this.currentTranslation, item).subscribe({
         next: response => {
           loading.dismiss();
+          this.showToast('Saved Successfully');
         },
         error: err => {
           loading.dismiss();
-          this.showErrorToast();
+          this.showToast();
         },
       });
     }
@@ -178,11 +190,14 @@ export class HomePage implements OnInit {
     this.catalogService.deleteCategory(this.currentTranslation, item).subscribe({
       next: response => {
         loading.dismiss();
+        this.showToast('Deleted Successfully');
       },
       error: err => {
         loading.dismiss();
-        this.showErrorToast();
+        this.showToast();
       },
     });
   }
+
+  publish() {}
 }
