@@ -17,6 +17,8 @@ export class SettingsPage implements OnInit {
 
   activeUser: any;
 
+  translationList = [];
+
   constructor(private route: ActivatedRoute, private authService: AuthenticationService) {
     this._unsubscribeAll = new Subject();
     this.activeUser = this.authService.currentUser;

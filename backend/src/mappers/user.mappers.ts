@@ -12,8 +12,6 @@ export class ReadUserDTOMappers {
 
         return {
             email: input.email,
-            timezone: input.timezone,
-            locale: input.locale,
             default_translation: default_translation,
             available_translations: available_translations,
         }

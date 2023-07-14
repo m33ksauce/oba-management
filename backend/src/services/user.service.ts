@@ -16,10 +16,10 @@ export class UserService {
         let client = await this.sqlStore.GetPool().connect();
         
         const insertUserQuery = 
-            `INSERT INTO oba_admin.users(email, timezone, locale)
-                VALUES($1, $2, $3)`;
+            `INSERT INTO oba_admin.users(email)
+                VALUES($1)`;
 
-        const params = [dto.email, dto.zone, dto.locale];
+        const params = [dto.email];
 
         try {
             await client.query(insertUserQuery, params);
@@ -35,7 +35,7 @@ export class UserService {
     public async find(email: string): Promise<ReadUserDTO> {
         let client = await this.sqlStore.GetPool().connect();
 
-        const readUserQuery = `SELECT u.email, u.timezone, u.locale, t.translation
+        const readUserQuery = `SELECT u.email, t.translation
             FROM oba_admin.users as u
             LEFT JOIN oba_admin.translations as t 
                 ON u.default_translation = t.id

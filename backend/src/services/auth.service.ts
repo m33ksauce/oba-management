@@ -24,15 +24,9 @@ export class AuthService {
 
             const nameAttr = new CognitoUserAttribute({ Name: "name", Value: user.name})
             const emailAttr = new CognitoUserAttribute({ Name: "email", Value: user.email });
-            const phoneAttr = new CognitoUserAttribute({ Name: "phone_number", Value: user.phone});
-            const zoneAttr = new CognitoUserAttribute({ Name: "zoneinfo", Value: user.zone});
-            const localeInfo = new CognitoUserAttribute({ Name: "locale", Value: user.locale});
             
             attributes.push(nameAttr);
             attributes.push(emailAttr);
-            attributes.push(phoneAttr);
-            attributes.push(zoneAttr);
-            attributes.push(localeInfo);
             
 
             this.userPool.signUp(user.email, user.password, attributes, [], (err, result) => {
@@ -92,7 +86,7 @@ export class AuthService {
                 onFailure: (err) => {
                     reject(err);
                 }
-                })
+            })
         })
     }
 
