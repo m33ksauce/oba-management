@@ -4,6 +4,7 @@ export interface CreateTranslationInfoDTO {
 
 export interface ReadTranslationInfoDTO {
     id: string,
+    LatestVersion: string,
     Settings: TranslationSettings
 }
 

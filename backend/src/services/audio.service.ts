@@ -12,6 +12,7 @@ import ILogger from "./ilogger.interface";
 import { SqlStore } from "../store/sql.store";
 import { CreateAudioResultDTO, UpdateAudioResultDTO } from "../dto/dto";
 import { UpdateAudioResultDTOMappers } from "../mappers/category.mappers";
+import { AudioFileModel } from "../models/audio.model";
 
 class AudioService {
   private logger: ILogger;
@@ -61,6 +62,31 @@ class AudioService {
         reject({ msg: "Something went wrong" });
       }
     });
+  }
+
+  async findByParent(parentId: string): Promise<AudioFileModel[]> {
+    let client = await this.sqlStore.GetPool().connect();
+
+    const readQuery = `SELECT * from oba_admin.audio
+      WHERE category_id=$1`;
+
+    try {
+      let results = await client.query(readQuery, [parentId]);
+      
+      return results.rows.map(row => {
+        return {
+          id: row.id,
+          bucket_path: row.bucket_path,
+          name: row.name,
+          parentId: row.category_id,
+        }
+      });
+    } catch (e: any) {
+      this.logger.Error("exception", e.message);
+      throw e;
+    } finally {
+      client.release();
+    }
   }
 
   async create(translation: string, 

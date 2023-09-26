@@ -1,4 +1,4 @@
-import { ReleaseModel } from "../models/models";
+import { ReleaseModel } from "../models/release.model";
 import { AttributeValue, DeleteItemCommand, DynamoDBClient, GetItemCommand, PutItemCommand, PutItemCommandInput, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 import AWSStore from "../store/s3.store";
 import { GetAppConfig } from "../config";
