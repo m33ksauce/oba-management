@@ -6,6 +6,7 @@ import multer from "multer";
 import { NIL as uuidNIL } from 'uuid';
 import { SqlStore } from "../../../store/sql.store";
 const crypto = require('crypto');
+const cors = require("cors");
 
 const AudioController = express.Router();
 
@@ -14,7 +15,12 @@ const logger = new LoggerService();
 const sqlStore = new SqlStore();
 const audioSvc = new AudioService(store, logger, sqlStore);
 
-AudioController.get("/:id", (req: express.Request, res: express.Response) => {
+const corsConfig = process.env.ENV == "prod"
+    ? {origin: "https://projects.oralbible.app"}
+    : {origin: true}
+
+
+AudioController.get("/:id", cors({origin: "*"}), (req: express.Request, res: express.Response) => {
     const translation = res.locals.translation;
     const fileId = req.params.id;
     audioSvc.findOne(translation, fileId).then((file) => {
@@ -27,7 +33,7 @@ AudioController.get("/:id", (req: express.Request, res: express.Response) => {
 });
 
 AudioController
-    .post("/single", multer({storage: multer.memoryStorage()}).single("file"),
+    .post("/single", cors(corsConfig), multer({storage: multer.memoryStorage()}).single("file"),
     (req: express.Request, res: express.Response) => 
     {
         const translation = res.locals.translation;
@@ -56,7 +62,7 @@ AudioController
     });
 
 AudioController
-    .put("/:id", multer({storage: multer.memoryStorage()}).single("file"),
+    .put("/:id", cors(corsConfig), multer({storage: multer.memoryStorage()}).single("file"),
     (req: express.Request, res: express.Response) => {
         const translation = res.locals.translation;
 

@@ -23,7 +23,7 @@ const corsConfig = ENV_CODE == "prod"
     : {origin: true}
 
 
-app.use(cors(corsConfig));
+// app.use(cors(corsConfig));
 app.options('*', cors(corsConfig));
 
 // Morgan Logger
@@ -31,7 +31,7 @@ app.use(morgan(RequestLogger.JSONFormatter));
 
 app.use("/health", HealthRouter);
 app.use("/api/v1", ApiV1Router);
-app.use("/auth", AuthRouter);
+app.use("/auth", cors(corsConfig), AuthRouter);
 
 app.listen(PORT, () => {
     logger.Info(`Starting app on port ${PORT}`);
