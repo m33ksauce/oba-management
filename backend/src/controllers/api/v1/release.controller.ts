@@ -82,6 +82,7 @@ ReleaseController.post(
     newRelease.Audio = audios;
 
     await releaseSvc.insert(translationName, newRelease);
+    await releaseSvc.update(translationName, "latest", newRelease);
 
     res.json({
       Status: "success",
