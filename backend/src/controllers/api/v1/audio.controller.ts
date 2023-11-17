@@ -62,7 +62,7 @@ AudioController
     });
 
 AudioController
-    .put("/:id", cors(corsConfig), multer({storage: multer.memoryStorage()}).single("file"),
+    .put("/:id", cors(corsConfig),
     (req: express.Request, res: express.Response) => {
         const translation = res.locals.translation;
 

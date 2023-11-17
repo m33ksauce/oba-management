@@ -9,7 +9,7 @@ export class CategoryService {
     private sqlStore: SqlStore
 
     constructor(logger: ILogger, sqlStore: SqlStore) {
-        this.logger = logger.WithFields({ "service": "CatalogService" });
+        this.logger = logger.WithFields({ "service": "CategoryService" });
         this.sqlStore = sqlStore;
     }
 
