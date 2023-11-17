@@ -42,7 +42,7 @@ export class TranslationService {
     async find(translation: string): Promise<ReadTranslationInfoDTO> {
         let client = await this.sqlStore.GetPool().connect();
 
-        let findQuery = `SELECT tr.id, tr.settings_object 
+        let findQuery = `SELECT tr.id, tr.settings_object, tr.latest_version
             FROM oba_admin.translations as tr
             WHERE tr.translation=$1`;
 

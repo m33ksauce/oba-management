@@ -35,7 +35,7 @@ export class UserService {
     public async find(email: string): Promise<ReadUserDTO> {
         let client = await this.sqlStore.GetPool().connect();
 
-        const readUserQuery = `SELECT u.email, t.translation
+        const readUserQuery = `SELECT u.email, t.translation, t.latest_version
             FROM oba_admin.users as u
             LEFT JOIN oba_admin.translations as t 
                 ON u.default_translation = t.id

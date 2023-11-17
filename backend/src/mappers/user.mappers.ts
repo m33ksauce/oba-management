@@ -13,6 +13,7 @@ export class ReadUserDTOMappers {
         return {
             email: input.email,
             default_translation: default_translation,
+            default_translation_current_version: input.latest_version,
             available_translations: available_translations,
         }
     }

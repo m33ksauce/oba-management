@@ -5,4 +5,5 @@ export interface TranslationModel {
     id: string;
     name: string;
     settings: TranslationSettingsModel;
+    lastestVersion: string;
 }
