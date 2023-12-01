@@ -24,7 +24,8 @@ AuthRouter.post('/register', async (req: express.Request, res: express.Response)
         return res.send({status: "success", message: "user created"});
     } catch (e: any) {
         logger.Error("exception", e.message);
-        return res.sendStatus(400);
+        res.statusCode = 400;
+        return res.send(e.friendlyMessage);
     }
 });
 

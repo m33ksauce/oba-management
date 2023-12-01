@@ -33,16 +33,24 @@ const corsConfig = process.env.ENV == 'prod' ? { origin: 'https://projects.oralb
 //         .catch(() => res.sendStatus(500))
 // });
 
-ReleaseController.get('/:id', cors({ origin: '*' }), (req: express.Request, res: express.Response) => {
+ReleaseController.get('/:id', cors({ origin: '*' }), async (req: express.Request, res: express.Response) => {
   const translation = res.locals.translation;
-  const version = req.params.id;
+  let version = req.params.id;
 
-  releaseSvc
-    .findOne(translation, version)
-    .then(release => {
-      res.json(release);
-    })
-    .catch(() => res.sendStatus(500));
+  if (version === "latest") {
+    let lVer = (await translationSvc.find(translation)).LatestVersion;
+    version = (lVer == undefined || lVer == "") 
+      ? version = "latest"
+      : version = `0.0.${lVer}`;
+  }
+
+  try {
+    let release = await releaseSvc
+      .findOne(translation, version)
+    res.json(release);
+  } catch {
+    res.sendStatus(500);
+  }
 });
 
 ReleaseController.post('/', cors(corsConfig), (req: express.Request, res: express.Response) => {
@@ -82,7 +90,6 @@ ReleaseController.post(
     newRelease.Audio = audios;
 
     await releaseSvc.insert(translationName, newRelease);
-    await releaseSvc.update(translationName, "latest", newRelease);
 
     res.json({
       Status: "success",
