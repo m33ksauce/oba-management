@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, of, tap } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SignUp } from '../models/signup.interface';
 
@@ -18,7 +18,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {
     this.currentTokenSubject = new BehaviorSubject(sessionStorage.getItem(this.tokenStorage));
-    this.currentUserSubject = new BehaviorSubject(sessionStorage.getItem(this.userStorage));
+    this.currentUserSubject = new BehaviorSubject(JSON.parse(sessionStorage.getItem(this.userStorage)));
   }
 
   setCurrentToken(token: string) {
@@ -44,8 +44,8 @@ export class AuthenticationService {
   login(email: string, password: string) {
     return this.http.post(`${this.BASE_URL}/authenticate`, { email: email, password: password }).pipe(
       tap((result: any) => {
-        sessionStorage.setItem(this.userStorage, email);
-        this.setCurrentUser(email);
+        sessionStorage.setItem(this.userStorage, JSON.stringify(result.result.user));
+        this.setCurrentUser(result.result.user);
         sessionStorage.setItem(this.tokenStorage, result.result.token.toString());
         this.setCurrentToken(result.result.token.toString());
       }),
@@ -62,8 +62,9 @@ export class AuthenticationService {
   signup(form: SignUp) {
     return this.http.post(`${this.BASE_URL}/register`, form).pipe(
       tap(() => {
-        sessionStorage.setItem(this.userStorage, form.email);
-        this.setCurrentUser(form.email);
+        let user = { email: form.email };
+        sessionStorage.setItem(this.userStorage, JSON.stringify(user));
+        this.setCurrentUser(user);
       }),
     );
   }

@@ -8,7 +8,7 @@
       <ion-button *ngIf="translationList?.length > 0" id="settings-translation-dropdown-trigger">
         Change Translation
       </ion-button>
-      <ion-popover trigger="settings-translation-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
+      <ion-popover trigger="settings-translation-dropdown-trigger" triggerAction="click" [dismissOnSelect]="false">
         <ng-template>
           <app-translation-dropdown
             [currentTranslation]="currentTranslation"
@@ -16,7 +16,7 @@
           ></app-translation-dropdown>
         </ng-template>
       </ion-popover>
-      <ion-button id="settings-dropdown-trigger"> {{ activeUser }} </ion-button>
+      <ion-button id="settings-dropdown-trigger"> {{ activeEmail }} </ion-button>
       <ion-popover trigger="settings-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
         <ng-template>
           <app-current-user-dropdown [translation]="currentTranslation"></app-current-user-dropdown>
@@ -26,4 +26,6 @@
   </ion-toolbar>
 </ion-header>
 
-<app-translation isSettings="true"></app-translation>
+<ion-content>
+  <app-translation-form [settings]="isSettings"></app-translation-form>
+</ion-content>

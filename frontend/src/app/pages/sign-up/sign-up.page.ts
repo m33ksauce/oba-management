@@ -48,6 +48,7 @@ export class SignUpPage {
     // });
 
     this.formSubmitting = true;
+    this.error = '';
     let payload: SignUp = {
       email: this.emailControl.value,
       password: this.passwordControl.value,
@@ -61,6 +62,7 @@ export class SignUpPage {
       },
       error: error => {
         console.log(error);
+        this.error = error;
         this.formSubmitting = false;
       },
     });

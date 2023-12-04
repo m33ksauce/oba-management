@@ -8,6 +8,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CategoryChild } from 'src/app/models/child.interface';
 import { SharedService } from 'src/app/services/shared.service';
 import { FileService } from 'src/app/services/file.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,15 @@ export class HomePage implements OnInit {
 
   currentTranslation: any;
 
+  currentVersion: any;
+
   categories: CategoryChild[];
 
   loading = true;
 
-  activeUser: any;
+  activeEmail: any;
 
-  translationList: any = ['test', 'try', 'to', 'see', 'something'];
+  translationList: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -36,9 +39,11 @@ export class HomePage implements OnInit {
     private authService: AuthenticationService,
     private sharedService: SharedService,
     private fileService: FileService,
+    private settingsService: SettingsService,
   ) {
     this._unsubscribeAll = new Subject();
-    this.activeUser = this.authService.currentUser;
+    this.activeEmail = this.authService.currentUser.email;
+    this.translationList = this.authService.currentUser.available_translations;
 
     this.sharedService.changeTranslationData.pipe(takeUntil(this._unsubscribeAll)).subscribe({
       next: (newTranslation: any) => {
@@ -53,7 +58,7 @@ export class HomePage implements OnInit {
     this.route.paramMap.pipe(takeUntil(this._unsubscribeAll)).subscribe((params: ParamMap) => {
       this.currentTranslation = params.get('translation');
       if (this.currentTranslation) {
-        this.getCategories();
+        this.loadData();
       }
     });
   }
@@ -64,34 +69,43 @@ export class HomePage implements OnInit {
     this._unsubscribeAll.complete();
   }
 
-  getCategories() {
+  async loadData() {
     this.loading = true;
-    this.catalogService.getAllCategories(this.currentTranslation).subscribe({
-      next: (response: any) => {
-        if (!response || response?.status == 204) {
-          this.openFileUpload();
-        } else {
-          this.categories = response.body.result;
+    await this.getCurrentVersion();
+    await this.getCategories();
+    this.loading = false;
+  }
 
-          // Reset map
-          this.sharedService.setCategoryIdMap(new Map());
+  async getCurrentVersion() {
+    try {
+      let response = await lastValueFrom(this.settingsService.getSettings());
+      this.currentVersion = (response as any).LatestVersion;
+    } catch (error) {}
+  }
 
-          for (let category of this.categories) {
-            category.relativePath = category.name;
-            this.sharedService.currentCategoryIdMap.set(category.relativePath, category.id);
-            if (category.hasOwnProperty('children')) {
-              this.fillCategoryMap(category);
-            }
+  async getCategories() {
+    try {
+      let response = await lastValueFrom(this.catalogService.getAllCategories(this.currentTranslation));
+      if (!response || response?.status == 204) {
+        this.openFileUpload();
+      } else {
+        this.categories = (response.body as any).result;
+
+        // Reset map
+        this.sharedService.setCategoryIdMap(new Map());
+
+        for (let category of this.categories) {
+          category.relativePath = category.name;
+          this.sharedService.currentCategoryIdMap.set(category.relativePath, category.id);
+          if (category.hasOwnProperty('children')) {
+            this.fillCategoryMap(category);
           }
-          this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
         }
-        this.loading = false;
-      },
-      error: err => {
-        this.loading = false;
-        this.showToast();
-      },
-    });
+        this.sharedService.setCategoryIdMap(this.sharedService.currentCategoryIdMap);
+      }
+    } catch (error) {
+      this.showToast();
+    }
   }
 
   fillCategoryMap(category: CategoryChild) {
@@ -168,16 +182,31 @@ export class HomePage implements OnInit {
         message: 'Saving...',
       });
       loading.present();
-      this.catalogService.updateCategory(this.currentTranslation, item).subscribe({
-        next: response => {
-          loading.dismiss();
-          this.showToast('Saved Successfully');
-        },
-        error: err => {
-          loading.dismiss();
-          this.showToast();
-        },
-      });
+      if (item.type === 2) {
+        // Update audio file
+        this.fileService.updateAudioFile(this.currentTranslation, item.id, item.name, item.parent_id).subscribe({
+          next: response => {
+            loading.dismiss();
+            this.showToast('Saved Successfully');
+          },
+          error: err => {
+            loading.dismiss();
+            this.showToast();
+          },
+        });
+      } else {
+        // Update category
+        this.catalogService.updateCategory(this.currentTranslation, item).subscribe({
+          next: response => {
+            loading.dismiss();
+            this.showToast('Saved Successfully');
+          },
+          error: err => {
+            loading.dismiss();
+            this.showToast();
+          },
+        });
+      }
     }
   }
 

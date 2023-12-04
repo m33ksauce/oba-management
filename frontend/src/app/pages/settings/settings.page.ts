@@ -15,13 +15,16 @@ export class SettingsPage implements OnInit {
 
   formSubmitting = false;
 
-  activeUser: any;
+  activeEmail: any;
 
   translationList = [];
 
+  isSettings = true;
+
   constructor(private route: ActivatedRoute, private authService: AuthenticationService) {
     this._unsubscribeAll = new Subject();
-    this.activeUser = this.authService.currentUser;
+    this.activeEmail = this.authService.currentUser.email;
+    this.translationList = this.authService.currentUser.available_translations;
   }
 
   ngOnInit() {

@@ -5,7 +5,7 @@
       <ion-button *ngIf="translationList?.length > 0" id="translation-dropdown-trigger">
         Change Translation
       </ion-button>
-      <ion-popover trigger="translation-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
+      <ion-popover trigger="translation-dropdown-trigger" triggerAction="click" [dismissOnSelect]="false">
         <ng-template>
           <app-translation-dropdown
             [currentTranslation]="currentTranslation"
@@ -13,7 +13,7 @@
           ></app-translation-dropdown>
         </ng-template>
       </ion-popover>
-      <ion-button id="user-dropdown-trigger"> {{ activeUser }} </ion-button>
+      <ion-button id="user-dropdown-trigger"> {{ activeEmail }} </ion-button>
       <ion-popover trigger="user-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
         <ng-template>
           <app-current-user-dropdown [translation]="currentTranslation"></app-current-user-dropdown>
@@ -34,8 +34,8 @@
           <ion-button mode="ios" (click)="publish()">
             <ion-icon name="add"></ion-icon>
             <ion-label>
-              <ng-container>Create </ng-container>
-              <!-- <ng-container>Update </ng-container> -->
+              <ng-container *ngIf="!currentVersion || currentVersion == 0">Create </ng-container>
+              <ng-container *ngIf="currentVersion && currentVersion > 0">Update </ng-container>
               App
             </ion-label>
           </ion-button>

@@ -197,4 +197,11 @@ export class FileService {
     formData.append('parent_id', parentId);
     return this.http.post(`${this.BASE_URL}/${translation}/audio/single`, formData, { observe: 'response' });
   }
+
+  updateAudioFile(translation, id, name, parentId) {
+    const formData: FormData = new FormData();
+    formData.append('name', name);
+    formData.append('parent_id', parentId);
+    return this.http.put(`${this.BASE_URL}/${translation}/audio/${id}`, formData, { observe: 'response' });
+  }
 }

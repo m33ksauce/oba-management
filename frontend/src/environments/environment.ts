@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   api: {
-    url: 'http://localhost:8080',
+    url: '',
     apiEndpoint: '/api/v1',
-    authEndpoint: '/auth'
+    authEndpoint: '/auth',
   },
 };
 

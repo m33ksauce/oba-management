@@ -1,0 +1,20 @@
+{
+  "/auth/*": {
+    "target": "https://content.oralbible.app",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/auth": "https://content.oralbible.app/auth"
+    }
+  },
+  "/api/*": {
+    "target": "https://content.oralbible.app",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api/v1": "https://content.oralbible.app/api/v1"
+    }
+  }
+}

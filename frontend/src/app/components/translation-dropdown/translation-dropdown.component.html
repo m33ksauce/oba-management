@@ -24,9 +24,6 @@
 </ion-header>
 
 <ion-content id="lookupContent" class="ion-no-padding" forceOverscroll="false">
-  <div *ngIf="searching" class="spinner-container">
-    <ion-spinner color="medium" name="crescent"></ion-spinner>
-  </div>
   <ion-list class="ion-no-padding">
     <ion-item
       [id]="item + '-lookup-option'"
@@ -38,7 +35,4 @@
       <ion-label style="white-space: pre-wrap">{{ item }}</ion-label>
     </ion-item>
   </ion-list>
-  <ion-infinite-scroll *ngIf="itemSection.length < filteredItems.length" (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content loadingSpinner="crescent"> </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 </ion-content>
