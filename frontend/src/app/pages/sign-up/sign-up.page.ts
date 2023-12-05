@@ -42,11 +42,6 @@ export class SignUpPage {
       return;
     }
 
-    // this.form.patchValue({
-    //   zone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    //   locale: navigator.language,
-    // });
-
     this.formSubmitting = true;
     this.error = '';
     let payload: SignUp = {
@@ -62,7 +57,7 @@ export class SignUpPage {
       },
       error: error => {
         console.log(error);
-        this.error = error;
+        this.error = error.message;
         this.formSubmitting = false;
       },
     });

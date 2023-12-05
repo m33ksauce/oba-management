@@ -10,7 +10,7 @@ export class ReleaseService {
 
   constructor(private http: HttpClient) {}
 
-  createRelease(translation, release) {
-    // return this.http.post<Category>(`${this.BASE_URL}/${translation}/category/${category.id}`, category);
+  publishRelease(translation) {
+    return this.http.post(`${this.BASE_URL}/${translation}/release/generate`, '');
   }
 }

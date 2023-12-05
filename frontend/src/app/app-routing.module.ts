@@ -11,12 +11,12 @@ const routes: Routes = [
   {
     path: 'home/:translation',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'settings/:translation',
     loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',

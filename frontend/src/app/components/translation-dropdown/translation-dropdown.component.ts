@@ -11,12 +11,14 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class TranslationDropdownComponent implements OnInit {
   @ViewChild('searchBar') searchBar;
+  @ViewChild('popover') popover;
   @Input() currentTranslation: any;
   @Input() translationList: any;
   itemSection: any;
   selectedItems: any;
   searchControl: FormControl;
   searching = true;
+  isOpen = false;
   private _unsubscribeAll: Subject<any>;
 
   constructor(private popoverCtrl: PopoverController, private sharedService: SharedService) {
@@ -34,7 +36,10 @@ export class TranslationDropdownComponent implements OnInit {
     });
   }
 
-  ionViewDidEnter() {
+  presentPopover(event) {
+    this.popover.event = event;
+    this.isOpen = true;
+
     setTimeout(() => {
       this.searchBar.setFocus();
     }, 200);

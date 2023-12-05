@@ -2,23 +2,12 @@
   <ion-toolbar class="page-header-padding">
     <ion-title>Home {{currentTranslation}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button *ngIf="translationList?.length > 0" id="translation-dropdown-trigger">
-        Change Translation
-      </ion-button>
-      <ion-popover trigger="translation-dropdown-trigger" triggerAction="click" [dismissOnSelect]="false">
-        <ng-template>
-          <app-translation-dropdown
-            [currentTranslation]="currentTranslation"
-            [translationList]="translationList"
-          ></app-translation-dropdown>
-        </ng-template>
-      </ion-popover>
-      <ion-button id="user-dropdown-trigger"> {{ activeEmail }} </ion-button>
-      <ion-popover trigger="user-dropdown-trigger" triggerAction="click" [dismissOnSelect]="true">
-        <ng-template>
-          <app-current-user-dropdown [translation]="currentTranslation"></app-current-user-dropdown>
-        </ng-template>
-      </ion-popover>
+      <app-translation-dropdown
+        *ngIf="translationList?.length > 0"
+        [currentTranslation]="currentTranslation"
+        [translationList]="translationList"
+      ></app-translation-dropdown>
+      <app-current-user-dropdown [translation]="currentTranslation" [label]="activeEmail"></app-current-user-dropdown>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

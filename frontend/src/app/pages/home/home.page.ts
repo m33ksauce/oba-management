@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ParamMap, ActivatedRoute } from '@angular/router';
+import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { Subject, lastValueFrom, takeUntil } from 'rxjs';
 import { CatalogService } from 'src/app/services/catalog.service';
 import { IonInput, ModalController, LoadingController, ToastController } from '@ionic/angular';
@@ -9,6 +9,7 @@ import { CategoryChild } from 'src/app/models/child.interface';
 import { SharedService } from 'src/app/services/shared.service';
 import { FileService } from 'src/app/services/file.service';
 import { SettingsService } from 'src/app/services/settings.service';
+import { ReleaseService } from 'src/app/services/release.service';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private catalogService: CatalogService,
     private modalCtrl: ModalController,
     private loadingCtrl: LoadingController,
@@ -40,6 +42,7 @@ export class HomePage implements OnInit {
     private sharedService: SharedService,
     private fileService: FileService,
     private settingsService: SettingsService,
+    private releaseService: ReleaseService,
   ) {
     this._unsubscribeAll = new Subject();
     this.activeEmail = this.authService.currentUser.email;
@@ -48,7 +51,7 @@ export class HomePage implements OnInit {
     this.sharedService.changeTranslationData.pipe(takeUntil(this._unsubscribeAll)).subscribe({
       next: (newTranslation: any) => {
         if (newTranslation) {
-          alert('New Translation: ' + newTranslation);
+          this.router.navigate([`/home/${newTranslation}`]);
         }
       },
     });
@@ -182,7 +185,7 @@ export class HomePage implements OnInit {
         message: 'Saving...',
       });
       loading.present();
-      if (item.type === 2) {
+      if (item.target) {
         // Update audio file
         this.fileService.updateAudioFile(this.currentTranslation, item.id, item.name, item.parent_id).subscribe({
           next: response => {
@@ -216,10 +219,44 @@ export class HomePage implements OnInit {
       message: 'Deleting...',
     });
     loading.present();
-    this.catalogService.deleteCategory(this.currentTranslation, item).subscribe({
-      next: response => {
+    if (item.target) {
+      // Delete audio file
+      this.fileService.deleteAudioFile(this.currentTranslation, item.id).subscribe({
+        next: async response => {
+          await this.getCategories();
+          loading.dismiss();
+          this.showToast('Deleted Successfully');
+        },
+        error: err => {
+          loading.dismiss();
+          this.showToast();
+        },
+      });
+    } else {
+      // Delete category
+      this.catalogService.deleteCategory(this.currentTranslation, item).subscribe({
+        next: async response => {
+          await this.getCategories();
+          loading.dismiss();
+          this.showToast('Deleted Successfully');
+        },
+        error: err => {
+          loading.dismiss();
+          this.showToast();
+        },
+      });
+    }
+  }
+
+  async publish() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Publishing...',
+    });
+    loading.present();
+    this.releaseService.publishRelease(this.currentTranslation).subscribe({
+      next: async response => {
         loading.dismiss();
-        this.showToast('Deleted Successfully');
+        this.showToast('Published Successfully');
       },
       error: err => {
         loading.dismiss();
@@ -227,6 +264,4 @@ export class HomePage implements OnInit {
       },
     });
   }
-
-  publish() {}
 }

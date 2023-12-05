@@ -204,4 +204,8 @@ export class FileService {
     formData.append('parent_id', parentId);
     return this.http.put(`${this.BASE_URL}/${translation}/audio/${id}`, formData, { observe: 'response' });
   }
+
+  deleteAudioFile(translation, id) {
+    return this.http.delete(`${this.BASE_URL}/${translation}/audio/${id}`);
+  }
 }
