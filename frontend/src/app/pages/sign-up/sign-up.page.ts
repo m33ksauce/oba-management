@@ -4,6 +4,8 @@ import { SignUp } from 'src/app/models/signup.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 
+const StrongPasswordRegx: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -26,7 +28,9 @@ export class SignUpPage {
 
   constructor(private authService: AuthenticationService, private router: Router) {
     this.emailControl = new FormControl('', [Validators.required, Validators.email]);
-    this.passwordControl = new FormControl('', Validators.required);
+    this.passwordControl = new FormControl('', {
+      validators: [Validators.required, Validators.pattern(StrongPasswordRegx)],
+    });
     this.nameControl = new FormControl('', Validators.required);
 
     this.form = new FormGroup({

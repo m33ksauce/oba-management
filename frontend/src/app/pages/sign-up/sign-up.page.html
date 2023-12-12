@@ -24,12 +24,19 @@
         <ion-item>
           <ion-label position="floating">Password</ion-label>
           <ion-input type="password" formControlName="passwordControl"></ion-input>
-          <ion-note slot="error"
-            ><ng-container *ngIf="passwordControl.touched && passwordControl.invalid">Required</ng-container></ion-note
-          >
+          <ion-note slot="error">
+            <ng-container *ngIf="passwordControl.touched && passwordControl.invalid">
+              <div *ngIf="passwordControl.errors?.['required']">Required</div>
+              <div *ngIf="!passwordControl.value?.match('^(?=.*[A-Z])')">At least 1 uppercase letter</div>
+              <div *ngIf="!passwordControl.value?.match('(?=.*[a-z])')">At least 1 lowercase letter</div>
+              <div *ngIf="!passwordControl.value?.match('(.*[0-9].*)')">At least 1 number</div>
+              <div *ngIf="!passwordControl.value?.match('(?=.*[!@#$%^&*])')">At least 1 special character</div>
+              <div *ngIf="!passwordControl.value?.match('.{8,}')">At least 8 characters long</div>
+            </ng-container>
+          </ion-note>
         </ion-item>
         <div class="main-btn-container">
-          <ion-button *ngIf="!formSubmitting" mode="ios" type="submit">Sign Up</ion-button>
+          <ion-button *ngIf="!formSubmitting" [disabled]="form.invalid" mode="ios" type="submit">Sign Up</ion-button>
           <ion-spinner *ngIf="formSubmitting" name="dots"></ion-spinner>
         </div>
       </form>
