@@ -138,14 +138,14 @@ class AudioService {
       let updateIndex = 0;
 
       let nameUpdate = (name == undefined ||name == "")
-        ? "" : `name = $${++updateIndex}`;
+        ? "" : `name=$${++updateIndex}`;
       let parentUpdate = (parentId == undefined || parentId == "")
         ? "" : `category_id = $${++updateIndex}::UUID`;
       const whereStub = ` WHERE id=$${++updateIndex}`
 
       let params = [];
-      if (name == undefined || name != "") params.push(name);
-      if (parentId == undefined || parentId != "") params.push(parentId);
+      if (name != undefined && name != "") params.push(name);
+      if (parentId != undefined && parentId != "") params.push(parentId);
 
       params.push(fileId);
 
