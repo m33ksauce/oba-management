@@ -202,7 +202,9 @@ export class FileService {
     const formData: FormData = new FormData();
     formData.append('name', name);
     formData.append('parent_id', parentId);
-    return this.http.put(`${this.BASE_URL}/${translation}/audio/${id}`, formData, { observe: 'response' });
+    return this.http.put(`${this.BASE_URL}/${translation}/audio/${id}`,
+      {name: name, parent_id: parentId},
+      { observe: 'response' });
   }
 
   deleteAudioFile(translation, id) {
