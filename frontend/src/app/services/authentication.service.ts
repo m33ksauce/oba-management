@@ -72,7 +72,7 @@ export class AuthenticationService {
   confirmUser(code) {
     const email = this.currentUser;
     return this.http.post(`${this.BASE_URL}/confirmUser`, {
-      email: email,
+      email: email.email,
       code: code,
     });
   }

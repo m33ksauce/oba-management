@@ -199,9 +199,6 @@ export class FileService {
   }
 
   updateAudioFile(translation, id, name, parentId) {
-    const formData: FormData = new FormData();
-    formData.append('name', name);
-    formData.append('parent_id', parentId);
     return this.http.put(`${this.BASE_URL}/${translation}/audio/${id}`,
       {name: name, parent_id: parentId},
       { observe: 'response' });
