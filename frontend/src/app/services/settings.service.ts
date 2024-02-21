@@ -11,12 +11,12 @@ export class SettingsService {
 
   constructor(private http: HttpClient) {}
 
-  getSettings() {
-    return this.http.get(`${this.BASE_URL}/translation/settings`);
+  getSettings(translation: string) {
+    return this.http.get(`${this.BASE_URL}/${translation}/settings`);
   }
 
-  updateSettings(settings: Settings) {
-    return this.http.put(`${this.BASE_URL}/translation/settings`, {Settings: settings});
+  updateSettings(translation: string, settings: Settings) {
+    return this.http.put(`${this.BASE_URL}/${translation}/settings`, {Settings: settings});
   }
 
   createSettings(settings: Settings) {

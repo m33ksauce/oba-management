@@ -67,7 +67,7 @@ export class TranslationFormComponent implements OnInit {
       LanguageName: this.languageControl.value,
     };
     if (this.isSettings) {
-      this.settingsService.updateSettings(payload).subscribe({
+      this.settingsService.updateSettings(this.languageControl.value, payload).subscribe({
         next: async response => {
           this.formSubmitting = false;
           const toast = await this.toastCtrl.create({

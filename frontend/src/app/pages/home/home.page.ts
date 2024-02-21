@@ -81,7 +81,7 @@ export class HomePage implements OnInit {
 
   async getCurrentVersion() {
     try {
-      let response = await lastValueFrom(this.settingsService.getSettings());
+      let response = await lastValueFrom(this.settingsService.getSettings(this.currentTranslation));
       this.currentVersion = (response as any).LatestVersion;
     } catch (error) {}
   }
