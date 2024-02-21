@@ -39,7 +39,7 @@ export class TranslationFormComponent implements OnInit {
 
   ngOnInit() {
     if (this.isSettings) {
-      this.settingsService.getSettings().subscribe({
+      this.settingsService.getSettings(this.languageControl.value).subscribe({
         next: (response: any) => {
           this.form.setValue({
             projectControl: response.Settings.Settings.ProjectName,
